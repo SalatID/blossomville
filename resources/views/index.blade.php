@@ -454,7 +454,7 @@
                            <i class="fa fa-phone"></i>
                         </div>
                         <div class="contact_info">
-                           <p>xxxxxxxx</p>
+                           <p>Security<a href="http://wa.me/6282113118003" target="_blank">+62821-1311-8003</a></p>
                         </div>
                      </div>
                      <div class="email_data">
