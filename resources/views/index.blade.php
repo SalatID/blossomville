@@ -882,13 +882,13 @@
                               <img src="/guest/assets/images/rt01.jpeg" alt="The Last of us">
                            </div>
                            <div class="our_team_title">
-                              <h3>RT 01</h3>
+                              <h3>KETUA RT 01</h3>
                            </div>
                            <div class="our_team_headline">
-                              <p>NAMA RT</p>
+                              <p>ADI SARPONO</p>
                            </div>
                            <div class="our_team_social_icon">
-                              <a class="twitter our_social_icon" href="#" target="_blank">
+                              <a class="twitter our_social_icon" href="https://wa.me/628161191943" target="_blank">
                               <i class="fa fa-whatsapp"></i>
                               </a>
                               {{-- <a class="facebook our_social_icon" href="https://www.facebook.com/" target="_blank">
@@ -912,13 +912,13 @@
                               <img src="/guest/assets/images/rt02.jpeg" alt="The Last of us">
                            </div>
                            <div class="our_team_title">
-                              <h3>RT  02</h3>
+                              <h3>KETUA RT 02</h3>
                            </div>
                            <div class="our_team_headline">
-                              <p>Nama RT</p>
+                              <p>DERRY SUDRAJAT</p>
                            </div>
                            <div class="our_team_social_icon">
-                              <a class="twitter our_social_icon" href="#" target="_blank">
+                              <a class="twitter our_social_icon" href="https://wa.me/62818846060" target="_blank">
                                  <i class="fa fa-whatsapp"></i>
                               </a>
                            </div>
@@ -933,13 +933,13 @@
                               <img src="/guest/assets/images/rt03.jpeg" alt="The Last of us">
                            </div>
                            <div class="our_team_title">
-                              <h3>RT 03</h3>
+                              <h3>KETUA RT 03</h3>
                            </div>
                            <div class="our_team_headline">
-                              <p>Nama RT</p>
+                              <p>DANIEL TANTO</p>
                            </div>
                            <div class="our_team_social_icon">
-                              <a class="twitter our_social_icon" href="#" target="_blank">
+                              <a class="twitter our_social_icon" href="https://wa.me/6281310542388" target="_blank">
                                  <i class="fa fa-whatsapp"></i>
                               </a>
                            </div>
@@ -954,10 +954,10 @@
                               <img src="/guest/assets/images/rt04.jpeg" alt="The Last of us">
                            </div>
                            <div class="our_team_title">
-                              <h3>RT 04</h3>
+                              <h3>KETUA RT 04</h3>
                            </div>
                            <div class="our_team_headline">
-                              <p>Nama RT</p>
+                              <p>NANANG</p>
                            </div>
                            <div class="our_team_social_icon">
                               <a class="twitter our_social_icon" href="#" target="_blank">
@@ -975,13 +975,13 @@
                               <img src="/guest/assets/images/rt16.jpeg" alt="The Last of us">
                            </div>
                            <div class="our_team_title">
-                              <h3>RT 16</h3>
+                              <h3>KETUA RW 16</h3>
                            </div>
                            <div class="our_team_headline">
-                              <p>Nama RT</p>
+                              <p>AJI KUSNORO</p>
                            </div>
                            <div class="our_team_social_icon">
-                              <a class="twitter our_social_icon" href="#" target="_blank">
+                              <a class="twitter our_social_icon" href="https://wa.me/6281389612344" target="_blank">
                                  <i class="fa fa-whatsapp"></i>
                               </a>
                            </div>
@@ -1412,7 +1412,7 @@
          <img src="/guest/assets/images/qris.jpeg" class="col-12" alt="">
          <h3 class="text-center">Bayar Iuran Lebih Mudah Dengan QRIS</h3>
          <h5 class="text-center"> 
-            <a class="text-center btn btn-success btn-sm btn-rounded" style="border-radius: 0.5vw;" href="#" target="_blank">
+            <a class="text-center btn btn-success btn-sm btn-rounded" style="border-radius: 0.5vw;" href="https://api.whatsapp.com/send/?phone=6282113117002&text=Hallo+Bendahara+RW+16%2C+Saya+mau+konfirmasi+iuran&app_absent=0" target="_blank">
                <i class="fa fa-whatsapp"></i> Konfirmasi Pembayaran (Bendahara)
             </a>
          </h5>
