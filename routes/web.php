@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,5 @@ Route::get('/', function () {
 });
 Route::prefix('dev')->group(function () {
     Route::get('/',[GuestController::class,'index']);
+    Route::get('/test',[TestController::class,'text']);
 });
