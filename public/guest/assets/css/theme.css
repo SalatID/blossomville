@@ -783,11 +783,11 @@ header.featured_slider_title.entry-header {
     justify-content: center;
 }
 .our_team_container {
-    /*width: 267px;*/
+    width: 20% !important;
     margin-bottom: 20px;
 }
 .our_team_container_data {
-    width: 255px;
+    width: 90%;
     position: relative;
     z-index: 0;
     display: block;
