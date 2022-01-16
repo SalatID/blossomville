@@ -20,5 +20,5 @@ Route::get('/', function () {
 });
 Route::prefix('dev')->group(function () {
     Route::get('/',[GuestController::class,'index']);
-    Route::get('/test',[TestController::class,'text']);
+    Route::get('/test',[TestController::class,'test']);
 });
