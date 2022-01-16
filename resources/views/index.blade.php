@@ -462,7 +462,7 @@
                            <i class="fa fa-envelope"></i>
                         </div>
                         <div class="email_info">
-                           <p>humas@blossomvillecitraraya.com</p>
+                           <p><a href="mailto:humas@blossomvillecitraraya.com">humas@blossomvillecitraraya.com</a> </p>
                         </div>
                      </div>
                   </div>
