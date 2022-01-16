@@ -3,7 +3,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="profile" href="https://gmpg.org/xfn/11">
-      <title>Test – Moto situs Anda bisa diletakkan di sini</title>
+      <title>Blossom Ville Citra Raya</title>
       <meta name="robots" content="max-image-preview:large">
       <link rel="dns-prefetch" href="//s.w.org">
       <link rel="alternate" type="application/rss+xml" title="Test » Feed" href="http://localhost/wordpresstest/index.php/feed/">
@@ -22,6 +22,8 @@
          padding: 0 !important;
          }
       </style>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
       <link rel="stylesheet" id="goldly-style-css" href="/guest/style.css?ver=1.0.0" media="all">
       <link rel="stylesheet" id="theme-css-css" href="/guest/assets/css/theme.css?ver=1.0.0" media="all">
       <link rel="stylesheet" id="fontawesome-css-css" href="/guest/assets/fontawesome/css/font-awesome.css?ver=1.0.0" media="all">
@@ -311,6 +313,9 @@
          /*--------------------------------------------------------------
          # our team
          --------------------------------------------------------------*/
+         .our_team_container{
+            width: 20% !important;
+         }
          .our_team_container_data{
          background: #eeeeee;	
          color: #273641;	
@@ -413,7 +418,27 @@
          * html body { margin-top: 32px !important; }
          @media screen and ( max-width: 782px ) {
          html { margin-top: 46px !important; }
-         * html body { margin-top: 46px !important; }
+         /* * html body { margin-top: 46px !important; } */
+            .floating-div{
+               width: 200px !important;
+            }
+            .floating-div>h3{
+               display: none;
+            }
+            .floating-div>h5{
+               display: none;
+            }
+         }
+         .floating-div{
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            z-index: 1;
+            width: 15vw;
+            padding: 0.1vw;
+            background: #fff;
+            border-radius: 1vw;
+            margin : 0.5vw;
          }
       </style>
    </head>
@@ -429,7 +454,7 @@
                            <i class="fa fa-phone"></i>
                         </div>
                         <div class="contact_info">
-                           <p>04463235323</p>
+                           <p>xxxxxxxx</p>
                         </div>
                      </div>
                      <div class="email_data">
@@ -437,7 +462,7 @@
                            <i class="fa fa-envelope"></i>
                         </div>
                         <div class="email_info">
-                           <p>goldly@gmail.com</p>
+                           <p>humas@blossomvillecitraraya.com</p>
                         </div>
                      </div>
                   </div>
@@ -488,12 +513,15 @@
                            </button>
                            <div id="primary-menu" class="menu nav-menu">
                               <ul>
-                                 <li class="page_item page-item-2"><a href="http://localhost/wordpresstest/index.php/laman-contoh/">Laman Contoh</a></li>
+                                 <li class="page_item page-item-2"><a href="/">Home</a></li>
+                                 <li class="page_item page-item-2"><a href="/">Data Warga</a></li>
+                                 <li class="page_item page-item-2"><a href="/">Login</a></li>
+                                 {{-- <li class="page_item page-item-2"><a href="http://localhost/wordpresstest/index.php/laman-contoh/">Laman Contoh</a></li> --}}
                               </ul>
                            </div>
                         </nav>
                         <!-- #site-navigation -->
-                        <div class="mobile_menu main-navigation" id="mobile_primary">
+                        {{-- <div class="mobile_menu main-navigation" id="mobile_primary">
                            <div id="primary-menu" class="menu">
                               <ul>
                                  <li class="page_item page-item-2"><a href="http://localhost/wordpresstest/index.php/laman-contoh/">Laman Contoh</a></li>
@@ -527,8 +555,8 @@
                            <button class="menu-toggle" id="mobilepop" aria-expanded="false">
                            <i class="fa fa-close"></i>
                            </button>				
-                        </div>
-                        <div class="cart_search_icon">
+                        </div> --}}
+                        {{-- <div class="cart_search_icon">
                            <div id="cl_serch" class="cl_serch">
                               <a href="#" id="searchlink" class="cl_res_serch_icon searchlink">	
                               <i id="serches" class="fa fa-search fa-lg serches" aria-hidden="true"></i>
@@ -540,7 +568,7 @@
                                  </form>
                               </div>
                            </div>
-                        </div>
+                        </div> --}}
                      </div>
                   </div>
                </div>
@@ -848,22 +876,22 @@
                      <div class="our_team_container">
                         <div class="our_team_container_data">
                            <div class="our_team_thumb">
-                              <img src="/guest/assets/images/no-thumb.jpg" alt="The Last of us">
+                              <img src="/guest/assets/images/rt01.jpeg" alt="The Last of us">
                            </div>
                            <div class="our_team_img">
-                              <img src="/guest/assets/images/no-thumb.jpg" alt="The Last of us">
+                              <img src="/guest/assets/images/rt01.jpeg" alt="The Last of us">
                            </div>
                            <div class="our_team_title">
-                              <h3></h3>
+                              <h3>RT 01</h3>
                            </div>
                            <div class="our_team_headline">
-                              <p></p>
+                              <p>NAMA RT</p>
                            </div>
                            <div class="our_team_social_icon">
-                              <a class="twitter our_social_icon" href="https://twitter.com/" target="_blank">
-                              <i class="fa fa-twitter"></i>
+                              <a class="twitter our_social_icon" href="#" target="_blank">
+                              <i class="fa fa-whatsapp"></i>
                               </a>
-                              <a class="facebook our_social_icon" href="https://www.facebook.com/" target="_blank">
+                              {{-- <a class="facebook our_social_icon" href="https://www.facebook.com/" target="_blank">
                               <i class="fa fa-facebook"></i>
                               </a>
                               <a class="instagram our_social_icon" href="https://www.instagram.com/" target="_blank">
@@ -871,6 +899,27 @@
                               </a>
                               <a class="linkedin our_social_icon" href="https://www.linkedin.com/feed/" target="_blank">
                               <i class="fa fa-linkedin"></i>
+                              </a> --}}
+                           </div>
+                        </div>
+                     </div>
+                     <div class="our_team_container">
+                        <div class="our_team_container_data">
+                           <div class="our_team_thumb">
+                              <img src="/guest/assets/images/rt02.jpeg" alt="The Last of us">
+                           </div>
+                           <div class="our_team_img">
+                              <img src="/guest/assets/images/rt02.jpeg" alt="The Last of us">
+                           </div>
+                           <div class="our_team_title">
+                              <h3>RT  02</h3>
+                           </div>
+                           <div class="our_team_headline">
+                              <p>Nama RT</p>
+                           </div>
+                           <div class="our_team_social_icon">
+                              <a class="twitter our_social_icon" href="#" target="_blank">
+                                 <i class="fa fa-whatsapp"></i>
                               </a>
                            </div>
                         </div>
@@ -878,29 +927,20 @@
                      <div class="our_team_container">
                         <div class="our_team_container_data">
                            <div class="our_team_thumb">
-                              <img src="/guest/assets/images/no-thumb.jpg" alt="The Last of us">
+                              <img src="/guest/assets/images/rt03.jpeg" alt="The Last of us">
                            </div>
                            <div class="our_team_img">
-                              <img src="/guest/assets/images/no-thumb.jpg" alt="The Last of us">
+                              <img src="/guest/assets/images/rt03.jpeg" alt="The Last of us">
                            </div>
                            <div class="our_team_title">
-                              <h3></h3>
+                              <h3>RT 03</h3>
                            </div>
                            <div class="our_team_headline">
-                              <p></p>
+                              <p>Nama RT</p>
                            </div>
                            <div class="our_team_social_icon">
-                              <a class="twitter our_social_icon" href="https://twitter.com/" target="_blank">
-                              <i class="fa fa-twitter"></i>
-                              </a>
-                              <a class="facebook our_social_icon" href="https://www.facebook.com/" target="_blank">
-                              <i class="fa fa-facebook"></i>
-                              </a>
-                              <a class="instagram our_social_icon" href="https://www.instagram.com/" target="_blank">
-                              <i class="fa fa-instagram"></i>
-                              </a>
-                              <a class="linkedin our_social_icon" href="https://www.linkedin.com/feed/" target="_blank">
-                              <i class="fa fa-linkedin"></i>
+                              <a class="twitter our_social_icon" href="#" target="_blank">
+                                 <i class="fa fa-whatsapp"></i>
                               </a>
                            </div>
                         </div>
@@ -908,29 +948,20 @@
                      <div class="our_team_container">
                         <div class="our_team_container_data">
                            <div class="our_team_thumb">
-                              <img src="/guest/assets/images/no-thumb.jpg" alt="The Last of us">
+                              <img src="/guest/assets/images/rt04.jpeg" alt="The Last of us">
                            </div>
                            <div class="our_team_img">
-                              <img src="/guest/assets/images/no-thumb.jpg" alt="The Last of us">
+                              <img src="/guest/assets/images/rt04.jpeg" alt="The Last of us">
                            </div>
                            <div class="our_team_title">
-                              <h3></h3>
+                              <h3>RT 04</h3>
                            </div>
                            <div class="our_team_headline">
-                              <p></p>
+                              <p>Nama RT</p>
                            </div>
                            <div class="our_team_social_icon">
-                              <a class="twitter our_social_icon" href="https://twitter.com/" target="_blank">
-                              <i class="fa fa-twitter"></i>
-                              </a>
-                              <a class="facebook our_social_icon" href="https://www.facebook.com/" target="_blank">
-                              <i class="fa fa-facebook"></i>
-                              </a>
-                              <a class="instagram our_social_icon" href="https://www.instagram.com/" target="_blank">
-                              <i class="fa fa-instagram"></i>
-                              </a>
-                              <a class="linkedin our_social_icon" href="https://www.linkedin.com/feed/" target="_blank">
-                              <i class="fa fa-linkedin"></i>
+                              <a class="twitter our_social_icon" href="#" target="_blank">
+                                 <i class="fa fa-whatsapp"></i>
                               </a>
                            </div>
                         </div>
@@ -938,29 +969,20 @@
                      <div class="our_team_container">
                         <div class="our_team_container_data">
                            <div class="our_team_thumb">
-                              <img src="/guest/assets/images/no-thumb.jpg" alt="The Last of us">
+                              <img src="/guest/assets/images/rt16.jpeg" alt="The Last of us">
                            </div>
                            <div class="our_team_img">
-                              <img src="/guest/assets/images/no-thumb.jpg" alt="The Last of us">
+                              <img src="/guest/assets/images/rt16.jpeg" alt="The Last of us">
                            </div>
                            <div class="our_team_title">
-                              <h3></h3>
+                              <h3>RT 16</h3>
                            </div>
                            <div class="our_team_headline">
-                              <p></p>
+                              <p>Nama RT</p>
                            </div>
                            <div class="our_team_social_icon">
-                              <a class="twitter our_social_icon" href="https://twitter.com/" target="_blank">
-                              <i class="fa fa-twitter"></i>
-                              </a>
-                              <a class="facebook our_social_icon" href="https://www.facebook.com/" target="_blank">
-                              <i class="fa fa-facebook"></i>
-                              </a>
-                              <a class="instagram our_social_icon" href="https://www.instagram.com/" target="_blank">
-                              <i class="fa fa-instagram"></i>
-                              </a>
-                              <a class="linkedin our_social_icon" href="https://www.linkedin.com/feed/" target="_blank">
-                              <i class="fa fa-linkedin"></i>
+                              <a class="twitter our_social_icon" href="#" target="_blank">
+                                 <i class="fa fa-whatsapp"></i>
                               </a>
                            </div>
                         </div>
@@ -1385,6 +1407,15 @@
          </script>
          <script src="/guest/assets/js/owl_slider.js?ver=1.0" id="main-js-js"></script>
          <script src="http://localhost/wordpresstest/wp-includes/js/wp-embed.min.js?ver=5.8.3" id="wp-embed-js"></script>
+      </div>
+      <div class="floating-div">
+         <img src="/guest/assets/images/qris.jpeg" class="col-12" alt="">
+         <h3 class="text-center">Bayar Iuran Lebih Mudah Dengan QRIS</h3>
+         <h5 class="text-center"> 
+            <a class="text-center btn btn-success btn-sm btn-rounded" style="border-radius: 0.5vw;" href="#" target="_blank">
+               <i class="fa fa-whatsapp"></i> Konfirmasi Pembayaran (Bendahara)
+            </a>
+         </h5>
       </div>
    </body>
    <grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
