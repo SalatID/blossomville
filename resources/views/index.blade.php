@@ -960,7 +960,7 @@
                               <p>NANANG</p>
                            </div>
                            <div class="our_team_social_icon">
-                              <a class="twitter our_social_icon" href="#" target="_blank">
+                              <a class="twitter our_social_icon" href="https://wa.me/6287780015512" target="_blank">
                                  <i class="fa fa-whatsapp"></i>
                               </a>
                            </div>
