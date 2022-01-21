@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,11 @@ use App\Http\Controllers\TestController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::prefix('dev')->group(function () {
+Route::get('/auth/login',[AuthController::class,'login']);
+Route::post('/auth/login',[AuthController::class,'procLogin']);
+Route::get('/auth/register',[AuthController::class,'register']);
+Route::post('/auth/register',[AuthController::class,'procRegister']);
+Route::prefix('/')->group(function () {
     Route::get('/',[GuestController::class,'index']);
     Route::get('/test',[TestController::class,'test']);
 });

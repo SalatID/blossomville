@@ -21,6 +21,25 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'full_name',
+        'place_birth',
+        'date_birth',
+        'gender',
+        'blod_type',
+        'religion',
+        'job',
+        'nik',
+        'kk',
+        'sts',
+        'address',
+        'block',
+        'house_number',
+        'id_rt',
+        'rw',
+        'village',
+        'distric',
+        'city',
+        'province'
     ];
 
     /**
