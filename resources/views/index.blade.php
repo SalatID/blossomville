@@ -314,7 +314,7 @@
          # our team
          --------------------------------------------------------------*/
          .our_team_container{
-            width: 20% !important;
+         width: 20% !important;
          }
          .our_team_container_data{
          background: #eeeeee;	
@@ -419,26 +419,26 @@
          @media screen and ( max-width: 782px ) {
          html { margin-top: 46px !important; }
          /* * html body { margin-top: 46px !important; } */
-            .floating-div{
-               width: 200px !important;
-            }
-            .floating-div>h3{
-               display: none;
-            }
-            .floating-div>h5{
-               display: none;
-            }
+         .floating-div{
+         width: 200px !important;
+         }
+         .floating-div>h3{
+         display: none;
+         }
+         .floating-div>h5{
+         display: none;
+         }
          }
          .floating-div{
-            position: fixed;
-            bottom: 0;
-            right: 0;
-            z-index: 1;
-            width: 15vw;
-            padding: 0.1vw;
-            background: #fff;
-            border-radius: 1vw;
-            margin : 0.5vw;
+         position: fixed;
+         bottom: 0;
+         right: 0;
+         z-index: 1;
+         width: 15vw;
+         padding: 0.1vw;
+         background: #fff;
+         border-radius: 1vw;
+         margin : 0.5vw;
          }
       </style>
    </head>
@@ -514,14 +514,18 @@
                            <div id="primary-menu" class="menu nav-menu">
                               <ul>
                                  <li class="page_item page-item-2"><a href="/">Home</a></li>
-                                 <li class="page_item page-item-2"><a href="/">Data Warga</a></li>
-                                 <li class="page_item page-item-2"><a href="/">Login</a></li>
-                                 {{-- <li class="page_item page-item-2"><a href="http://localhost/wordpresstest/index.php/laman-contoh/">Laman Contoh</a></li> --}}
+                                 <li class="page_item page-item-2"><a href="/">Layanan Warga</a></li>
+                                 <li class="page_item page-item-2"><a href="/">Info Warga</a></li>
+                                 <li class="page_item page-item-2"><a href="/auth/login">Login</a></li>
+                                 {{-- 
+                                 <li class="page_item page-item-2"><a href="http://localhost/wordpresstest/index.php/laman-contoh/">Laman Contoh</a></li>
+                                 --}}
                               </ul>
                            </div>
                         </nav>
                         <!-- #site-navigation -->
-                        {{-- <div class="mobile_menu main-navigation" id="mobile_primary">
+                        {{-- 
+                        <div class="mobile_menu main-navigation" id="mobile_primary">
                            <div id="primary-menu" class="menu">
                               <ul>
                                  <li class="page_item page-item-2"><a href="http://localhost/wordpresstest/index.php/laman-contoh/">Laman Contoh</a></li>
@@ -555,8 +559,10 @@
                            <button class="menu-toggle" id="mobilepop" aria-expanded="false">
                            <i class="fa fa-close"></i>
                            </button>				
-                        </div> --}}
-                        {{-- <div class="cart_search_icon">
+                        </div>
+                        --}}
+                        {{-- 
+                        <div class="cart_search_icon">
                            <div id="cl_serch" class="cl_serch">
                               <a href="#" id="searchlink" class="cl_res_serch_icon searchlink">	
                               <i id="serches" class="fa fa-search fa-lg serches" aria-hidden="true"></i>
@@ -568,7 +574,8 @@
                                  </form>
                               </div>
                            </div>
-                        </div> --}}
+                        </div>
+                        --}}
                      </div>
                   </div>
                </div>
@@ -599,7 +606,6 @@
                <div id="owl-demo" class="owl-carousel owl-theme featuredimage_slider owl-loaded owl-drag">
                   <div class="owl-stage-outer">
                      <div class="owl-stage" style="transform: translate3d(-3710px, 0px, 0px); transition: all 0s ease 0s; width: 12985px;">
-                        
                         <div class="owl-item active" style="width: 1855px;">
                            <div class="item">
                               <div class="hentry-inner">
@@ -636,7 +642,6 @@
                               </div>
                            </div>
                         </div>
-                        
                      </div>
                   </div>
                   <div class="owl-nav"><button type="button" role="presentation" class="owl-prev"><i class="fa fa-angle-left"></i></button><button type="button" role="presentation" class="owl-next"><i class="fa fa-angle-right"></i></button></div>
@@ -651,7 +656,12 @@
                            <div class="featured-icon"> 
                               <i class="fa fa-user"></i>
                            </div>
-                           <div class="featured-title"> 
+                           <div class="featured-title">
+                              <header class="entry-header">
+                                 <h4>
+                                    DATA WARGA									
+                                 </h4>
+                              </header>
                            </div>
                         </div>
                         <div class="side back featured-thumbnail">
@@ -660,8 +670,9 @@
                            </div>
                            <div class="featured-title">
                               <header class="entry-header">
-                                 <h3>
-                                 </h3>
+                                 <h4>
+                                    DATA WARGA								
+                                 </h4>
                               </header>
                               <div class="entry-content">
                               </div>
@@ -673,7 +684,12 @@
                            <div class="featured-icon"> 
                               <i class="fa fa-user"></i>
                            </div>
-                           <div class="featured-title"> 
+                           <div class="featured-title">
+                              <header class="entry-header">
+                                 <h4>
+                                    KEGIATAN WARGA									
+                                 </h4>
+                              </header>
                            </div>
                         </div>
                         <div class="side back featured-thumbnail">
@@ -682,8 +698,9 @@
                            </div>
                            <div class="featured-title">
                               <header class="entry-header">
-                                 <h3>
-                                 </h3>
+                                 <h4>
+                                    KEGIATAN WARGA								
+                                 </h4>
                               </header>
                               <div class="entry-content">
                               </div>
@@ -695,29 +712,12 @@
                            <div class="featured-icon"> 
                               <i class="fa fa-user"></i>
                            </div>
-                           <div class="featured-title"> 
-                           </div>
-                        </div>
-                        <div class="side back featured-thumbnail">
-                           <div class="featured-icon"> 
-                              <i class="fa fa-user"></i>
-                           </div>
                            <div class="featured-title">
                               <header class="entry-header">
-                                 <h3>
-                                 </h3>
+                                 <h4>
+                                    INFO WARGA									
+                                 </h4>
                               </header>
-                              <div class="entry-content">
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="card section-featured-wrep">
-                        <div class="side featured-thumbnail">
-                           <div class="featured-icon"> 
-                              <i class="fa fa-user"></i>
-                           </div>
-                           <div class="featured-title"> 
                            </div>
                         </div>
                         <div class="side back featured-thumbnail">
@@ -726,8 +726,9 @@
                            </div>
                            <div class="featured-title">
                               <header class="entry-header">
-                                 <h3>
-                                 </h3>
+                                 <h4>
+                                    INFO WARGA								
+                                 </h4>
                               </header>
                               <div class="entry-content">
                               </div>
@@ -747,7 +748,7 @@
                   </div>
                   <div class="about_section_container">
                      <div class="about_featured_image">
-                        <img src="/guest/assets/images/no-thumb.jpg" alt="The Last of us">
+                        <img src="/guest/assets/images/17an-2.jpeg" alt="The Last of us">
                      </div>
                      <div class="about_container_data">
                         <div class="about_container">
@@ -805,7 +806,7 @@
             <div class="our_portfolio_info" id="our_portfolio_info">
                <div class="our_portfolio_data">
                   <div class="our_portfolio_main_title">
-                     <h1>Our Portfolio</h1>
+                     <h1>Kegiatan Warga</h1>
                   </div>
                   <div class="our_portfolio_main_disc">
                      <p></p>
@@ -813,8 +814,8 @@
                   <div class="wrappers our_portfolio_section">
                      <div class="parent our_portfolio_caption">
                         <div class="child our_portfolio_image">
-                           <div class="our_portfolio_container">
-                              <img src="/guest/assets/images/no-thumb.jpg" alt="The Last of us">
+                           <div class="our_portfolio_container" style="height: 30vh;">
+                              <img src="/guest/assets/images/santunan-2.jpeg" alt="The Last of us">
                               <div class="our_portfolio_title">
                                  <h3></h3>
                               </div>
@@ -829,8 +830,8 @@
                      </div>
                      <div class="parent our_portfolio_caption">
                         <div class="child our_portfolio_image">
-                           <div class="our_portfolio_container">
-                              <img src="/guest/assets/images/no-thumb.jpg" alt="The Last of us">
+                           <div class="our_portfolio_container" style="height: 30vh;">
+                              <img src="/guest/assets/images/17an-1.jpeg" alt="The Last of us">
                               <div class="our_portfolio_title">
                                  <h3></h3>
                               </div>
@@ -845,8 +846,8 @@
                      </div>
                      <div class="parent our_portfolio_caption">
                         <div class="child our_portfolio_image">
-                           <div class="our_portfolio_container">
-                              <img src="/guest/assets/images/no-thumb.jpg" alt="The Last of us">
+                           <div class="our_portfolio_container" style="height: 30vh;">
+                              <img src="/guest/assets/images/santunan-1.jpeg" alt="The Last of us">
                               <div class="our_portfolio_title">
                                  <h3></h3>
                               </div>
@@ -866,7 +867,7 @@
                <div class="our_team_info">
                   <div class="our_team_main_title">
                      <div class="our_team_tit">
-                        <h1></h1>
+                        <h1>Pengurus RT/RW</h1>
                      </div>
                      <div class="our_team_main_disc">
                         <p></p>
@@ -919,7 +920,7 @@
                            </div>
                            <div class="our_team_social_icon">
                               <a class="twitter our_social_icon" href="https://wa.me/62818846060" target="_blank">
-                                 <i class="fa fa-whatsapp"></i>
+                              <i class="fa fa-whatsapp"></i>
                               </a>
                            </div>
                         </div>
@@ -940,7 +941,7 @@
                            </div>
                            <div class="our_team_social_icon">
                               <a class="twitter our_social_icon" href="https://wa.me/6281310542388" target="_blank">
-                                 <i class="fa fa-whatsapp"></i>
+                              <i class="fa fa-whatsapp"></i>
                               </a>
                            </div>
                         </div>
@@ -961,7 +962,7 @@
                            </div>
                            <div class="our_team_social_icon">
                               <a class="twitter our_social_icon" href="https://wa.me/6287780015512" target="_blank">
-                                 <i class="fa fa-whatsapp"></i>
+                              <i class="fa fa-whatsapp"></i>
                               </a>
                            </div>
                         </div>
@@ -982,7 +983,7 @@
                            </div>
                            <div class="our_team_social_icon">
                               <a class="twitter our_social_icon" href="https://wa.me/6281389612344" target="_blank">
-                                 <i class="fa fa-whatsapp"></i>
+                              <i class="fa fa-whatsapp"></i>
                               </a>
                            </div>
                         </div>
@@ -994,7 +995,7 @@
                <div class="our_testimonial_info">
                   <div class="our_testimonial_main_title">
                      <div class="testimonial_title">
-                        <h1>Our Testimonial</h1>
+                        <h1>Testimoni Warga</h1>
                      </div>
                      <div class="our_testimonial_main_disc">
                         <p></p>
@@ -1172,115 +1173,11 @@
                   </div>
                </div>
             </div>
-            <div class="our_services_section">
-               <div class="our_services_info">
-                  <div class="our_services_main_info">
-                     <div class="our_services_main_title">
-                        <h1>Our Services</h1>
-                     </div>
-                     <div class="our_services_main_disc">
-                        <p></p>
-                     </div>
-                  </div>
-                  <div class="our_services_section_data">
-                     <div class="our_services_data">
-                        <div class="our_services_img buttons">
-                           <i class="fa fa-user"></i>
-                        </div>
-                        <div class="our_services_container">
-                           <div class="our_services_title">
-                              <a href="#">
-                                 <h2></h2>
-                              </a>
-                           </div>
-                           <div class="our_services_discription">
-                              <p></p>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="our_services_data">
-                        <div class="our_services_img buttons">
-                           <i class="fa fa-user"></i>
-                        </div>
-                        <div class="our_services_container">
-                           <div class="our_services_title">
-                              <a href="#">
-                                 <h2></h2>
-                              </a>
-                           </div>
-                           <div class="our_services_discription">
-                              <p></p>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="our_services_data">
-                        <div class="our_services_img buttons">
-                           <i class="fa fa-user"></i>
-                        </div>
-                        <div class="our_services_container">
-                           <div class="our_services_title">
-                              <a href="#">
-                                 <h2></h2>
-                              </a>
-                           </div>
-                           <div class="our_services_discription">
-                              <p></p>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="our_services_data">
-                        <div class="our_services_img buttons">
-                           <i class="fa fa-user"></i>
-                        </div>
-                        <div class="our_services_container">
-                           <div class="our_services_title">
-                              <a href="#">
-                                 <h2></h2>
-                              </a>
-                           </div>
-                           <div class="our_services_discription">
-                              <p></p>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="our_services_data">
-                        <div class="our_services_img buttons">
-                           <i class="fa fa-user"></i>
-                        </div>
-                        <div class="our_services_container">
-                           <div class="our_services_title">
-                              <a href="#">
-                                 <h2></h2>
-                              </a>
-                           </div>
-                           <div class="our_services_discription">
-                              <p></p>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="our_services_data">
-                        <div class="our_services_img buttons">
-                           <i class="fa fa-user"></i>
-                        </div>
-                        <div class="our_services_container">
-                           <div class="our_services_title">
-                              <a href="#">
-                                 <h2></h2>
-                              </a>
-                           </div>
-                           <div class="our_services_discription">
-                              <p></p>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
             <div class="our_sponsors_section">
                <div class="our_sponsors_info">
                   <div class="our_sponsors_data">
                      <div class="our_sponsors_title">
-                        <h1>Our Sponsors</h1>
+                        <h1>Usaha Warga</h1>
                      </div>
                      <div class="our_sponsors_disc">
                         <p></p>
@@ -1306,7 +1203,7 @@
                </div>
             </div>
          </div>
-         <div class="goldly_container_data">
+         {{-- <div class="goldly_container_data">
             <div class="goldly_container_info right_sidebar grid_view content_boxed">
                <main id="primary" class="site-main content_boxed">
                   <div class="main_containor grid_view">
@@ -1370,7 +1267,7 @@
                </aside>
                <!-- #secondary -->
             </div>
-         </div>
+         </div> --}}
          <footer id="colophon" class="site-footer">
             <div class="site_icon_nav_footer">
                <ul id="sidebar" class="footer_widgets">
@@ -1387,10 +1284,8 @@
                </div>
             </div>
             <div class="site-info">
-               <a href="https://wordpress.org/">
-               Proudly powered by WordPress			</a>
-               <span class="sep"> | </span>
-               Theme: goldly by <a href="https://www.xeeshop.com/">reviewexchanger</a>.					
+               <a href="https://blossomvillecitraraya.com/">
+               Blossom Ville Citra Raya</a>
             </div>
             <!-- .site-info -->
          </footer>
@@ -1413,7 +1308,7 @@
          <h3 class="text-center">Bayar Iuran Lebih Mudah Dengan QRIS</h3>
          <h5 class="text-center"> 
             <a class="text-center btn btn-success btn-sm btn-rounded" style="border-radius: 0.5vw;" href="https://api.whatsapp.com/send/?phone=6282113117002&text=Hallo+Bendahara+RW+16%2C+Saya+mau+konfirmasi+iuran&app_absent=0" target="_blank">
-               <i class="fa fa-whatsapp"></i> Konfirmasi Pembayaran (Bendahara)
+            <i class="fa fa-whatsapp"></i> Konfirmasi Pembayaran (Bendahara)
             </a>
          </h5>
       </div>
