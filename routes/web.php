@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,15 @@ Route::get('/auth/login',[AuthController::class,'login']);
 Route::post('/auth/login',[AuthController::class,'procLogin']);
 Route::get('/auth/register',[AuthController::class,'register']);
 Route::post('/auth/register',[AuthController::class,'procRegister']);
-Route::prefix('/')->group(function () {
+Route::get('/admin',[AdminController::class,'dashboard'])->name("dashboard");
+// Route::prefix('/')->group(function () {
     Route::get('/',[GuestController::class,'index']);
     Route::get('/test',[TestController::class,'test']);
+// });
+
+Route::group(['middleware' => ['web','isLogin']],function () {
+    Route::prefix('admin')->group(function(){
+        Route::get('/',[AdminController::class,'dashboard'])->name("dashboard");
+        Route::get('/logout',[AuthController::class,'logout']);
+    });
 });
