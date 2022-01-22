@@ -52,8 +52,9 @@ class AuthController extends Controller
             "city"=>request('city'),
             "province"=>request('province')
         ];
+        // dd(request()->all());
         $insSts = User::create($insData);
-        return redirect()->back()->with(["error"=>$insSts,"Reistrasi ".($insSts?'Berhasil':'Gagal')]);
+        return redirect()->back()->with(["error"=>$insSts,"message"=>"Reistrasi ".($insSts?'Berhasil':'Gagal')]);
     }
     public function procLogin()
     {
@@ -73,8 +74,20 @@ class AuthController extends Controller
           // if ($dataLogin->levelId==2) {
           //   return redirect('/indexGuru');
           // }
-          return redirect('/greeting');
+          return redirect('/admin');
       }
       return redirect('/auth/login')->with(["error"=>"001","message"=>"His account cannot be found. Please use a different account"]);
+    }
+
+    public function logout()
+    {
+            // User::where(['userId'=>auth()->user()->userId])->update(['loginStatus'=>'N']);
+            auth()->logout();
+
+            request()->session()->invalidate();
+        
+            request()->session()->regenerateToken();
+        
+            return redirect('/');
     }
 }
