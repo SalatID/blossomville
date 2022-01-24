@@ -439,7 +439,7 @@
          padding: 0.1vw;
          background: #fff;
          border-radius: 1vw;
-         margin : 0.5vw;
+         margin : 1vw;
          }
       </style>
 
