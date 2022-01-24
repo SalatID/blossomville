@@ -26,7 +26,7 @@
             <span>Dashboard</span>
         </a>
     </li>
-
+    @if (session()->get('userData')['level'] !=3)
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item {{ explode('/', url()->current())[3] == 'rt/datawarga' ? 'active' : '' }}">
         <a class="nav-link " href="/admin/rt/datawarga">
@@ -34,6 +34,7 @@
             <span>Data Warga</span>
         </a>
     </li>
+    @endif
 
     <li class="nav-item {{ explode('/', url()->current())[3] == 'report' ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse-info-warga"
@@ -45,33 +46,38 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Info Warga</h6>
+                        @if (session()->get('userData')['level'] != 3)
                         <a class="collapse-item" href="utilities-color.html">Berita</a>
                         <a class="collapse-item" href="utilities-color.html">Aktifitas</a>
+                        @endif
                         <a class="collapse-item" href="utilities-border.html">Testimoni</a>
                         <a class="collapse-item" href="utilities-animation.html">Usaha Warga</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
                     </div>
                 </div>
     </li>
+    @if (session()->get('userData')['level'] !=3)
     <li class="nav-item {{ explode('/', url()->current())[3] == 'request' ? 'active' : '' }}">
         <a class="nav-link " href="/request">
             <i class="fas fa-fw icon-2-5vw fa-file-word"></i>
             <span>Surat Menyurat</span>
         </a>
     </li>
+    @endif
+    @if (session()->get('userData')['level'] == 0)
     <li class="nav-item {{ explode('/', url()->current())[3] == 'request' ? 'active' : '' }}">
         <a class="nav-link " href="/request">
             <i class="fas fa-fw icon-2-5vw fa-cog"></i>
             <span>Site Setting</span>
         </a>
     </li>
+    @endif
     {{-- <li class="nav-item">
                 <a class="nav-link" href="/user/list" >
                     <i class="fas fa-fw icon-2-5vw fa-user-circle"></i>
                     <span>Admin</span>
                 </a>
             </li> --}}
-    @if (session()->get('userData')['level'] == 0)
+    {{-- @if (session()->get('userData')['level'] == 0)
         <li
             class="nav-item {{ explode('/', url()->current())[3] == 'user' || explode('/', url()->current())[3] == 'category' ? 'active' : '' }}">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
@@ -87,7 +93,7 @@
                 </div>
             </div>
         </li>
-    @endif
+    @endif --}}
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
