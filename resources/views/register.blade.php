@@ -24,7 +24,7 @@
                          </p>
                       </div>
                    </div>
-                   <form action="/auth/register" method="POST" class="signin-form">
+                   <form action="/auth/register" method="POST" class="signin-form" enctype="multipart/form-data">
                       @csrf
                       <div class="row">
                         <div class="col-sm-6">
@@ -105,10 +105,21 @@
                            </div>
                         </div>
                       </div>
-                     <div class="form-group mb-3">
-                        <label class="label" for="name">Pekerjaan</label>
-                        <input type="text" name="job" class="form-control" placeholder="Pekerjaan">
-                     </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                           <div class="form-group mb-3">
+                              <label class="label" for="name">Nomor Telepon</label>
+                              <input type="text" name="phone" class="form-control" placeholder="Nomor Telepon">
+                           </div>
+                        </div>
+                        <div class="col-sm-6">
+                           <div class="form-group mb-3">
+                              <label class="label" for="name">Pekerjaan</label>
+                              <input type="text" name="job" class="form-control" placeholder="Pekerjaan">
+                           </div>
+                        </div>
+                      </div>
+                     
                      <div class="row">
                         <div class="col-sm-6">
                            <div class="form-group mb-3">
@@ -123,6 +134,20 @@
                            </div>
                         </div>
                      </div>
+                     <div class="row">
+                        <div class="col-sm-6">
+                           <div class="form-group mb-3">
+                              <label class="label" for="name">Foto KTP</label>
+                              <input type="file" name="attc_ktp" class="form-control" placeholder="KTP" required>
+                           </div>
+                        </div>
+                        <div class="col-sm-6">
+                           <div class="form-group mb-3">
+                              <label class="label" for="name">Foto KK</label>
+                              <input type="file" name="attc_kk" class="form-control" placeholder="KK" required>
+                           </div>
+                        </div>
+                      </div>
                      <div class="form-group mb-3">
                         <label class="label" for="name">Status Dalam Keluarga</label>
                         <select name="sts" class="form-control" id="">

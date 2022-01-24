@@ -10,6 +10,7 @@ use Mail;
 use App\Mail\BlossomMail;
 use URL;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
@@ -57,7 +58,17 @@ class AuthController extends Controller
             "province"=>request('province')
         ];
         // dd(request()->all());
-        
+        $attc_ktp = request()->file('attc_ktp');
+        $attc_kk = request()->file('attc_kk');
+        $dir = 'attc/';
+        $fileNameKTP = 'ktp_'.Str::random(15).".".$attc_ktp->getClientOriginalExtension();
+        $fileNameKK = 'kk_'.Str::random(15).".".$attc_kk->getClientOriginalExtension();
+        // upload file
+        $attc_ktp->move($dir,$fileNameKTP);
+        $attc_kk->move($dir,$fileNameKK);
+        $insData['img_ktp']=$dir.$fileNameKTP;
+        $insData['img_kk']=$dir.$fileNameKK;
+
         $insSts = User::create($insData);
         $userData = [
           "id"=>$insSts->id
