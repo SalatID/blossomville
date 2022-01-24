@@ -40,7 +40,10 @@ class User extends Authenticatable
         'village',
         'distric',
         'city',
-        'province'
+        'province',
+        'phone',
+        'img_ktp',
+        'img_kk'
     ];
 
     /**
