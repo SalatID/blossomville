@@ -1,5 +1,5 @@
 @extends('index-dash')
-@section('webTittle','Dashboard')
+@section('webTittle','Data Warga')
  
 @section('content')
 <div class="row">
