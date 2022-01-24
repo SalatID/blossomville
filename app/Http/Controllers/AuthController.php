@@ -83,7 +83,7 @@ class AuthController extends Controller
     {
       $credentials = request()->only('email', 'password');
       if (auth()->attempt($credentials)) {
-         if(auth()->user()->email_verfied_at==null)return redirect('/auth/login')->with(["error"=>true,"message"=>"Anda Belum Verifikasi Email, harap cek email anda, cek folder spam jika tidak ada email di kotak masuk"]);
+         if(auth()->user()->email_verified_at==null)return redirect('/auth/login')->with(["error"=>true,"message"=>"Anda Belum Verifikasi Email, harap cek email anda, cek folder spam jika tidak ada email di kotak masuk"]);
           $sessionValue = [
               "userId"=>auth()->user()->id,
               "fullName"=>auth()->user()->full_name,
