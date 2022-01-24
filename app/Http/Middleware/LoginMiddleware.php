@@ -16,9 +16,16 @@ class LoginMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+        // dd($request->url());
         if (request()->session()->has('userData')) {
+            if(session()->has('p_page')) {
+                $pPage = session()->get('p_page');
+                session()->forget('p_page');
+                return redirect($pPage);
+            };
             return $next($request);
         }
+        session()->put('p_page',$request->url());
         return redirect('/');
     }
 }
