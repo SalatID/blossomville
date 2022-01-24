@@ -1,3 +1,4 @@
+@if(session()->get('userData')['verified']==1)
 <ul class="navbar-nav bg-default sidebar sidebar-dark accordion toggled" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
@@ -5,7 +6,7 @@
         <div class="sidebar-brand-icon">
             <img src="{{ asset('assets/img/footer-logo.png') }}" class="img-fluid" alt="">
         </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">Blossom Ville </div>
     </a>
 
     <!-- Divider -->
@@ -27,8 +28,8 @@
     </li>
 
     <!-- Nav Item - Utilities Collapse Menu -->
-    <li class="nav-item {{ explode('/', url()->current())[3] == 'request' ? 'active' : '' }}">
-        <a class="nav-link " href="/request">
+    <li class="nav-item {{ explode('/', url()->current())[3] == 'rt/datawarga' ? 'active' : '' }}">
+        <a class="nav-link " href="/rt/datawarga">
             <i class="fas fa-fw icon-2-5vw fa-list"></i>
             <span>Data Warga</span>
         </a>
@@ -70,7 +71,7 @@
                     <span>Admin</span>
                 </a>
             </li> --}}
-    @if (session()->get('userData')['userData']['level'] == 0)
+    @if (session()->get('userData')['level'] == 0)
         <li
             class="nav-item {{ explode('/', url()->current())[3] == 'user' || explode('/', url()->current())[3] == 'category' ? 'active' : '' }}">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
@@ -95,6 +96,6 @@
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div> -->
 
-
-
 </ul>
+
+@endif
