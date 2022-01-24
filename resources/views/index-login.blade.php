@@ -13,13 +13,11 @@
    <body>
       <div class="container">
          @if (session()->has('error'))
-             @if(session('error'))
              <div class="col-12 pt-2">
-                <div class="alert alert-{{(session('error')?'success':'danger')}}" role="alert">
+                <div class="alert alert-{{(session('error')?'danger':'success')}}" role="alert">
                    {{session('message')}}
                  </div>
              </div>
-             @endif
          @endif
       </div>
       @yield('content')

@@ -34,5 +34,7 @@ Route::group(['middleware' => ['web','isLogin']],function () {
     Route::prefix('admin')->group(function(){
         Route::get('/',[AdminController::class,'dashboard'])->name("dashboard");
         Route::get('/logout',[AuthController::class,'logout']);
+        Route::get('/send/mail',[AuthController::class,'sendMail']);
     });
 });
+Route::get('/email/verified',[AuthController::class,'verifiedEmail'])->name("verifiedEmail");
