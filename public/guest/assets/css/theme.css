@@ -8,7 +8,7 @@ body a {
 # header
 --------------------------------------------------------------*/
 body.admin-bar .site-header .main_site_header.is-sticky-menu {
-    top: 32px;
+    top:0px;
 }
 header#masthead h1.site-title {
     margin: 0px 0px;
