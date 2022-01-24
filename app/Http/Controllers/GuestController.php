@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use DB;
 
 class GuestController extends Controller
 {
@@ -16,7 +17,7 @@ class GuestController extends Controller
     {
         $title = "Data Warga";
         $page = true;
-        $dataWarga = User::whereIn('level',[3,2])->get();
+        $dataWarga = User::whereIn('level',[3,2])->whereNotNull('email_verified_at')->where('verified',DB::raw('1'))->get();
         return view('pages.guest.datawarga',compact('title','page','dataWarga'));
     }
 }
