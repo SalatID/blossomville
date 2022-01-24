@@ -55,7 +55,8 @@ class AuthController extends Controller
             "village"=>request('village'),
             "distric"=>request('distric'),
             "city"=>request('city'),
-            "province"=>request('province')
+            "province"=>request('province'),
+            "phone"=>request('phone')
         ];
         // dd(request()->all());
         $attc_ktp = request()->file('attc_ktp');
