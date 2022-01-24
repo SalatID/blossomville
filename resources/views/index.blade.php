@@ -25,7 +25,7 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
       <link rel="stylesheet" id="goldly-style-css" href="/guest/style.css?ver=1.0.0" media="all">
-      <link rel="stylesheet" id="theme-css-css" href="/guest/assets/css/theme.css?ver=1.0.0" media="all">
+      <link rel="stylesheet" id="theme-css-css" href="/guest/assets/css/theme.css?ver=1.0.1" media="all">
       <link rel="stylesheet" id="fontawesome-css-css" href="/guest/assets/fontawesome/css/font-awesome.css?ver=1.0.0" media="all">
       <link rel="stylesheet" id="owl-carousel-min-css-css" href="/guest/assets/css/owl.carousel.min.css?ver=1.0.0" media="all">
       <link rel="stylesheet" id="owl-carousel_theme-min-css-css" href="/guest/assets/css/owl.theme.min.css?ver=1.0.0" media="all">
