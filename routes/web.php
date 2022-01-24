@@ -5,6 +5,7 @@ use App\Http\Controllers\GuestController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DataWargaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,8 @@ Route::group(['middleware' => ['web','isLogin']],function () {
         Route::get('/',[AdminController::class,'dashboard'])->name("dashboard");
         Route::get('/logout',[AuthController::class,'logout']);
         Route::get('/send/mail',[AuthController::class,'sendMail']);
+
+        Route::get('/rt/datawarga',[DataWargaController::class,'datawarga']);
     });
 });
 Route::get('/email/verified',[AuthController::class,'verifiedEmail'])->name("verifiedEmail");
