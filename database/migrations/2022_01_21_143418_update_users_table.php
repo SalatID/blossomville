@@ -14,7 +14,7 @@ class UpdateUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->renameColumn('name', 'full_name');
+            // $table->renameColumn('name', 'full_name');
             $table->string('place_birth', 100)->nullable();
             $table->date('date_birth')->nullable();
             $table->string('gender', 6)->nullable();
