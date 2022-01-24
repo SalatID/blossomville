@@ -29,7 +29,7 @@
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item {{ explode('/', url()->current())[3] == 'rt/datawarga' ? 'active' : '' }}">
-        <a class="nav-link " href="/admn/rt/datawarga">
+        <a class="nav-link " href="/admin/rt/datawarga">
             <i class="fas fa-fw icon-2-5vw fa-list"></i>
             <span>Data Warga</span>
         </a>
