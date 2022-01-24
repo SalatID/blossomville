@@ -77,7 +77,7 @@ class AuthController extends Controller
           // return $data;
           Mail::to(request('email'))->send(new \App\Mail\BlossomMail(json_decode($data)));
         }
-        return redirect()->back()->with(["error"=>!$insSts,"message"=>"Reistrasi ".($insSts?'Berhasil':'Gagal')]);
+        return redirect('/auth/login')->with(["error"=>!$insSts,"message"=>"Reistrasi ".($insSts?'Berhasil':'Gagal')]);
     }
     public function procLogin()
     {
