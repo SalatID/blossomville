@@ -4,7 +4,7 @@
 @section('content')
 <div class="row">
     <div class="col-xl-12 table-responsive">
-        <table class="table table-striped">
+        <table class="table table-striped" id="dataWargas">
             <thead>
                 <tr>
                     <th>No</th>
@@ -44,4 +44,7 @@
         </table>
     </div>
 </div>
+<script>
+    $('#dataWargas').DataTable();
+</script>
 @endsection

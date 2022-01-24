@@ -15,71 +15,71 @@
         <div class="card-body">
             @if ($dataWarga->rt_name!=null)
             <div class="form-group row">
-                <label for="staticEmail" class="col-sm-2 badge badge-pill badge-success font-weight-bold text-light card-title" style="font-size:2rem">Ketua RT {{sprintf('%02d', $dataWarga->rt_no)}}</label>
+                <label class="col-sm-2 badge badge-pill badge-success font-weight-bold text-light card-title" style="font-size:2rem">Ketua RT {{sprintf('%02d', $dataWarga->rt_no)}}</label>
             </div>
             @endif
             <div class="form-group row">
-                <label for="staticEmail" class="col-sm-2 col-form-label font-weight-bold">Nama Lengkap</label>
+                <label class="col-sm-2 col-form-label font-weight-bold">Nama Lengkap</label>
                 <div class="col-sm-10">
                   <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$dataWarga->full_name}}">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="staticEmail" class="col-sm-2 col-form-label font-weight-bold">Email</label>
+                <label class="col-sm-2 col-form-label font-weight-bold">Email</label>
                 <div class="col-sm-10">
                   <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$dataWarga->email}}">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="staticEmail" class="col-sm-2 col-form-label font-weight-bold">Nomor Telepon</label>
+                <label class="col-sm-2 col-form-label font-weight-bold">Nomor Telepon</label>
                 <div class="col-sm-10">
                   <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$dataWarga->phone}}">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="staticEmail" class="col-sm-2 col-form-label font-weight-bold">Tempat/Tanggal Lahir</label>
+                <label class="col-sm-2 col-form-label font-weight-bold">Tempat/Tanggal Lahir</label>
                 <div class="col-sm-10">
                   <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$dataWarga->place_birth}}, {{$dataWarga->date_birth}}">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="staticEmail" class="col-sm-2 col-form-label font-weight-bold">Jenis Kelamin</label>
+                <label class="col-sm-2 col-form-label font-weight-bold">Jenis Kelamin</label>
                 <div class="col-sm-10">
                   <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$dataWarga->gender=='male'?'Laki-Laki':'Perempuan'}}">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="staticEmail" class="col-sm-2 col-form-label font-weight-bold">Pekerjaan</label>
+                <label class="col-sm-2 col-form-label font-weight-bold">Pekerjaan</label>
                 <div class="col-sm-10">
                   <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$dataWarga->job}}">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="staticEmail" class="col-sm-2 col-form-label font-weight-bold">Agama</label>
+                <label class="col-sm-2 col-form-label font-weight-bold">Agama</label>
                 <div class="col-sm-10">
                   <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$dataWarga->religion}}">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="staticEmail" class="col-sm-2 col-form-label font-weight-bold">Status Pernikahan</label>
+                <label class="col-sm-2 col-form-label font-weight-bold">Status Pernikahan</label>
                 <div class="col-sm-10">
                   <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$dataWarga->marriage??'Not Set'}}">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="staticEmail" class="col-sm-2 col-form-label font-weight-bold">Status Dalam Keluarga</label>
+                <label class="col-sm-2 col-form-label font-weight-bold">Status Dalam Keluarga</label>
                 <div class="col-sm-10">
                   <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$dataWarga->sts??'Not Set'}}">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="staticEmail" class="col-sm-2 col-form-label font-weight-bold">Alamat</label>
+                <label class="col-sm-2 col-form-label font-weight-bold">Alamat</label>
                 <div class="col-sm-10">
                   <textarea type="text" readonly class="form-control-plaintext" id="staticEmail" value="">{{$dataWarga->address}},RT/RW {{$dataWarga->getrt->rt_no}}/{{$dataWarga->rw}},Blok {{$dataWarga->block}} No. {{$dataWarga->house_number}}, Kel. {{$dataWarga->village}},Kec. {{$dataWarga->distric}},{{$dataWarga->city}},{{$dataWarga->province}}</textarea>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="staticEmail" class="col-sm-2 col-form-label font-weight-bold">Golongan Darah</label>
+                <label class="col-sm-2 col-form-label font-weight-bold">Golongan Darah</label>
                 <div class="col-sm-10">
                   <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$dataWarga->blod_type??'Not Set'}}">
                 </div>

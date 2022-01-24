@@ -20,11 +20,13 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('/dashboard/assets/css/sb-admin-2.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
     
     <!-- Bootstrap core JavaScript-->
     <script src="{{asset('/dashboard/assets/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('/dashboard/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('/dashboard/assets/vendor/ckeditor4/ckeditor.js')}}"></script>
+    <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
     <style>
         *{
             font-size:13px;

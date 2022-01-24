@@ -18,9 +18,6 @@ use App\Http\Controllers\DataWargaController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 Route::get('/auth/login',[AuthController::class,'login']);
 Route::post('/auth/login',[AuthController::class,'procLogin']);
 Route::get('/auth/register',[AuthController::class,'register']);
@@ -28,6 +25,7 @@ Route::post('/auth/register',[AuthController::class,'procRegister']);
 Route::get('/admin',[AdminController::class,'dashboard'])->name("dashboard");
 // Route::prefix('/')->group(function () {
     Route::get('/',[GuestController::class,'index']);
+    Route::get('/datawarga',[GuestController::class,'datawarga']);
     Route::get('/test',[TestController::class,'test']);
 // });
 
