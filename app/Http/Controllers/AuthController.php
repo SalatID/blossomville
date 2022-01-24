@@ -100,7 +100,7 @@ class AuthController extends Controller
               "userId"=>auth()->user()->id,
               "fullName"=>auth()->user()->full_name,
               "email"=>auth()->user()->email,
-              "level"=>auth()->user()->levelId,
+              "level"=>auth()->user()->level,
               "verified"=>auth()->user()->verified,
               "rt"=>auth()->user()->id_rt,
               "phone"=>auth()->user()->phone
