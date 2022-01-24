@@ -151,4 +151,11 @@ class AuthController extends Controller
 
       return redirect('/auth/login')->with(["error"=>false,"message"=>"Verifikasi email berhasil, silahkan login untuk melanjutkan"]);
     }
+
+    public function verifiyUser($idWarga)
+    {
+      // dd(Crypt::decryptString($idWarga));
+      $updSts =User::where(["id"=>Crypt::decryptString($idWarga)])->update(["verified"=>1]);
+      return redirect()->back()->with(["error"=>!$updSts,"message"=>"Verifikasi  ".($updSts?"Berhasil":"Gagal")]);
+    }
 }

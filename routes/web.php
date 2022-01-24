@@ -37,7 +37,9 @@ Route::group(['middleware' => ['web','isLogin']],function () {
         Route::get('/logout',[AuthController::class,'logout']);
         Route::get('/send/mail',[AuthController::class,'sendMail']);
 
-        Route::get('/rt/datawarga',[DataWargaController::class,'datawarga']);
+        Route::get('/rt/datawarga',[DataWargaController::class,'datawargas']);
+        Route::get('/rt/datawarga/{idWarga}',[DataWargaController::class,'datawarga']);
+        Route::get('/rt/datawarga/verifikasi/{idWarga}',[AuthController::class,'verifiyUser']);
     });
 });
 Route::get('/email/verified',[AuthController::class,'verifiedEmail'])->name("verifiedEmail");
