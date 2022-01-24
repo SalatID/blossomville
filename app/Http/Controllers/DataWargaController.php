@@ -22,6 +22,7 @@ class DataWargaController extends Controller
     public function dataWarga($idWarga)
     {
         $idWarga = Crypt::decryptString($idWarga);
+        // dd($idWarga);
         $dataWarga =User::with('getrt')
         ->leftJoin('dbs_rt as a',function($join){
            $join->on( 'a.id','users.id_rt');

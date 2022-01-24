@@ -12,7 +12,7 @@ class AdminController extends Controller
     {
         $dataUser = User::with('getrt')->find(session()->get('userData')['userId']);
         // dd($dataUser->getrt);
-        $encryptId=Crypt::encryptString(json_encode(["id"=>session()->get('userData')['userId']]));
+        $encryptId=Crypt::encryptString(session()->get('userData')['userId']);
         if(session()->get('userData')['verified']){
             return view('pages.admin.dashboard',compact('dataUser','encryptId'));
         } else {
