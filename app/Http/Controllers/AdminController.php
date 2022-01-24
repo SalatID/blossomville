@@ -11,6 +11,7 @@ class AdminController extends Controller
     public function dashboard()
     {
         $dataUser = User::with('getrt')->find(session()->get('userData')['userId']);
+        // dd($dataUser->getrt);
         $encryptId=Crypt::encryptString(json_encode(["id"=>session()->get('userData')['userId']]));
         if(session()->get('userData')['verified']){
             return view('pages.admin.dashboard',compact('dataUser','encryptId'));
