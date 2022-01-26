@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '1f0ab411eba03ac82874ac8d16fc7b4e8560ae74',
+    'reference' => '1b87699f58ce3f2e22a83302ec192dd1f713e64f',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -64,6 +64,42 @@ private static $installed = array (
       array (
       ),
       'reference' => '0992cc19268b259a39e86f296da5f0677841f42c',
+    ),
+    'doctrine/cache' => 
+    array (
+      'pretty_version' => '2.1.1',
+      'version' => '2.1.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '331b4d5dbaeab3827976273e9356b3b453c300ce',
+    ),
+    'doctrine/dbal' => 
+    array (
+      'pretty_version' => '3.3.0',
+      'version' => '3.3.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'a4b37db6f186b6843474189b424aed6a7cc5de4b',
+    ),
+    'doctrine/deprecations' => 
+    array (
+      'pretty_version' => 'v0.5.3',
+      'version' => '0.5.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '9504165960a1f83cc1480e2be1dd0a0478561314',
+    ),
+    'doctrine/event-manager' => 
+    array (
+      'pretty_version' => '1.1.1',
+      'version' => '1.1.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '41370af6a30faa9dc0368c4a6814d596e81aba7f',
     ),
     'doctrine/inflector' => 
     array (
@@ -449,7 +485,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '1f0ab411eba03ac82874ac8d16fc7b4e8560ae74',
+      'reference' => '1b87699f58ce3f2e22a83302ec192dd1f713e64f',
     ),
     'laravel/sail' => 
     array (
@@ -731,6 +767,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '2406855036db1102126125537adb1406f7242fdd',
+    ),
+    'psr/cache' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd11b50ad223250cf17b86e38383413f5a6764bf8',
     ),
     'psr/container' => 
     array (
