@@ -35,9 +35,10 @@ class UpdateUsersTable extends Migration
             // $table->string('province', 100)->nullable();
             // $table->string('level', 1)->nullable();
             // $table->string('verified', 1)->nullable();
-            $table->string('img_ktp', 255)->nullable();
-            $table->string('img_kk', 225)->nullable();
-            $table->string('marriage', 50)->nullable();
+            // $table->string('img_ktp', 255)->nullable();
+            // $table->string('img_kk', 225)->nullable();
+            // $table->string('marriage', 50)->nullable();
+            // $table->removeColumn('id_toko');
         });
     }
 

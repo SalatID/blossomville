@@ -6,8 +6,8 @@
       <title>Blossom Ville Citra Raya</title>
       <meta name="robots" content="max-image-preview:large">
       <link rel="dns-prefetch" href="//s.w.org">
-      <link rel="alternate" type="application/rss+xml" title="Test » Feed" href="http://localhost/wordpresstest/index.php/feed/">
-      <link rel="alternate" type="application/rss+xml" title="Test » Umpan Komentar" href="http://localhost/wordpresstest/index.php/comments/feed/">
+      {{-- <link rel="alternate" type="application/rss+xml" title="Test » Feed" href="http://localhost/wordpresstest/index.php/feed/">
+      <link rel="alternate" type="application/rss+xml" title="Test » Umpan Komentar" href="http://localhost/wordpresstest/index.php/comments/feed/"> --}}
       <style>
          img.wp-smiley,
          img.emoji {
@@ -29,8 +29,8 @@
       <link rel="stylesheet" id="fontawesome-css-css" href="/guest/assets/fontawesome/css/font-awesome.css?ver=1.0.0" media="all">
       <link rel="stylesheet" id="owl-carousel-min-css-css" href="/guest/assets/css/owl.carousel.min.css?ver=1.0.0" media="all">
       <link rel="stylesheet" id="owl-carousel_theme-min-css-css" href="/guest/assets/css/owl.theme.min.css?ver=1.0.0" media="all">
-      <link rel="https://api.w.org/" href="http://localhost/wordpresstest/index.php/wp-json/">
-      <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://localhost/wordpresstest/xmlrpc.php?rsd">
+      {{-- <link rel="https://api.w.org/" href="http://localhost/wordpresstest/index.php/wp-json/"> --}}
+      {{-- <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://localhost/wordpresstest/xmlrpc.php?rsd"> --}}
       <meta name="generator" content="WordPress 5.8.3">
       <style>	
          footer#colophon {
@@ -542,8 +542,8 @@
          <!-- #colophon -->
          <!-- </div> --><!-- #page -->
          <button type="button" class="scrollingUp scrolling-btn" aria-label="scrollingUp"><i class="fa fa-angle-up"></i></button>
-         <script src="http://localhost/wordpresstest/wp-includes/js/hoverintent-js.min.js?ver=2.2.1" id="hoverintent-js-js"></script>
-         <script src="http://localhost/wordpresstest/wp-includes/js/admin-bar.min.js?ver=5.8.3" id="admin-bar-js"></script>
+         {{-- <script src="http://localhost/wordpresstest/wp-includes/js/hoverintent-js.min.js?ver=2.2.1" id="hoverintent-js-js"></script>
+         <script src="http://localhost/wordpresstest/wp-includes/js/admin-bar.min.js?ver=5.8.3" id="admin-bar-js"></script> --}}
          <script src="/guest/assets/js/navigation.js?ver=1.0.0" id="goldly-navigation-js"></script>
          <script src="/guest/assets/js/owl_slider.js?ver=1.0.0" id="goldly-owl_slider-js"></script>
          <script src="/guest/assets/js/owl.carousel.min.js?ver=1.0.0" id="goldly-owl-carousel-min-js"></script>
@@ -551,7 +551,7 @@
             var main_vars = {"img_autoplay":"1","img_autoplayspped":"1000","autoplay":"1","autoplayspped":"1000"};
          </script>
          <script src="/guest/assets/js/owl_slider.js?ver=1.0" id="main-js-js"></script>
-         <script src="http://localhost/wordpresstest/wp-includes/js/wp-embed.min.js?ver=5.8.3" id="wp-embed-js"></script>
+         {{-- <script src="http://localhost/wordpresstest/wp-includes/js/wp-embed.min.js?ver=5.8.3" id="wp-embed-js"></script> --}}
       </div>
       <div class="floating-div">
          <img src="/guest/assets/images/qris.jpeg" class="col-12" alt="">

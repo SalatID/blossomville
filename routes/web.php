@@ -32,12 +32,13 @@ Route::get('/admin',[AdminController::class,'dashboard'])->name("dashboard");
 Route::group(['middleware' => ['web','isLogin']],function () {
     Route::prefix('admin')->group(function(){
         Route::get('/',[AdminController::class,'dashboard'])->name("dashboard");
-        Route::get('/logout',[AuthController::class,'logout']);
         Route::get('/send/mail',[AuthController::class,'sendMail']);
-
         Route::get('/rt/datawarga',[DataWargaController::class,'datawargas']);
         Route::get('/rt/datawarga/{idWarga}',[DataWargaController::class,'datawarga']);
         Route::get('/rt/datawarga/verifikasi/{idWarga}',[AuthController::class,'verifiyUser']);
     });
+    Route::get('/logout',[AuthController::class,'logout']);
+    Route::post('/auth/profile/update',[AuthController::class,'updateProfile']);
+    Route::get('/profile',[DataWargaController::class,'profile']);
 });
 Route::get('/email/verified',[AuthController::class,'verifiedEmail'])->name("verifiedEmail");

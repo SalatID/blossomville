@@ -43,7 +43,8 @@ class User extends Authenticatable
         'province',
         'phone',
         'img_ktp',
-        'img_kk'
+        'img_kk',
+        'marriage'
     ];
 
     /**
