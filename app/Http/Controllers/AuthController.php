@@ -56,7 +56,8 @@ class AuthController extends Controller
             "distric"=>request('distric'),
             "city"=>request('city'),
             "province"=>request('province'),
-            "phone"=>request('phone')
+            "phone"=>request('phone'),
+            "marriage"=>request('marriage')
         ];
         // dd(request()->all());
         $attc_ktp = request()->file('attc_ktp');
@@ -157,5 +158,51 @@ class AuthController extends Controller
       // dd(Crypt::decryptString($idWarga));
       $updSts =User::where(["id"=>Crypt::decryptString($idWarga)])->update(["verified"=>1]);
       return redirect()->back()->with(["error"=>!$updSts,"message"=>"Verifikasi  ".($updSts?"Berhasil":"Gagal")]);
+    }
+
+    public function updateProfile()
+    {
+      $updData = [
+        "full_name"=>request('full_name'),
+        "place_birth"=>request('place_birth'),
+        "date_birth"=>request('date_birth'),
+        "gender"=>request('gender'),
+        "blod_type"=>request('blod_type'),
+        "religion"=>request('religion'),
+        "job"=>request('job'),
+        "nik"=>request('nik'),
+        "kk"=>request('kk'),
+        "sts"=>request('sts'),
+        "address"=>request('address'),
+        "block"=>request('block'),
+        "house_number"=>request('house_number'),
+        "id_rt"=>request('id_rt'),
+        "rw"=>request('rw'),
+        "village"=>request('village'),
+        "distric"=>request('distric'),
+        "city"=>request('city'),
+        "province"=>request('province'),
+        "phone"=>request('phone'),
+        "marriage"=>request('marriage')
+      ];
+      $dir = 'attc/';
+      $attc_ktp = request()->file('attc_ktp');
+      if($attc_ktp){
+        $fileNameKTP = 'ktp_'.Str::random(15).".".$attc_ktp->getClientOriginalExtension();
+        $attc_ktp->move($dir,$fileNameKTP);
+        $updData['img_ktp']=$dir.$fileNameKTP;
+
+      }
+
+      $attc_kk = request()->file('attc_kk');
+      if($attc_kk){
+        $fileNameKK = 'kk_'.Str::random(15).".".$attc_kk->getClientOriginalExtension();
+        $attc_kk->move($dir,$fileNameKK);
+        $updData['img_kk']=$dir.$fileNameKK;
+
+      }
+      // upload file
+      $updSts = User::where(['id'=>auth()->user()->id])->update($updData);
+      return redirect()->back()->with(["error"=>!$updSts,"message"=>"Update ".($updSts?'Berhasil':'Gagal')]);
     }
 }
