@@ -34,10 +34,10 @@ jQuery(document).ready(function() {
 		jQuery(this).addClass('owl-loaded owl-drag').owlCarousel({
 		//jQuery('#testinomial_owl_slider').owlCarousel({
 	    	navigation : true, // Show next and prev buttons 
-	    	loop: true,	
+	    	// loop: true,	
 		    slideSpeed : 300,
 		    paginationSpeed : 400,	 
-		    items : 3, 
+		    // items : 3, 
 		    itemsDesktop : false,
 		    itemsDesktopSmall : false,
 		    itemsTablet: false,
@@ -45,16 +45,16 @@ jQuery(document).ready(function() {
 	    	margin:10,
 	    	autoplay: auto,
 	        autoplaySpeed: autospeed,
-	    	responsive:{
-		        0:{
-		            items:1,
-		            nav:true
-		        },
-		        600:{
-		            items:3,
-		            nav:false
-		        }
-		    }
+	    	// responsive:{
+		    //     0:{
+		    //         items:1,
+		    //         nav:true
+		    //     },
+		    //     600:{
+		    //         items:3,
+		    //         nav:false
+		    //     }
+		    // }
 		});	
 	});
 });
