@@ -556,10 +556,6 @@ class ComposerStaticInited8e6d69ade005c4074e24615a0b394f
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
-<<<<<<< HEAD
-<<<<<<< HEAD
-        'App\\Models\\RtRw' => __DIR__ . '/../..' . '/app/Models/RtRw.php',
-=======
         'App\\Mail\\BlossomMail' => __DIR__ . '/../..' . '/app/Mail/BlossomMail.php',
         'App\\Models\\DashboardActivity' => __DIR__ . '/../..' . '/app/Models/DashboardActivity.php',
         'App\\Models\\DashboardBanner' => __DIR__ . '/../..' . '/app/Models/DashboardBanner.php',
@@ -567,9 +563,6 @@ class ComposerStaticInited8e6d69ade005c4074e24615a0b394f
         'App\\Models\\Product' => __DIR__ . '/../..' . '/app/Models/Product.php',
         'App\\Models\\RtRw' => __DIR__ . '/../..' . '/app/Models/RtRw.php',
         'App\\Models\\Store' => __DIR__ . '/../..' . '/app/Models/Store.php',
->>>>>>> c6bf6ad56e2692e5d8439c80d7abdfa5498af08e
-=======
->>>>>>> 83dcd7cfa674fee44bfe92946231d7a0e612f361
         'App\\Models\\Test' => __DIR__ . '/../..' . '/app/Models/Test.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
