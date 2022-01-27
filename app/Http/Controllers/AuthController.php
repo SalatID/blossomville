@@ -205,4 +205,10 @@ class AuthController extends Controller
       $updSts = User::where(['id'=>auth()->user()->id])->update($updData);
       return redirect()->back()->with(["error"=>!$updSts,"message"=>"Update ".($updSts?'Berhasil':'Gagal')]);
     }
+
+    public function delUser($id)
+    {
+        User::where(["id"=>Crypt::decryptString($id)])->delete();
+        return redirect()->back()->with(["error"=>false,"message"=>"Delete Berhasil"]);;
+    }
 }

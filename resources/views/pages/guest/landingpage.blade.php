@@ -271,7 +271,7 @@
                      <div class="our_testimonial_data">
                         <div class="testimonials_disc">
                            <div class="our_testimonials_container">
-                              <p style="height: 10vh" class="text-justify font-italic">{{$item->summary}} ~ {{$item->getcreator->full_name}}</p>
+                              <p style="height: 10vh" class="text-justify font-italic">{{$item->summary}} ~ <strong>{{$item->getcreator->full_name}}</strong> </p>
                               <div class="testimonials_title">
                                  <h2>{{$item->title}}</h2>
                               </div>

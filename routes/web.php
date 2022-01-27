@@ -50,6 +50,7 @@ Route::group(['middleware' => ['web','isLogin']],function () {
     Route::get('/aktifitas/detail/{id}',[GuestController::class,'jsonDetailActivity']);
     Route::get('/testimoni/detail/{id}',[GuestController::class,'jsonDetailTestimoni']);
     Route::get('/testimoni/delete/{id}',[GuestController::class,'delTestimoni']);
+    Route::get('/user/delete/{id}',[AuthController::class,'delUser']);
     Route::get('/logout',[AuthController::class,'logout']);
     Route::post('/auth/profile/update',[AuthController::class,'updateProfile']);
     Route::get('/profile',[DataWargaController::class,'profile']);
