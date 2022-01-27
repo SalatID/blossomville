@@ -271,9 +271,9 @@
                      <div class="our_testimonial_data">
                         <div class="testimonials_disc">
                            <div class="our_testimonials_container">
-                              <p style="height: 10vh" class="text-justify">{{$item->summary}}</p>
+                              <p style="height: 10vh" class="text-justify font-italic">{{$item->summary}} ~ {{$item->getcreator->full_name}}</p>
                               <div class="testimonials_title">
-                                 <h2>{{$item->getcreator->full_name}}</h2>
+                                 <h2>{{$item->title}}</h2>
                               </div>
                               {{-- <div class="testimonials_title">
                                  <h3>{{$item->getcreator->full_name}}</h3>
