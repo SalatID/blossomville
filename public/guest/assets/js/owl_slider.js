@@ -4,6 +4,7 @@ jQuery(document).ready(function() {
 	}else{
 		var img_auto=false;
 	}
+	img_auto=true
 	var img_autospeed = main_vars.img_autoplayspped;   
 	jQuery('.featuredimage_slider').each(function() {
 		jQuery(this).addClass('owl-loaded owl-drag').owlCarousel({

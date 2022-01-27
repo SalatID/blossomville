@@ -149,4 +149,84 @@ class GuestController extends Controller
         DashboardTestimoni::where(["id"=>Crypt::decryptString($id)])->delete();
         return redirect()->back()->with(["error"=>false,"message"=>"Delete Berhasil"]);;
     }
+
+    public function storePage()
+    {
+        if(session()->get('userData')['level']==0 || session()->get('userData')['level']==1|| session()->get('userData')['level']==2){
+            $tokos = Store::get();
+        } else if(session()->get('userData')['level']==3){
+            $tokos = Store::where('created_user',auth()->user()->id)->get();
+        } 
+        
+        return view('pages.admin.store',compact('tokos'));
+    }
+
+    public function storeStore()
+    {
+        if(Store::where('created_user',auth()->user()->id)->count()>2){
+            return redirect()->back()->with(["error"=>true,"message"=>"Tambah Toko Gagal, Satu Warga Maksimal DUA Toko"]);
+        }
+        $insData = [
+            'store_name'=>request('store_name'),
+            'address'=>request('address'),
+            'description'=>request('description'),
+            'phone'=>request('phone'),
+            'whatsapp_sts'=>request('whatsapp_sts'),
+            "created_user"=>auth()->user()->id
+        ];
+        // dd($insData);
+        // 'store_banner','store_logo'
+
+        $storeBanner = request()->file('store_banner');
+        $dir = 'store/banner/';
+        $fileName = Str::random(15).".".$storeBanner->getClientOriginalExtension();
+        $storeBanner->move($dir,$fileName);
+        $insData['store_banner']=$dir.$fileName;
+
+        $storeLogo = request()->file('store_logo');
+        $dir = 'store/banner/';
+        $fileName = Str::random(15).".".$storeLogo->getClientOriginalExtension();
+        $storeLogo->move($dir,$fileName);
+        $insData['store_logo']=$dir.$fileName;
+        
+        $insSts = Store::create($insData);
+        return redirect()->back()->with(["error"=>!$insSts,"message"=>"Tambah Toko ".($insSts?'Berhasil':'Gagal')]);
+    }
+
+    public function productPage($id)
+    {
+        $idToko = Crypt::decryptString($id);
+        if(session()->get('userData')['level']==0 || session()->get('userData')['level']==1|| session()->get('userData')['level']==2){
+            $products = Product::with('getstore')->get();
+        } else if(session()->get('userData')['level']==3){
+            $products = Product::with('getstore')->where(['created_user'=>auth()->user()->id,'id_toko'=>$idToko])->get();
+        } 
+        
+        return view('pages.admin.produk',compact('products','idToko'));
+    }
+
+    public function storeProduct()
+    {
+        $insData = [
+            'product_name'=>request('product_name'),
+            'price'=>request('price'),
+            'description'=>request('description'),
+            'active'=>request('active'),
+            'image'=>request('image'),
+            'id_toko'=>request('id_toko'),
+            'active'=>'1',
+            "created_user"=>auth()->user()->id
+        ];
+        // dd($insData);
+        // 'store_banner','store_logo'
+
+        $storeBanner = request()->file('image');
+        $dir = 'store/product/';
+        $fileName = Str::random(15).".".$storeBanner->getClientOriginalExtension();
+        $storeBanner->move($dir,$fileName);
+        $insData['image']=$dir.$fileName;
+        
+        $insSts = Product::create($insData);
+        return redirect()->back()->with(["error"=>!$insSts,"message"=>"Tambah Produk ".($insSts?'Berhasil':'Gagal')]);
+    }
 }

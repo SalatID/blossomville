@@ -16,7 +16,7 @@ class CreateStoreTable extends Migration
         Schema::create('store', function (Blueprint $table) {
             $table->increments('id');
             $table->string('store_name',100);
-            $table->date('address');
+            $table->text('address');
             $table->text('description');
             $table->string('store_banner',150);
             $table->string('store_logo',150);
