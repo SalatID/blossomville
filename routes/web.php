@@ -28,6 +28,7 @@ Route::get('/admin',[AdminController::class,'dashboard'])->name("dashboard");
     Route::get('/datawarga',[GuestController::class,'datawarga']);
     Route::get('/test',[TestController::class,'test']);
 // });
+Route::get('/aktifitas/{id}',[GuestController::class,'detailActivity']);
 
 Route::group(['middleware' => ['web','isLogin']],function () {
     Route::prefix('admin')->group(function(){
@@ -36,6 +37,9 @@ Route::group(['middleware' => ['web','isLogin']],function () {
         Route::get('/rt/datawarga',[DataWargaController::class,'datawargas']);
         Route::get('/rt/datawarga/{idWarga}',[DataWargaController::class,'datawarga']);
         Route::get('/rt/datawarga/verifikasi/{idWarga}',[AuthController::class,'verifiyUser']);
+
+        Route::get('/aktifitas',[GuestController::class,'activityPage']);
+        Route::post('/aktifitas',[GuestController::class,'StoreActivity']);
     });
     Route::get('/logout',[AuthController::class,'logout']);
     Route::post('/auth/profile/update',[AuthController::class,'updateProfile']);
