@@ -4,7 +4,7 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin" >
         <div class="sidebar-brand-icon">
-            <img src="{{ asset('assets/img/footer-logo.png') }}" class="img-fluid" alt="">
+            <img src="{{ asset('/login/images/blossom-logo.png') }}" class="img-fluid" alt="">
         </div>
         <div class="sidebar-brand-text mx-3">Blossom Ville </div>
     </a>
@@ -21,7 +21,7 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item {{ explode('/', url()->current())[3] == 'dashboard' ? 'active' : '' }}">
-        <a class="nav-link" href="/dashboard">
+        <a class="nav-link" href="/admin">
             <i class="fas fa-fw icon-2-5vw fa-chart-area"></i>
             <span>Dashboard</span>
         </a>
@@ -47,17 +47,17 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Info Warga</h6>
                         @if (session()->get('userData')['level'] != 3)
-                        <a class="collapse-item" href="utilities-color.html">Berita</a>
-                        <a class="collapse-item" href="utilities-color.html">Aktifitas</a>
+                        <a class="collapse-item" href="/admin/berita">Berita</a>
+                        <a class="collapse-item" href="/admin/aktifitas">Aktifitas</a>
                         @endif
-                        <a class="collapse-item" href="utilities-border.html">Testimoni</a>
-                        <a class="collapse-item" href="utilities-animation.html">Usaha Warga</a>
+                        <a class="collapse-item" href="/admin/testimoni">Testimoni</a>
+                        <a class="collapse-item" href="/admin/usaha">Usaha Warga</a>
                     </div>
                 </div>
     </li>
     @if (session()->get('userData')['level'] !=3)
     <li class="nav-item {{ explode('/', url()->current())[3] == 'request' ? 'active' : '' }}">
-        <a class="nav-link " href="/request">
+        <a class="nav-link " href="/admin/surat">
             <i class="fas fa-fw icon-2-5vw fa-file-word"></i>
             <span>Surat Menyurat</span>
         </a>
@@ -65,7 +65,7 @@
     @endif
     @if (session()->get('userData')['level'] == 0)
     <li class="nav-item {{ explode('/', url()->current())[3] == 'request' ? 'active' : '' }}">
-        <a class="nav-link " href="/request">
+        <a class="nav-link " href="/admin/sitesetting">
             <i class="fas fa-fw icon-2-5vw fa-cog"></i>
             <span>Site Setting</span>
         </a>

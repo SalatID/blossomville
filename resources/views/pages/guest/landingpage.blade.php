@@ -175,7 +175,7 @@
                       </div>
                    </div>
                    <div class="our_portfolio_btn">
-                      <a href="#"><i class="fa fa-arrow-right"></i></a>
+                      <a href="/aktifitas/{{Crypt::encryptString($item->id)}}"><i class="fa fa-arrow-right"></i></a>
                    </div>
                 </div>
              </div>
