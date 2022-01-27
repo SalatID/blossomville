@@ -56,7 +56,7 @@ class GuestController extends Controller
         $activityImg->move($dir,$fileName);
         $insData['activity_img']=$dir.$fileName;
         $insSts = DashboardActivity::create($insData);
-        return redirect()->back()->with(["error"=>!$insSts,"message"=>"Tambah Aktifitas ".($insSts?'Berhasil':'Gagal')]);;
+        return redirect()->back()->with(["error"=>!$insSts,"message"=>"Tambah Aktifitas ".($insSts?'Berhasil':'Gagal')]);
     }
 
     public function updActivity()
@@ -99,6 +99,54 @@ class GuestController extends Controller
             File::delete(public_path($dataActivity->activity_img));
         }
         DashboardActivity::where(["id"=>Crypt::decryptString($id)])->delete();
+        return redirect()->back()->with(["error"=>false,"message"=>"Delete Berhasil"]);;
+    }
+
+    public function testimoniPage()
+    {
+        if(session()->get('userData')['level']==0 || session()->get('userData')['level']==1|| session()->get('userData')['level']==2){
+            $testimoni = DashboardTestimoni::with('getcreator')->get();
+        } else if(session()->get('userData')['level']==3){
+            $testimoni = DashboardTestimoni::with('getcreator')->where('created_user',auth()->user()->id)->get();
+        } 
+        
+        return view('pages.admin.testimoni',compact('testimoni'));
+    }
+
+    public function storeTestimoni()
+    {
+        $insData = [
+            "title"=>request('title'),
+            "summary"=>request('summary'),
+            "created_user"=>auth()->user()->id
+        ];
+        $insSts = DashboardTestimoni::create($insData);
+        return redirect()->back()->with(["error"=>!$insSts,"message"=>"Tambah Testimoni ".($insSts?'Berhasil':'Gagal')]);
+    }
+
+    public function updTestimoni()
+    {
+        $updData = [
+            "title"=>request('title'),
+            "summary"=>request('summary'),
+        ];
+        $updSts = DashboardTestimoni::where(["id"=>request('id')])->update($updData);
+        return redirect()->back()->with(["error"=>!$updSts,"message"=>"Ubah Testimoni ".($updSts?'Berhasil':'Gagal')]);;
+    }
+
+    public function jsonDetailTestimoni($id)
+    {
+        $dataActivity = DashboardTestimoni::where(["id"=>Crypt::decryptString($id)])->first();
+        return response()->json($dataActivity);
+    }
+
+    public function delTestimoni($id)
+    {
+        $dataActivity = DashboardTestimoni::where(["id"=>Crypt::decryptString($id)])->first();
+        if(File::exists(public_path($dataActivity->activity_img))){
+            File::delete(public_path($dataActivity->activity_img));
+        }
+        DashboardTestimoni::where(["id"=>Crypt::decryptString($id)])->delete();
         return redirect()->back()->with(["error"=>false,"message"=>"Delete Berhasil"]);;
     }
 }

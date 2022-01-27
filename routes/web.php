@@ -41,9 +41,15 @@ Route::group(['middleware' => ['web','isLogin']],function () {
         Route::get('/aktifitas',[GuestController::class,'activityPage']);
         Route::post('/aktifitas',[GuestController::class,'storeActivity']);
         Route::post('/aktifitas/update',[GuestController::class,'updActivity']);
+        
+        Route::get('/testimoni',[Guestcontroller::class,'testimoniPage']);
+        Route::post('/testimoni',[GuestController::class,'storeTestimoni']);
+        Route::post('/testimoni/update',[GuestController::class,'updTestimoni']);
     });
     Route::get('/aktifitas/delete/{id}',[GuestController::class,'delActivity']);
     Route::get('/aktifitas/detail/{id}',[GuestController::class,'jsonDetailActivity']);
+    Route::get('/testimoni/detail/{id}',[GuestController::class,'jsonDetailTestimoni']);
+    Route::get('/testimoni/delete/{id}',[GuestController::class,'delTestimoni']);
     Route::get('/logout',[AuthController::class,'logout']);
     Route::post('/auth/profile/update',[AuthController::class,'updateProfile']);
     Route::get('/profile',[DataWargaController::class,'profile']);
