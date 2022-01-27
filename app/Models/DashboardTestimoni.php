@@ -10,6 +10,9 @@ class DashboardTestimoni extends Model
 {
     use HasFactory;
     protected $table = "dbs_testimoni";
+    protected $fillable =[
+        'title','summary','created_user'
+    ];
 
     public function getcreator()
     {
