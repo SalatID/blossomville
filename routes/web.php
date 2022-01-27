@@ -45,6 +45,14 @@ Route::group(['middleware' => ['web','isLogin']],function () {
         Route::get('/testimoni',[Guestcontroller::class,'testimoniPage']);
         Route::post('/testimoni',[GuestController::class,'storeTestimoni']);
         Route::post('/testimoni/update',[GuestController::class,'updTestimoni']);
+
+        Route::get('/usaha',[Guestcontroller::class,'storePage']);
+        Route::post('/usaha',[GuestController::class,'storeStore']);
+        
+        Route::get('/usaha/produk/{id}',[GuestController::class,'productPage']);
+        Route::post('/produk',[GuestController::class,'storeProduct']);
+
+
     });
     Route::get('/aktifitas/delete/{id}',[GuestController::class,'delActivity']);
     Route::get('/aktifitas/detail/{id}',[GuestController::class,'jsonDetailActivity']);

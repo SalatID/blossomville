@@ -21,6 +21,7 @@
     <!-- Custom styles for this template-->
     <link href="{{asset('/dashboard/assets/css/sb-admin-2.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" id="fontawesome-css-css" href="/guest/assets/fontawesome/css/font-awesome.css?ver=1.0.2" media="all">
     
     <!-- Bootstrap core JavaScript-->
     <script src="{{asset('/dashboard/assets/vendor/jquery/jquery.min.js')}}"></script>
