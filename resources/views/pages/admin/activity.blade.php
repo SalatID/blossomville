@@ -22,8 +22,10 @@
                             <td>{{$i++}}</td>
                             <td>{{$item->title}}</td>
                             <td>{{$item->activity_date}}</td>
-                            <td>
-                                <a href="/admin/aktifitas/{{Crypt::encryptString($item->id)}}" class="btn btn-primary">Detail</a>
+                            <td class="d-flex justify-content-start">
+                                <a href="/aktifitas/{{Crypt::encryptString($item->id)}}" target="_blank" class="btn btn-primary mr-2">Preview</a>
+                                <a href="#" data-id="{{Crypt::encryptString($item->id)}}" class="btn btn-success mr-2 btn-edit">Edit</a>
+                                <a href="#" data-id="{{Crypt::encryptString($item->id)}}" class="btn btn-danger mr-2 btn-delete">Hapus</a>
                             </td>
                         </tr> 
                     @endforeach
@@ -42,7 +44,7 @@
               </button>
             </div>
             <div class="modal-body">
-                <form action="/admin/aktifitas" method="post" enctype="multipart/form-data">
+                <form name="activityName" action="/admin/aktifitas" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group mb-3">
                         <label class="label" for="name">Judul Aktifitas</label>
@@ -63,15 +65,33 @@
                      <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
           </div>
         </div>
       </div>
 
     <script>
         $('#actifitis').DataTable();
+        $('.btn-edit').click(function(){
+            $.get('/aktifitas/detail/'+$(this).data('id'),function(d){
+                $('input[name="title"]').val(d.title)
+                $('input[name="activity_date"]').val(d.activity_date)
+                $('textarea[name="description"]').val(d.description)
+                $('input[name="activity_img"]').attr('required',false)
+                $('form[name="activityName"]').attr('action','/admin/aktifitas/update')
+                $('<input>').attr({
+                    type: 'hidden',
+                    name: 'id',
+                    value:d.id
+                }).appendTo('form');
+                $('#tambahAktifitas').modal('show')
+            })
+        })
+        $('.btn-delete').click(function(){
+            if(confirm("Hapus Aktifitas Ini?")){
+                $.get('/aktifitas/delete/'+$(this).data('id'),function(d){
+                    location.reload()
+                })
+            }
+        })
     </script>
 @endsection

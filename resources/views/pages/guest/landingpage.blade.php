@@ -171,11 +171,11 @@
                          <h3>{{$item->title}}</h3>
                       </div>
                       <div class="our_portfolio_sub_heading">
-                         <p>{{$item->description}}</p>
+                         <p>{{$item->activity_date}}</p>
                       </div>
                    </div>
                    <div class="our_portfolio_btn">
-                      <a href="/aktifitas/{{Crypt::encryptString($item->id)}}"><i class="fa fa-arrow-right"></i></a>
+                      <a href="/aktifitas/{{Crypt::encryptString($item->id)}}" target="_blank"><i class="fa fa-arrow-right"></i></a>
                    </div>
                 </div>
              </div>
