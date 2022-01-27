@@ -37,6 +37,7 @@
                         <td>
                             <a href="{{$item->verified==1?'#':'/admin/rt/datawarga/verifikasi/'.Crypt::encryptString($item->id)}}" class="btn btn-{{$item->verified==1?'success':'warning'}}" >{{$item->verified==1?'Sudah di Verifikasi':'Verifikasi Sekarang'}}</button>
                             <a href="/admin/rt/datawarga/{{Crypt::encryptString($item->id)}}" class="btn btn-primary">Detail</a>
+                            <a href="#" data-id="{{Crypt::encryptString($item->id)}}" class="btn btn-danger mr-2 btn-delete">Hapus</a>
                         </td>
                     </tr> 
                 @endforeach
@@ -46,5 +47,12 @@
 </div>
 <script>
     $('#dataWargas').DataTable();
+    $('.btn-delete').click(function(){
+            if(confirm("Hapus Warga Ini?")){
+                $.get('/user/delete/'+$(this).data('id'),function(d){
+                    location.reload()
+                })
+            }
+        })
 </script>
 @endsection
