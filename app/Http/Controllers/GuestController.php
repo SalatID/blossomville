@@ -13,6 +13,7 @@ use App\Models\RtRw;
 use DB;
 use Str;
 use Illuminate\Support\Facades\Crypt;
+use File;
 
 class GuestController extends Controller
 {
@@ -58,11 +59,46 @@ class GuestController extends Controller
         return redirect()->back()->with(["error"=>!$insSts,"message"=>"Tambah Aktifitas ".($insSts?'Berhasil':'Gagal')]);;
     }
 
+    public function updActivity()
+    {
+        $updData = [
+            "title"=>request('title'),
+            "description"=>request('description'),
+            "activity_date"=>request('activity_date'),
+            "updated_user"=>auth()->user()->id
+        ];
+        $activityImg = request()->file('activity_img');
+        if($activityImg!=null){
+            $dir = 'activity/';
+            $fileName = Str::random(15).".".$activityImg->getClientOriginalExtension();
+            $activityImg->move($dir,$fileName);
+            $updData['activity_img']=$dir.$fileName;
+        }
+        $updSts = DashboardActivity::where(["id"=>request('id')])->update($updData);
+        return redirect()->back()->with(["error"=>!$updSts,"message"=>"Ubah Aktifitas ".($updSts?'Berhasil':'Gagal')]);;
+    }
+
     public function detailActivity($id)
     {
         $title = "Aktfitas Warga";
         $page = true;
         $dataActivity = DashboardActivity::where(["id"=>Crypt::decryptString($id)])->first();
         return view('pages.guest.aktifitas',compact('title','page','dataActivity'));
+    }
+
+    public function jsonDetailActivity($id)
+    {
+        $dataActivity = DashboardActivity::where(["id"=>Crypt::decryptString($id)])->first();
+        return response()->json($dataActivity);
+    }
+
+    public function delActivity($id)
+    {
+        $dataActivity = DashboardActivity::where(["id"=>Crypt::decryptString($id)])->first();
+        if(File::exists(public_path($dataActivity->activity_img))){
+            File::delete(public_path($dataActivity->activity_img));
+        }
+        DashboardActivity::where(["id"=>Crypt::decryptString($id)])->delete();
+        return redirect()->back()->with(["error"=>false,"message"=>"Delete Berhasil"]);;
     }
 }
