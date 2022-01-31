@@ -211,4 +211,16 @@ class AuthController extends Controller
         User::where(["id"=>Crypt::decryptString($id)])->delete();
         return redirect()->back()->with(["error"=>false,"message"=>"Delete Berhasil"]);;
     }
+
+    public function updSts($id,$level)
+    {
+      $dataWarga = User::where(["id"=>$id])->first();
+      if($level==1){
+        User::where(["level"=>$level])->update(["level"=>3]);
+      } else {
+        User::where(["level"=>$level,"id_rt"=>$dataWarga->id_rt])->update(["level"=>3]);
+      }
+      $updSts = User::where(["id"=>$id])->update(["level"=>$level]);
+      return redirect()->back()->with(["eroor"=>!$updSts,"message"=>"Ubah Level ".($updSts?"Berhasil":"Gagal")]);
+    }
 }

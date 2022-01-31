@@ -29,6 +29,7 @@ Route::get('/admin',[AdminController::class,'dashboard'])->name("dashboard");
     Route::get('/test',[TestController::class,'test']);
 // });
 Route::get('/aktifitas/{id}',[GuestController::class,'detailActivity']);
+Route::get('/products',[GuestController::class,'products']);
 
 Route::group(['middleware' => ['web','isLogin']],function () {
     Route::prefix('admin')->group(function(){
@@ -52,6 +53,9 @@ Route::group(['middleware' => ['web','isLogin']],function () {
         Route::get('/usaha/produk/{id}',[GuestController::class,'productPage']);
         Route::post('/produk',[GuestController::class,'storeProduct']);
 
+        Route::get('/sitesetting',[AdminController::class,'sitesetting']);
+        Route::post('/sitesetting',[AdminController::class,'storeSetting']);
+
 
     });
     Route::get('/aktifitas/delete/{id}',[GuestController::class,'delActivity']);
@@ -59,6 +63,7 @@ Route::group(['middleware' => ['web','isLogin']],function () {
     Route::get('/testimoni/detail/{id}',[GuestController::class,'jsonDetailTestimoni']);
     Route::get('/testimoni/delete/{id}',[GuestController::class,'delTestimoni']);
     Route::get('/user/delete/{id}',[AuthController::class,'delUser']);
+    Route::get('/user/update/status/{id}/{level}',[AuthController::class,'updSts']);
     Route::get('/logout',[AuthController::class,'logout']);
     Route::post('/auth/profile/update',[AuthController::class,'updateProfile']);
     Route::get('/profile',[DataWargaController::class,'profile']);

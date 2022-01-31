@@ -6,10 +6,10 @@
     <div class="col-xl-4 text-center">
         <h1>Lampiran KTP</h1>
         <h3>No KTP : {{$dataWarga->nik}}</h3>
-        <img class="col-12 img-fluid" src="/{{$dataWarga->img_ktp}}" alt="">
+        <img class="col-12 img-fluid" src="/{{$dataWarga->img_ktp??'dashboard/assets/img/ktp.png'}}" alt="">
         <h1>Lampiran KK</h1>
         <h3>No KK : {{$dataWarga->kk}}</h3>
-        <img class="col-12 img-fluid" src="/{{$dataWarga->img_kk}}" alt="">
+        <img class="col-12 img-fluid" src="/{{$dataWarga->img_ktp??'dashboard/assets/img/kk.png'}}" alt="">
     </div>
     <div class="col-xl-8 card rounded">
         <div class="card-body">
@@ -88,6 +88,35 @@
                 <a href="{{$dataWarga->verified==1?'#':'/admin/rt/datawarga/verifikasi/'.Crypt::encryptString($idWarga)}}" class="btn btn-{{$dataWarga->verified==1?'success':'warning'}}">{{$dataWarga->verified==1?'Sudah Di Verifikasi':'Verifikasi Sekarang'}}</a>
             </div>
         </div>
+        <div class="card-body">
+          <h3>Anggota Keluarga</h3>
+          <table class="table table-striped" id="tableFamily">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>NIK</th>
+                <th>Status Dalam Keluarga</th>
+                <th>Status Pernikahan</th>
+              </tr>
+            </thead>
+            <tbody>
+              @php($i=1)
+              @foreach ($dataFamily as $item)
+              <tr>
+                <td>{{$i++}}</td>
+                <td>{{$item->full_name}}</td>
+                <td>{{$item->nik}}</td>
+                <td>{{$item->sts}}</td>
+                <td>{{$item->marriage}}</td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
     </div>
 </div>
+<script>
+  $('#tableFamily').DataTable()
+</script>
 @endsection

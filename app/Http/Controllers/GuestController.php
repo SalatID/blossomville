@@ -10,6 +10,7 @@ use App\Models\DashboardTestimoni;
 use App\Models\Product;
 use App\Models\Store;
 use App\Models\RtRw;
+use App\Models\SiteSetting;
 use DB;
 use Str;
 use Illuminate\Support\Facades\Crypt;
@@ -17,6 +18,12 @@ use File;
 
 class GuestController extends Controller
 {
+    protected $siteSetting;
+
+    public function __construct()
+    {
+        $this->siteSetting = SiteSetting::first();
+    }
     public function index()
     {
         $banner = DashboardBanner::all();
@@ -24,22 +31,25 @@ class GuestController extends Controller
         $rt = RtRw::all();
         $testimoni = DashboardTestimoni::with('getcreator')->limit(10)->get();
         // dd($testimoni->getcreator);
+        $siteSetting = $this->siteSetting;
         $product = Product::with("getstore")->limit(10)->get();
-        return view('pages.guest.landingpage',compact('banner','activity','rt','testimoni','product'));
+        return view('pages.guest.landingpage',compact('banner','activity','rt','testimoni','product','siteSetting'));
     }
 
     public function datawarga()
     {
         $title = "Data Warga";
         $page = true;
-        $dataWarga = User::whereIn('level',[3,2])->whereNotNull('email_verified_at')->where('verified',DB::raw('1'))->get();
-        return view('pages.guest.datawarga',compact('title','page','dataWarga'));
+        $dataWarga = User::whereIn('level',[3,2])->whereNotNull('email_verified_at')->where('verified',DB::raw('1'))->orderBy('full_name')->get();
+        $siteSetting = $this->siteSetting;
+        return view('pages.guest.datawarga',compact('title','page','dataWarga','siteSetting'));
     }
 
     public function activityPage()
     {
         $activity = DashboardActivity::all();
-        return view('pages.admin.activity',compact('activity'));
+        $siteSetting = $this->siteSetting;
+        return view('pages.admin.activity',compact('activity','siteSetting'));
     }
 
     public function storeActivity()
@@ -83,7 +93,8 @@ class GuestController extends Controller
         $title = "Aktfitas Warga";
         $page = true;
         $dataActivity = DashboardActivity::where(["id"=>Crypt::decryptString($id)])->first();
-        return view('pages.guest.aktifitas',compact('title','page','dataActivity'));
+        $siteSetting = $this->siteSetting;
+        return view('pages.guest.aktifitas',compact('title','page','dataActivity','siteSetting'));
     }
 
     public function jsonDetailActivity($id)
@@ -109,8 +120,8 @@ class GuestController extends Controller
         } else if(session()->get('userData')['level']==3){
             $testimoni = DashboardTestimoni::with('getcreator')->where('created_user',auth()->user()->id)->get();
         } 
-        
-        return view('pages.admin.testimoni',compact('testimoni'));
+        $siteSetting = $this->siteSetting;
+        return view('pages.admin.testimoni',compact('testimoni','siteSetting'));
     }
 
     public function storeTestimoni()
@@ -157,8 +168,8 @@ class GuestController extends Controller
         } else if(session()->get('userData')['level']==3){
             $tokos = Store::where('created_user',auth()->user()->id)->get();
         } 
-        
-        return view('pages.admin.store',compact('tokos'));
+        $siteSetting = $this->siteSetting;
+        return view('pages.admin.store',compact('tokos','siteSetting'));
     }
 
     public function storeStore()
@@ -196,13 +207,14 @@ class GuestController extends Controller
     public function productPage($id)
     {
         $idToko = Crypt::decryptString($id);
+        $dataToko = Store::where(["id"=>$idToko])->first();
         if(session()->get('userData')['level']==0 || session()->get('userData')['level']==1|| session()->get('userData')['level']==2){
             $products = Product::with('getstore')->get();
         } else if(session()->get('userData')['level']==3){
             $products = Product::with('getstore')->where(['created_user'=>auth()->user()->id,'id_toko'=>$idToko])->get();
         } 
-        
-        return view('pages.admin.produk',compact('products','idToko'));
+        $siteSetting = $this->siteSetting;
+        return view('pages.admin.produk',compact('products','idToko','siteSetting','dataToko'));
     }
 
     public function storeProduct()
@@ -228,5 +240,12 @@ class GuestController extends Controller
         
         $insSts = Product::create($insData);
         return redirect()->back()->with(["error"=>!$insSts,"message"=>"Tambah Produk ".($insSts?'Berhasil':'Gagal')]);
+    }
+
+    public function products()
+    {
+        $products = Product::with('getstore')->get();
+        $siteSetting = $this->siteSetting;
+        return view('pages.guest.products',compact('products','siteSetting'));
     }
 }

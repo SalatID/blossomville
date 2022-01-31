@@ -536,7 +536,7 @@ header.featured_slider_title.entry-header {
     transition: all 1s ease-in-out;
 }
 .card:hover {
-  transform: rotateY(180deg);
+  /* transform: rotateY(180deg); */
 }
 .card .side {
     backface-visibility: hidden;

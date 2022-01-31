@@ -20,13 +20,13 @@ class CreateSiteConfigTable extends Migration
             $table->string('site_icon',150);
             $table->string('site_favicon',150);
             $table->string('site_whatsapp',14);
-            $table->boolean('site_whatsapp_on');
+            $table->string('site_whatsapp_on',1);
             $table->string('site_email',50);
-            $table->boolean('site_email_on');
+            $table->string('site_email_on',1);
             $table->string('site_instagram',50);
-            $table->boolean('site_instagram_on');
+            $table->string('site_instagram_on',1);
             $table->string('site_twitter',50);
-            $table->boolean('site_twitter_on');
+            $table->string('site_twitter_on',1);
             $table->integer('created_user');
             $table->integer('updated_user');
             $table->timestamps();

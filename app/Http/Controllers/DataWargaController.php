@@ -13,7 +13,7 @@ class DataWargaController extends Controller
     public function dataWargas()
     {
         if(session()->get('userData')['level']==0 || session()->get('userData')['level']==1){
-            $dataWarga = User::whereIn('level',[3,2])->get();
+            $dataWarga = User::get();
         } else if(session()->get('userData')['level']==2){
             $dataWarga = User::where('level',3)->where('id_rt',session()->get('userData')['rt'])->get();
         } 
@@ -30,8 +30,9 @@ class DataWargaController extends Controller
            $join->on('users.level',DB::raw("2"));
         })
         ->where(["users.id"=>$idWarga])->first();
+        $dataFamily = User::where(['kk'=>$dataWarga->kk])->get();
         // dd($dataWarga);
-        return view('pages.admin.datawarga',compact('dataWarga','idWarga'));
+        return view('pages.admin.datawarga',compact('dataWarga','idWarga','dataFamily'));
     }
 
     public function profile()
@@ -44,7 +45,8 @@ class DataWargaController extends Controller
            $join->on('users.level',DB::raw("2"));
         })
         ->where(["users.id"=>auth()->user()->id])->first();
+        $dataFamily = User::where(['kk'=>$dataWarga->kk])->get();
         // dd($dataWarga);
-        return view('pages.admin.profile',compact('dataWarga','idWarga','rt'));
+        return view('pages.admin.profile',compact('dataWarga','idWarga','rt','dataFamily'));
     }
 }
