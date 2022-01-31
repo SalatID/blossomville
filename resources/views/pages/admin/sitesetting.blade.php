@@ -19,14 +19,14 @@
          </div>
       </div>
       <div class="col-sm-6">
-         <img src="/{{$siteData->site_icon}}" class="img-fluid" alt="">
+         <img src="/{{$siteData->site_icon??''}}" class="img-fluid" alt="">
          <div class="form-group mb-3">
             <label class="label" for="name">Icon</label>
             <input type="file" name="site_icon" class="form-control" placeholder="Icon" value='{{$siteData->site_icon??''}}' >
          </div>
       </div>
       <div class="col-sm-6">
-         <img src="/{{$siteData->site_favicon}}" class="img-fluid" alt="">
+         <img src="/{{$siteData->site_favicon??''}}" class="img-fluid" alt="">
          <div class="form-group mb-3">
             <label class="label" for="name">Favicon</label>
             <input type="file" name="site_favicon" class="form-control" placeholder="Favicon" value='{{$siteData->site_favicon??''}}' >
