@@ -128,7 +128,7 @@
           </div>
        </div>
     </div>
-    <div class="about_section_info">
+    <div class="about_section_info p-3">
        <div class="about_data">
           <div class="about_main_title">
              <h1>About Us</h1>
@@ -194,10 +194,10 @@
                 <p></p>
              </div>
           </div>
-          <div class="our_team_data">
+          <div class="">
              @foreach ($rt as $item)
                  
-             <div class="our_team_container">
+             <div class="our_team_container d-flex justify-content-center">
                 <div class="our_team_container_data">
                    <div class="our_team_thumb">
                       <img src="{{$item->rt_foto_src}}" alt="The Last of us">
@@ -267,7 +267,7 @@
              <div class="owl-stage-outer">
                 <div class="owl-stage" style="transform: translate3d(-1110px, 0px, 0px); transition: all 0s ease 0s; width: 3330px;">
                   @foreach ($testimoni as $item)
-                  <div class="owl-item" style="width: 360px; margin-right: 10px;">
+                  <div class="owl-item col-sm-12" >
                      <div class="our_testimonial_data">
                         <div class="testimonials_disc">
                            <div class="our_testimonials_container">
@@ -305,7 +305,7 @@
           </div>
           <div class="our_sponsors_contain">
              @foreach ($product as $item)
-             <div class="bg-white col-xl-3 col-md-4 col-sm-6 mx-2">
+             <div class="bg-white col-xl-3 col-md-4 col-sm-6 m-2">
                <img class="card-img-top" src="/{{$item->image}}" style="height: 25vh; object-fit:cover;width:100%" alt="Card image cap">
                <div class="card-body">
                    <h3 class="card-title">{{$item->product_name}}</h3>
