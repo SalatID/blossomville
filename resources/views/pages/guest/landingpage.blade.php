@@ -54,7 +54,7 @@
                       </header>
                    </div>
                 </div>
-                <div class="side back featured-thumbnail" data-href="/datawarga">
+                {{-- <div class="side back featured-thumbnail" data-href="/datawarga">
                    <div class="featured-icon"> 
                       <i class="fa fa-user"></i>
                    </div>
@@ -67,12 +67,12 @@
                       <div class="entry-content">
                       </div>
                    </div>
-                </div>
+                </div> --}}
              </div>
              <div class="card section-featured-wrep">
-                <div class="side featured-thumbnail" data-href="/">
+                <div class="side featured-thumbnail" data-href="#our_portfolio_info">
                    <div class="featured-icon"> 
-                      <i class="fa fa-user"></i>
+                      <i class="fa fa-play-circle"></i>
                    </div>
                    <div class="featured-title">
                       <header class="entry-header">
@@ -82,9 +82,9 @@
                       </header>
                    </div>
                 </div>
-                <div class="side back featured-thumbnail" data-href="/">
+                {{-- <div class="side back featured-thumbnail" data-href="/">
                    <div class="featured-icon"> 
-                      <i class="fa fa-user"></i>
+                      <i class="fa fa-play-circle"></i>
                    </div>
                    <div class="featured-title">
                       <header class="entry-header">
@@ -95,12 +95,12 @@
                       <div class="entry-content">
                       </div>
                    </div>
-                </div>
+                </div> --}}
              </div>
              <div class="card section-featured-wrep">
                 <div class="side featured-thumbnail" data-href="/">
                    <div class="featured-icon"> 
-                      <i class="fa fa-user"></i>
+                      <i class="fa fa-info"></i>
                    </div>
                    <div class="featured-title">
                       <header class="entry-header">
@@ -110,9 +110,9 @@
                       </header>
                    </div>
                 </div>
-                <div class="side back featured-thumbnail" data-href="/">
+                {{-- <div class="side back featured-thumbnail" data-href="/">
                    <div class="featured-icon"> 
-                      <i class="fa fa-user"></i>
+                      <i class="fa fa-info"></i>
                    </div>
                    <div class="featured-title">
                       <header class="entry-header">
@@ -123,7 +123,7 @@
                       <div class="entry-content">
                       </div>
                    </div>
-                </div>
+                </div> --}}
              </div>
           </div>
        </div>

@@ -52,6 +52,9 @@ Route::group(['middleware' => ['web','isLogin']],function () {
         Route::get('/usaha/produk/{id}',[GuestController::class,'productPage']);
         Route::post('/produk',[GuestController::class,'storeProduct']);
 
+        Route::get('/sitesetting',[AdminController::class,'sitesetting']);
+        Route::post('/sitesetting',[AdminController::class,'storeSetting']);
+
 
     });
     Route::get('/aktifitas/delete/{id}',[GuestController::class,'delActivity']);

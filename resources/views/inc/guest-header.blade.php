@@ -21,28 +21,32 @@
           </div>
           <div class="header_social_icon">
              <div class="socials_icons">
-                <a class="twitter social_icon" href="https://twitter.com/" target="_blank">
+                @if ($siteSetting->site_twitter_on=='Y')
+                <a class="twitter social_icon" href="{{$siteSetting->site_twitter}}" target="_blank">
                 <i class="fa fa-twitter"></i>
                 </a>
-                <a class="facebook social_icon" href="https://www.facebook.com/" target="_blank">
-                <i class="fa fa-facebook"></i>
+                @endif
+                @if ($siteSetting->site_email_on=='Y')
+                <a class="facebook social_icon" href="{{$siteSetting->site_email}}" target="_blank">
+                <i class="fa fa-envelope"></i>
                 </a>
-                <a class="instagram social_icon" href="https://www.instagram.com/" target="_blank">
+                @endif
+                @if ($siteSetting->site_instagram_on=='Y')
+                <a class="instagram social_icon" href="{{$siteSetting->site_instagram}}" target="_blank">
                 <i class="fa fa-instagram"></i>
                 </a>
-                <a class="linkedin social_icon" href="https://www.linkedin.com/feed/" target="_blank">
-                <i class="fa fa-linkedin"></i>
+                    
+                @endif
+                @if ($siteSetting->site_whatsapp_on=='Y')
+                <a class="linkedin social_icon" href="{{$siteSetting->site_whatsapp_on}}" target="_blank">
+                <i class="fa fa-whatsapp"></i>
                 </a>
-                <a class="pinterest social_icon" href="https://www.pinterest.com" target="_blank">
-                <i class="fa fa-pinterest"></i>
-                </a>
-                <a class="youtube social_icon" href="https://www.youtube.com/" target="_blank">
-                <i class="fa fa-youtube"></i>
-                </a>
+                    
+                @endif
              </div>
-             <div class="goldly_menu_btn">
+             {{-- <div class="goldly_menu_btn">
                 <a class="call_menu_btn" href="#">Get A Quote</a>
-             </div>
+             </div> --}}
           </div>
        </div>
     </div>
@@ -50,9 +54,13 @@
        <div class="header_info">
           <div class="header_data">
              <div class="site-branding">
-                <div class="header_logo">
-                   <h1 class="site-title"><a href="http://localhost/wordpresstest/" rel="home">Blossom Ville</a></h1>
-                   <p class="site-description">Blossom Ville Citra Raya</p>
+                <div class="header_logo d-flex justify-content-start">
+                  <img src="/{{$siteSetting->site_icon}}" style="width: 8vw;" class="img-fluid" alt="">
+                  <div>
+                     <h1 class="site-title"><a href="http://localhost/wordpresstest/" rel="home"> {{$siteSetting->site_title}}</a></h1>
+                     <p class="site-description">{{$siteSetting->site_description}}</p>
+
+                  </div>
                 </div>
              </div>
              <!-- .site-branding -->
