@@ -1,8 +1,8 @@
 <header id="masthead" class="site-header ">
     <div class="top_bar_info">
        <div class="header_topbar_info">
-          <div class="header_top_bar">
-             <div class="contact_data">
+          <div class="container row">
+             <div class="contact_data col-xl-6 col-sm-12">
                 <div class="contact_icon">
                    <i class="fa fa-phone"></i>
                 </div>
@@ -10,7 +10,7 @@
                    <p>Security<a href="http://wa.me/6282113118003" target="_blank">+62821-1311-8003</a></p>
                 </div>
              </div>
-             <div class="email_data">
+             <div class="email_data col-xl-6 col-sm-12">
                 <div class="email_icon">
                    <i class="fa fa-envelope"></i>
                 </div>
@@ -53,9 +53,9 @@
     <div class="main_site_header">
        <div class="header_info">
           <div class="header_data">
-             <div class="site-branding">
+             <div class="site-branding p-3">
                 <div class="header_logo d-flex justify-content-start">
-                  <img src="/{{$siteSetting->site_icon??''}}" style="width: 8vw;" class="img-fluid" alt="">
+                  <img src="/{{$siteSetting->site_icon??''}}" style="width: 8vw;" class="img-fluid" id="siteIcon" alt="">
                   <div>
                      <h1 class="site-title"><a href="http://localhost/wordpresstest/" rel="home"> {{$siteSetting->site_title??''}}</a></h1>
                      <p class="site-description">{{$siteSetting->site_description??''}}</p>

@@ -418,7 +418,13 @@
       <style media="screen">
          * html body { margin-top: 32px !important; }
          @media screen and ( max-width: 782px ) {
-         html { margin-top: 46px !important; }
+         /* html { margin-top: 46px !important; } */
+         #siteIcon{
+            display: none;
+         }
+         .our_team_container{
+         width: 100% !important;
+         }
          /* * html body { margin-top: 46px !important; } */
          .floating-div{
          width: 200px !important;
