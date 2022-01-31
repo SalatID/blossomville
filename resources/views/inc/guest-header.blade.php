@@ -55,10 +55,10 @@
           <div class="header_data">
              <div class="site-branding">
                 <div class="header_logo d-flex justify-content-start">
-                  <img src="/{{$siteSetting->site_icon}}" style="width: 8vw;" class="img-fluid" alt="">
+                  <img src="/{{$siteSetting->site_icon??''}}" style="width: 8vw;" class="img-fluid" alt="">
                   <div>
-                     <h1 class="site-title"><a href="http://localhost/wordpresstest/" rel="home"> {{$siteSetting->site_title}}</a></h1>
-                     <p class="site-description">{{$siteSetting->site_description}}</p>
+                     <h1 class="site-title"><a href="http://localhost/wordpresstest/" rel="home"> {{$siteSetting->site_title??''}}</a></h1>
+                     <p class="site-description">{{$siteSetting->site_description??''}}</p>
 
                   </div>
                 </div>
