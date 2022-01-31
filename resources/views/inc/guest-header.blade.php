@@ -21,23 +21,23 @@
           </div>
           <div class="header_social_icon">
              <div class="socials_icons">
-                @if ($siteSetting->site_twitter_on=='Y')
+                @if (($siteSetting->site_twitter_on??'')=='Y')
                 <a class="twitter social_icon" href="{{$siteSetting->site_twitter}}" target="_blank">
                 <i class="fa fa-twitter"></i>
                 </a>
                 @endif
-                @if ($siteSetting->site_email_on=='Y')
+                @if (($siteSetting->site_email_on??'')=='Y')
                 <a class="facebook social_icon" href="{{$siteSetting->site_email}}" target="_blank">
                 <i class="fa fa-envelope"></i>
                 </a>
                 @endif
-                @if ($siteSetting->site_instagram_on=='Y')
+                @if (($siteSetting->site_instagram_on??'')=='Y')
                 <a class="instagram social_icon" href="{{$siteSetting->site_instagram}}" target="_blank">
                 <i class="fa fa-instagram"></i>
                 </a>
                     
                 @endif
-                @if ($siteSetting->site_whatsapp_on=='Y')
+                @if (($siteSetting->site_whatsapp_on??'')=='Y')
                 <a class="linkedin social_icon" href="{{$siteSetting->site_whatsapp_on}}" target="_blank">
                 <i class="fa fa-whatsapp"></i>
                 </a>
