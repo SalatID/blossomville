@@ -29,6 +29,7 @@ Route::get('/admin',[AdminController::class,'dashboard'])->name("dashboard");
     Route::get('/test',[TestController::class,'test']);
 // });
 Route::get('/aktifitas/{id}',[GuestController::class,'detailActivity']);
+Route::get('/products',[GuestController::class,'products']);
 
 Route::group(['middleware' => ['web','isLogin']],function () {
     Route::prefix('admin')->group(function(){

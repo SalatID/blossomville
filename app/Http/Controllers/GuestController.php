@@ -241,4 +241,11 @@ class GuestController extends Controller
         $insSts = Product::create($insData);
         return redirect()->back()->with(["error"=>!$insSts,"message"=>"Tambah Produk ".($insSts?'Berhasil':'Gagal')]);
     }
+
+    public function products()
+    {
+        $products = Product::with('getstore')->get();
+        $siteSetting = $this->siteSetting;
+        return view('pages.guest.products',compact('products','siteSetting'));
+    }
 }
