@@ -24,11 +24,11 @@
       </style>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-      <link rel="stylesheet" id="goldly-style-css" href="/guest/style.css?ver=1.0.2" media="all">
-      <link rel="stylesheet" id="theme-css-css" href="/guest/assets/css/theme.css?ver=1.0.2" media="all">
-      <link rel="stylesheet" id="fontawesome-css-css" href="/guest/assets/fontawesome/css/font-awesome.css?ver=1.0.2" media="all">
-      <link rel="stylesheet" id="owl-carousel-min-css-css" href="/guest/assets/css/owl.carousel.min.css?ver=1.0.2" media="all">
-      <link rel="stylesheet" id="owl-carousel_theme-min-css-css" href="/guest/assets/css/owl.theme.min.css?ver=1.0.2" media="all">
+      <link rel="stylesheet" id="goldly-style-css" href="/guest/style.css?ver=1.0.3" media="all">
+      <link rel="stylesheet" id="theme-css-css" href="/guest/assets/css/theme.css?ver=1.0.3" media="all">
+      <link rel="stylesheet" id="fontawesome-css-css" href="/guest/assets/fontawesome/css/font-awesome.css?ver=1.0.3" media="all">
+      <link rel="stylesheet" id="owl-carousel-min-css-css" href="/guest/assets/css/owl.carousel.min.css?ver=1.0.3" media="all">
+      <link rel="stylesheet" id="owl-carousel_theme-min-css-css" href="/guest/assets/css/owl.theme.min.css?ver=1.0.3" media="all">
       {{-- <link rel="https://api.w.org/" href="http://localhost/wordpresstest/index.php/wp-json/"> --}}
       {{-- <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://localhost/wordpresstest/xmlrpc.php?rsd"> --}}
       <meta name="generator" content="WordPress 5.8.3">
@@ -544,9 +544,9 @@
          <button type="button" class="scrollingUp scrolling-btn" aria-label="scrollingUp"><i class="fa fa-angle-up"></i></button>
          {{-- <script src="http://localhost/wordpresstest/wp-includes/js/hoverintent-js.min.js?ver=2.2.1" id="hoverintent-js-js"></script>
          <script src="http://localhost/wordpresstest/wp-includes/js/admin-bar.min.js?ver=5.8.3" id="admin-bar-js"></script> --}}
-         <script src="/guest/assets/js/navigation.js?ver=1.0.2" id="goldly-navigation-js"></script>
-         <script src="/guest/assets/js/owl_slider.js?ver=1.0.2" id="goldly-owl_slider-js"></script>
-         <script src="/guest/assets/js/owl.carousel.min.js?ver=1.0.2" id="goldly-owl-carousel-min-js"></script>
+         <script src="/guest/assets/js/navigation.js?ver=1.0.3" id="goldly-navigation-js"></script>
+         <script src="/guest/assets/js/owl_slider.js?ver=1.0.3" id="goldly-owl_slider-js"></script>
+         <script src="/guest/assets/js/owl.carousel.min.js?ver=1.0.3" id="goldly-owl-carousel-min-js"></script>
          <script id="main-js-js-extra">
             var main_vars = {"img_autoplay":"1","img_autoplayspped":"1000","autoplay":"1","autoplayspped":"1000"};
          </script>

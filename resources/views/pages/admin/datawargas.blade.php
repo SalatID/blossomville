@@ -38,6 +38,15 @@
                             <a href="{{$item->verified==1?'#':'/admin/rt/datawarga/verifikasi/'.Crypt::encryptString($item->id)}}" class="btn btn-{{$item->verified==1?'success':'warning'}}" >{{$item->verified==1?'Sudah di Verifikasi':'Verifikasi Sekarang'}}</button>
                             <a href="/admin/rt/datawarga/{{Crypt::encryptString($item->id)}}" class="btn btn-primary">Detail</a>
                             <a href="#" data-id="{{Crypt::encryptString($item->id)}}" class="btn btn-danger mr-2 btn-delete">Hapus</a>
+                            @if (auth()->user()->level==0)
+                                <select name="level" class="form-control" data-id="{{$item->id}}">
+                                    <option value="">Update Level</option>
+                                    <option {{$item->level == '0'?'selected':''}} value="0">Administrator</option>
+                                    <option {{$item->level == '1'?'selected':''}} value="1">Ketua RW</option>
+                                    <option {{$item->level == '2'?'selected':''}} value="2">Ketua RT</option>
+                                    <option {{$item->level == '3'?'selected':''}} value="3">Warga</option>
+                                </select>
+                            @endif
                         </td>
                     </tr> 
                 @endforeach
@@ -48,11 +57,14 @@
 <script>
     $('#dataWargas').DataTable();
     $('.btn-delete').click(function(){
-            if(confirm("Hapus Warga Ini?")){
-                $.get('/user/delete/'+$(this).data('id'),function(d){
-                    location.reload()
-                })
-            }
-        })
+        if(confirm("Hapus Warga Ini?")){
+            $.get('/user/delete/'+$(this).data('id'),function(d){
+                location.reload()
+            })
+        }
+    })
+    $('select[name="level"]').change(function(){
+        window.location.href = '/user/update/status/'+$(this).data('id')+'/'+$(this).val();
+    })
 </script>
 @endsection

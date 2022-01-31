@@ -62,6 +62,7 @@ Route::group(['middleware' => ['web','isLogin']],function () {
     Route::get('/testimoni/detail/{id}',[GuestController::class,'jsonDetailTestimoni']);
     Route::get('/testimoni/delete/{id}',[GuestController::class,'delTestimoni']);
     Route::get('/user/delete/{id}',[AuthController::class,'delUser']);
+    Route::get('/user/update/status/{id}/{level}',[AuthController::class,'updSts']);
     Route::get('/logout',[AuthController::class,'logout']);
     Route::post('/auth/profile/update',[AuthController::class,'updateProfile']);
     Route::get('/profile',[DataWargaController::class,'profile']);

@@ -188,6 +188,32 @@
                   <button type="submit" class="btn btn-primary">Ubah Data</button>
               </div>
           </div>
+          <div class="card-body">
+            <h3>Anggota Keluarga</h3>
+            <table class="table table-striped" id="tableFamily">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Nama</th>
+                  <th>NIK</th>
+                  <th>Status Dalam Keluarga</th>
+                  <th>Status Pernikahan</th>
+                </tr>
+              </thead>
+              <tbody>
+                @php($i=1)
+                @foreach ($dataFamily as $item)
+                <tr>
+                  <td>{{$i++}}</td>
+                  <td>{{$item->full_name}}</td>
+                  <td>{{$item->nik}}</td>
+                  <td>{{$item->sts}}</td>
+                  <td>{{$item->marriage}}</td>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
       </div>
   </div>
 </form>
