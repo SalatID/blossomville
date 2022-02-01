@@ -85,7 +85,7 @@ class GuestController extends Controller
             $updData['activity_img']=$dir.$fileName;
         }
         $updSts = DashboardActivity::where(["id"=>request('id')])->update($updData);
-        return redirect()->back()->with(["error"=>!$updSts,"message"=>"Ubah Aktifitas ".($updSts?'Berhasil':'Gagal')]);;
+        return redirect()->back()->with(["error"=>!$updSts,"message"=>"Ubah Aktifitas ".($updSts?'Berhasil':'Gagal')]);
     }
 
     public function detailActivity($id)
@@ -110,7 +110,7 @@ class GuestController extends Controller
             File::delete(public_path($dataActivity->activity_img));
         }
         DashboardActivity::where(["id"=>Crypt::decryptString($id)])->delete();
-        return redirect()->back()->with(["error"=>false,"message"=>"Delete Berhasil"]);;
+        return redirect()->back()->with(["error"=>false,"message"=>"Delete Berhasil"]);
     }
 
     public function testimoniPage()
@@ -142,7 +142,7 @@ class GuestController extends Controller
             "summary"=>request('summary'),
         ];
         $updSts = DashboardTestimoni::where(["id"=>request('id')])->update($updData);
-        return redirect()->back()->with(["error"=>!$updSts,"message"=>"Ubah Testimoni ".($updSts?'Berhasil':'Gagal')]);;
+        return redirect()->back()->with(["error"=>!$updSts,"message"=>"Ubah Testimoni ".($updSts?'Berhasil':'Gagal')]);
     }
 
     public function jsonDetailTestimoni($id)
@@ -158,7 +158,7 @@ class GuestController extends Controller
             File::delete(public_path($dataActivity->activity_img));
         }
         DashboardTestimoni::where(["id"=>Crypt::decryptString($id)])->delete();
-        return redirect()->back()->with(["error"=>false,"message"=>"Delete Berhasil"]);;
+        return redirect()->back()->with(["error"=>false,"message"=>"Delete Berhasil"]);
     }
 
     public function storePage()
@@ -204,6 +204,39 @@ class GuestController extends Controller
         return redirect()->back()->with(["error"=>!$insSts,"message"=>"Tambah Toko ".($insSts?'Berhasil':'Gagal')]);
     }
 
+    public function updStore()
+    {
+        $updData = [
+            'store_name'=>request('store_name'),
+            'address'=>request('address'),
+            'description'=>request('description'),
+            'phone'=>request('phone'),
+            'whatsapp_sts'=>request('whatsapp_sts'),
+            "created_user"=>auth()->user()->id
+        ];
+        // dd($updData);
+        // 'store_banner','store_logo'
+
+        $storeBanner = request()->file('store_banner');
+        if($storeBanner!=null){
+            $dir = 'store/banner/';
+            $fileName = Str::random(15).".".$storeBanner->getClientOriginalExtension();
+            $storeBanner->move($dir,$fileName);
+            $updData['store_banner']=$dir.$fileName;
+        }
+
+        $storeLogo = request()->file('store_logo');
+        if($storeLogo!=null){
+            $dir = 'store/banner/';
+            $fileName = Str::random(15).".".$storeLogo->getClientOriginalExtension();
+            $storeLogo->move($dir,$fileName);
+            $updData['store_logo']=$dir.$fileName;
+        }
+        
+        $insSts = Store::where(['id'=>request('id')])->update($updData);
+        return redirect()->back()->with(["error"=>!$insSts,"message"=>"Update Toko ".($insSts?'Berhasil':'Gagal')]);
+    }
+
     public function productPage($id)
     {
         $idToko = Crypt::decryptString($id);
@@ -242,10 +275,79 @@ class GuestController extends Controller
         return redirect()->back()->with(["error"=>!$insSts,"message"=>"Tambah Produk ".($insSts?'Berhasil':'Gagal')]);
     }
 
+    public function updProduct()
+    {
+        $insData = [
+            'product_name'=>request('product_name'),
+            'price'=>request('price'),
+            'description'=>request('description'),
+            'active'=>request('active'),
+            'id_toko'=>request('id_toko'),
+            'active'=>'1',
+            "created_user"=>auth()->user()->id
+        ];
+        // dd($insData);
+        // 'store_banner','store_logo'
+
+        $storeBanner = request()->file('image');
+        if($storeBanner!=null){
+            $dir = 'store/product/';
+            $fileName = Str::random(15).".".$storeBanner->getClientOriginalExtension();
+            $storeBanner->move($dir,$fileName);
+            $insData['image']=$dir.$fileName;
+        }
+        
+        $insSts = Product::where('id',request('id'))->update($insData);
+        return redirect()->back()->with(["error"=>!$insSts,"message"=>"Tambah Produk ".($insSts?'Berhasil':'Gagal')]);
+    }
+
     public function products()
     {
         $products = Product::with('getstore')->get();
         $siteSetting = $this->siteSetting;
         return view('pages.guest.products',compact('products','siteSetting'));
+    }
+
+    public function jsonDetailToko($id)
+    {
+        $dataToko = Store::where(["id"=>Crypt::decryptString($id)])->first();
+        return response()->json($dataToko);
+    }
+
+    public function delToko($id)
+    {
+        $dataToko = Store::where(["id"=>Crypt::decryptString($id)])->first();
+        if(File::exists(public_path($dataToko->store_banner))){
+            File::delete(public_path($dataToko->store_banner));
+        }
+        if(File::exists(public_path($dataToko->store_logo))){
+            File::delete(public_path($dataToko->store_logo));
+        }
+        $dataProduct = Product::where('id_toko',$dataToko->id)->get();
+        foreach($dataProduct as $item){
+            $delProduct = Product::where(["id"=>$item->id])->first();
+            if(File::exists(public_path($delProduct->image))){
+                File::delete(public_path($delProduct->image));
+            }
+            Product::where(["id"=>$item->id])->delete();
+        }
+        Store::where(["id"=>Crypt::decryptString($id)])->delete();
+        return redirect()->back()->with(["error"=>false,"message"=>"Delete Berhasil"]);
+    }
+
+    public function jsonDetailProduct($id)
+    {
+        $dataProduct = Product::where(["id"=>Crypt::decryptString($id)])->first();
+        return response()->json($dataProduct);
+    }
+
+    public function delProduct($id)
+    {
+        $dataProduct = Product::where(["id"=>Crypt::decryptString($id)])->first();
+        if(File::exists(public_path($dataProduct->image))){
+            File::delete(public_path($dataProduct->image));
+        }
+        Product::where(["id"=>Crypt::decryptString($id)])->delete();
+        return redirect()->back()->with(["error"=>false,"message"=>"Delete Berhasil"]);;
     }
 }

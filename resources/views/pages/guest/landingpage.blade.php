@@ -194,7 +194,7 @@
                 <p></p>
              </div>
           </div>
-          <div class="">
+          <div class="row">
              @foreach ($rt as $item)
                  
              <div class="our_team_container d-flex justify-content-center">

@@ -49,9 +49,11 @@ Route::group(['middleware' => ['web','isLogin']],function () {
 
         Route::get('/usaha',[Guestcontroller::class,'storePage']);
         Route::post('/usaha',[GuestController::class,'storeStore']);
+        Route::post('/usaha/update',[GuestController::class,'updStore']);
         
         Route::get('/usaha/produk/{id}',[GuestController::class,'productPage']);
         Route::post('/produk',[GuestController::class,'storeProduct']);
+        Route::post('/produk/update',[GuestController::class,'updProduct']);
 
         Route::get('/sitesetting',[AdminController::class,'sitesetting']);
         Route::post('/sitesetting',[AdminController::class,'storeSetting']);
@@ -62,6 +64,10 @@ Route::group(['middleware' => ['web','isLogin']],function () {
     Route::get('/aktifitas/detail/{id}',[GuestController::class,'jsonDetailActivity']);
     Route::get('/testimoni/detail/{id}',[GuestController::class,'jsonDetailTestimoni']);
     Route::get('/testimoni/delete/{id}',[GuestController::class,'delTestimoni']);
+    Route::get('/usaha/detail/{id}',[GuestController::class,'jsonDetailToko']);
+    Route::get('/usaha/delete/{id}',[GuestController::class,'delToko']);
+    Route::get('/produk/detail/{id}',[GuestController::class,'jsonDetailProduct']);
+    Route::get('/produk/delete/{id}',[GuestController::class,'delProduct']);
     Route::get('/user/delete/{id}',[AuthController::class,'delUser']);
     Route::get('/user/update/status/{id}/{level}',[AuthController::class,'updSts']);
     Route::get('/logout',[AuthController::class,'logout']);

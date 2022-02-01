@@ -18,26 +18,35 @@
         </div>
     </div>
     <div class="col-md-9 overflow-auto">
-        @foreach ($products as $item)
-            <div class="card col-xl-4 col-md-4 col-sm-6">
-                <img class="card-img-top" src="/{{$item->image}}" style="height: 25vh; object-fit:cover;width:100%" alt="Card image cap">
-                <div class="card-body">
-                    <h3 class="card-title">{{$item->product_name}}</h3>
-                    <h5 class="card-title">Toko : {{$item->getstore->store_name}}</h5>
-                    <p class="card-text" style="height: 10vh">{{$item->description}}</p>
-                    <div class="d-flex justify-content-between">
-                        <h5 class="card-text">Rp {{$item->price}}</h5>
-                        @if ($item->getstore->whatsapp_sts=='Y')
-                            @php
-                                $url="";
-                                $text = "Hallo Saya ".auth()->user()->full_name." ingin bertanya tentang produk ".$item->product_name." dari toko ".$item->getstore->store_name.", saya melihat produk ini di ".$url;
-                            @endphp
-                            <a href="https://wa.me/{{$item->getstore->phone}}?text={{$text}}" class="card-text btn btn-success" target="_blank"><i class="fa fa-whatsapp"></i> Hubungi Penjual</a>
+        <div class="row">
+
+            @foreach ($products as $item)
+                <div class="card col-xl-4 col-md-4 col-sm-6 m-2">
+                    <img class="card-img-top" src="/{{$item->image}}" style="height: 25vh; object-fit:cover;width:100%" alt="Card image cap">
+                    <div class="card-body">
+                        <h3 class="card-title">{{$item->product_name}}</h3>
+                        <h5 class="card-title">Toko : {{$item->getstore->store_name}}</h5>
+                        <p class="card-text" style="height: 10vh">{{$item->description}}</p>
+                        <div class="d-flex justify-content-between">
+                            <h5 class="card-text">Rp {{$item->price}}</h5>
+                            @if ($item->getstore->whatsapp_sts=='Y')
+                                @php
+                                    $url="";
+                                    $text = "Hallo Saya ".auth()->user()->full_name." ingin bertanya tentang produk ".$item->product_name." dari toko ".$item->getstore->store_name.", saya melihat produk ini di ".$url;
+                                @endphp
+                                <a href="https://wa.me/{{$item->getstore->phone}}?text={{$text}}" class="card-text btn btn-success" target="_blank"><i class="fa fa-whatsapp"></i> Hubungi Penjual</a>
+                            @endif
+                        </div>
+                        @if (auth()->user()->id == $item->created_user)
+                        <div class="d-flex justify-content-between mt-3">
+                            <button type="button" class="btn btn-danger btn-delete" data-id="{{Crypt::encryptString($item->id)}}">Delete Product</button>
+                            <button tuyp="button" class="btn btn-primary btn-edit" data-id="{{Crypt::encryptString($item->id)}}">Edit Product</button>
+                        </div>
                         @endif
                     </div>
                 </div>
-            </div>
-            @endforeach
+                @endforeach
+        </div>
     </div>
     </div>
     <div class="modal fade" id="tambahProduk" tabindex="-1" role="dialog" aria-labelledby="tambahProdukLabel" aria-hidden="true">
@@ -75,4 +84,29 @@
           </div>
         </div>
       </div>
+      <script>
+          $('.btn-edit').click(function(){
+            $.get('/produk/detail/'+$(this).data('id'),function(d){
+                $('input[name="product_name"]').val(d.product_name)
+                $('input[name="price"]').val(d.price)
+                $('textarea[name="description"]').val(d.description)
+                $('input[name="image"]').attr('required',false)
+                $('form[name="activityName"]').attr('action','/admin/produk/update')
+                $('#tambahProdukLabel').text('Edit Produk')
+                $('<input>').attr({
+                    type: 'hidden',
+                    name: 'id',
+                    value:d.id
+                }).appendTo('form');
+                $('#tambahProduk').modal('show')
+            })
+          })
+          $('.btn-delete').click(function(){
+            if(confirm("Hapus Produk Ini?")){
+                $.get('/produk/delete/'+$(this).data('id'),function(d){
+                    location.reload()
+                })
+            }
+        })
+      </script>
 @endsection
