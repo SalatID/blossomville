@@ -565,6 +565,7 @@ class ComposerStaticInited8e6d69ade005c4074e24615a0b394f
         'App\\Models\\DashboardTestimoni' => __DIR__ . '/../..' . '/app/Models/DashboardTestimoni.php',
         'App\\Models\\Product' => __DIR__ . '/../..' . '/app/Models/Product.php',
         'App\\Models\\RtRw' => __DIR__ . '/../..' . '/app/Models/RtRw.php',
+        'App\\Models\\SiteSetting' => __DIR__ . '/../..' . '/app/Models/SiteSetting.php',
         'App\\Models\\Store' => __DIR__ . '/../..' . '/app/Models/Store.php',
         'App\\Models\\Test' => __DIR__ . '/../..' . '/app/Models/Test.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',

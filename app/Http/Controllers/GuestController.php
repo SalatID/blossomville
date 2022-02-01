@@ -11,6 +11,7 @@ use App\Models\Product;
 use App\Models\Store;
 use App\Models\RtRw;
 use App\Models\SiteSetting;
+use App\Models\News;
 use DB;
 use Str;
 use Illuminate\Support\Facades\Crypt;
@@ -33,7 +34,8 @@ class GuestController extends Controller
         // dd($testimoni->getcreator);
         $siteSetting = $this->siteSetting;
         $product = Product::with("getstore")->limit(10)->get();
-        return view('pages.guest.landingpage',compact('banner','activity','rt','testimoni','product','siteSetting'));
+        $news = News::limit(10)->orderBy('created_at')->get();
+        return view('pages.guest.landingpage',compact('banner','activity','rt','testimoni','product','siteSetting','news'));
     }
 
     public function datawarga()
@@ -140,6 +142,7 @@ class GuestController extends Controller
         $updData = [
             "title"=>request('title'),
             "summary"=>request('summary'),
+            "update_user"=>auth()->user()->id
         ];
         $updSts = DashboardTestimoni::where(["id"=>request('id')])->update($updData);
         return redirect()->back()->with(["error"=>!$updSts,"message"=>"Ubah Testimoni ".($updSts?'Berhasil':'Gagal')]);
@@ -212,7 +215,7 @@ class GuestController extends Controller
             'description'=>request('description'),
             'phone'=>request('phone'),
             'whatsapp_sts'=>request('whatsapp_sts'),
-            "created_user"=>auth()->user()->id
+            "update_user"=>auth()->user()->id
         ];
         // dd($updData);
         // 'store_banner','store_logo'
@@ -250,6 +253,19 @@ class GuestController extends Controller
         return view('pages.admin.produk',compact('products','idToko','siteSetting','dataToko'));
     }
 
+    public function guestProductPage($id)
+    {
+        $idToko = Crypt::decryptString($id);
+        $dataToko = Store::where(["id"=>$idToko])->first();
+        if(session()->get('userData')['level']==0 || session()->get('userData')['level']==1|| session()->get('userData')['level']==2){
+            $products = Product::with('getstore')->get();
+        } else if(session()->get('userData')['level']==3){
+            $products = Product::with('getstore')->where(['created_user'=>auth()->user()->id,'id_toko'=>$idToko])->get();
+        } 
+        $siteSetting = $this->siteSetting;
+        return view('pages.guest.store',compact('products','idToko','siteSetting','dataToko'));
+    }
+
     public function storeProduct()
     {
         $insData = [
@@ -284,7 +300,7 @@ class GuestController extends Controller
             'active'=>request('active'),
             'id_toko'=>request('id_toko'),
             'active'=>'1',
-            "created_user"=>auth()->user()->id
+            "updated_user"=>auth()->user()->id
         ];
         // dd($insData);
         // 'store_banner','store_logo'
@@ -348,6 +364,73 @@ class GuestController extends Controller
             File::delete(public_path($dataProduct->image));
         }
         Product::where(["id"=>Crypt::decryptString($id)])->delete();
+        return redirect()->back()->with(["error"=>false,"message"=>"Delete Berhasil"]);
+    }
+
+    public function newsPage()
+    {
+        $news = News::all();
+        return view('pages.admin.news',compact('news'));
+    }
+
+    public function storeNews()
+    {
+        $insData = [
+            "title"=>request('title'),
+            "content"=>request('content'),
+            "created_user"=>auth()->user()->id
+        ];
+        $newsImg = request()->file('news_banner');
+        if($newsImg){
+            $dir = 'news/';
+            $fileName = Str::random(15).".".$newsImg->getClientOriginalExtension();
+            $newsImg->move($dir,$fileName);
+            $insData['news_banner']=$dir.$fileName;
+        }
+        $insSts = News::create($insData);
+        return redirect()->back()->with(["error"=>!$insSts,"message"=>"Tambah Aktifitas ".($insSts?'Berhasil':'Gagal')]);
+    }
+
+    public function jsonDetailNews($id)
+    {
+        $dataNews = News::where(["id"=>Crypt::decryptString($id)])->first();
+        return response()->json($dataNews);
+    }
+
+    public function updNews()
+    {
+        $updData = [
+            "title"=>request('title'),
+            "content"=>request('content'),
+            "updated_user"=>auth()->user()->id
+        ];
+        $newsImg = request()->file('news_banner');
+        if($newsImg){
+            $dir = 'news/';
+            $fileName = Str::random(15).".".$newsImg->getClientOriginalExtension();
+            $newsImg->move($dir,$fileName);
+            $updData['news_banner']=$dir.$fileName;
+        }
+        $updSts = News::where('id',request('id'))->update($updData);
+        return redirect()->back()->with(["error"=>!$updSts,"message"=>"Tambah Aktifitas ".($updSts?'Berhasil':'Gagal')]);
+    }
+
+    public function delNews($id)
+    {
+        $dataNews = News::where(["id"=>Crypt::decryptString($id)])->first();
+        if(File::exists(public_path($dataNews->news_banner))){
+            File::delete(public_path($dataNews->news_banner));
+        }
+        News::where(["id"=>Crypt::decryptString($id)])->delete();
         return redirect()->back()->with(["error"=>false,"message"=>"Delete Berhasil"]);;
+    }
+
+    public function newsDetail($id)
+    {
+        $page = true;
+        $dataNews = News::where(["id"=>Crypt::decryptString($id)])->first();
+        $title=$dataNews->title;
+        $siteSetting = $this->siteSetting;
+        return view('pages.guest.news',compact('dataNews','title','page','siteSetting'));
     }
 }
