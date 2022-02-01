@@ -98,7 +98,7 @@
                 </div> --}}
              </div>
              <div class="card section-featured-wrep">
-                <div class="side featured-thumbnail" data-href="/">
+                <div class="side featured-thumbnail" data-href="#our_info">
                    <div class="featured-icon"> 
                       <i class="fa fa-info"></i>
                    </div>
@@ -149,6 +149,28 @@
           </div>
        </div>
     </div>
+    @if (!$news->isEmpty())
+    <div class="our_info" id="our_info">
+       <div class="our_portfolio_data">
+          <div class="our_portfolio_main_title">
+             <h1>Info Warga</h1>
+          </div>
+          <div class="our_portfolio_main_disc">
+             <p></p>
+          </div>
+          <div class="wrappers our_portfolio_section">
+             @foreach ($news as $item)
+             <div class=" col-xl-4 col-md-4 col-sm-6 m-2 " style="background: #eee" onclick="window.location.href='/news/detail/{{Crypt::encryptString($item->id)}}'">
+               <img class="card-img-top" src="/{{$item->news_banner}}" style="height: 25vh; object-fit:cover;width:100%" alt="Card image cap">
+               <div class="card-body">
+                   <h3 class="card-title">{{$item->title}}</h3>
+               </div>
+           </div>
+             @endforeach
+          </div>
+       </div>
+    </div>
+    @endif
     @if (!$activity->isEmpty())
     <div class="our_portfolio_info" id="our_portfolio_info">
        <div class="our_portfolio_data">
@@ -194,7 +216,7 @@
                 <p></p>
              </div>
           </div>
-          <div class="">
+          <div class="row">
              @foreach ($rt as $item)
                  
              <div class="our_team_container d-flex justify-content-center">
@@ -305,11 +327,11 @@
           </div>
           <div class="our_sponsors_contain">
              @foreach ($product as $item)
-             <div class="bg-white col-xl-3 col-md-4 col-sm-6 m-2">
+             <div class="bg-white col-xl-4 col-md-4 col-sm-6 m-2">
                <img class="card-img-top" src="/{{$item->image}}" style="height: 25vh; object-fit:cover;width:100%" alt="Card image cap">
                <div class="card-body">
                    <h3 class="card-title">{{$item->product_name}}</h3>
-                   <h5 class="card-title">Toko : {{$item->getstore->store_name}}</h5>
+                   <h5 class="card-title"><a href="/toko/detail/{{Crypt::encryptString($item->getstore->id)}}">Toko : {{$item->getstore->store_name}}</a> </h5>
                    <p class="card-text">Rp {{$item->price}}</p>
                    
                </div>

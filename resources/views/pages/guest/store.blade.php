@@ -1,10 +1,6 @@
-@extends('index-dash')
-@section('webTittle','Produk')
+@extends('index')
 @section('content')
-<div class="d-flex justify-content-start">
-    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#tambahProduk"><i class="fas fa-plus"></i> Tambah Produk</button>
-</div>
-<div class="row py-5">
+<div class="row p-5">
     <div class="col-md-3">
         <div class="card p-3">
             <img class="card-img-top" src="/{{$dataToko->store_banner}}" style="height: 25vh; object-fit:cover;width:100%" alt="Card image cap">
@@ -37,12 +33,6 @@
                                 <a href="https://wa.me/{{$item->getstore->phone}}?text={{$text}}" class="card-text btn btn-success" target="_blank"><i class="fa fa-whatsapp"></i> Hubungi Penjual</a>
                             @endif
                         </div>
-                        @if (auth()->user()->id == $item->created_user)
-                        <div class="d-flex justify-content-between mt-3">
-                            <button type="button" class="btn btn-danger btn-delete" data-id="{{Crypt::encryptString($item->id)}}">Delete Product</button>
-                            <button tuyp="button" class="btn btn-primary btn-edit" data-id="{{Crypt::encryptString($item->id)}}">Edit Product</button>
-                        </div>
-                        @endif
                     </div>
                 </div>
                 @endforeach

@@ -104,9 +104,15 @@
         $('#usahas').DataTable();
         $('.btn-edit').click(function(){
             $.get('/usaha/detail/'+$(this).data('id'),function(d){
-                $('input[name="title"]').val(d.title)
-                $('textarea[name="summary"]').val(d.summary)
+                $('input[name="store_name"]').val(d.store_name)
+                $('input[name="phone"]').val(d.phone)
+                $('input[name="whatsapp_sts"][value="'+d.whatsapp_sts+'"]').attr('checked',true)
+                $('textarea[name="address"]').val(d.address)
+                $('textarea[name="description"]').val(d.description)
+                $('input[name="store_banner"]').attr('required',false)
+                $('input[name="store_logo"]').attr('required',false)
                 $('form[name="activityName"]').attr('action','/admin/usaha/update')
+                $('#tambahUsahaLabel').text('Edit Usaha')
                 $('<input>').attr({
                     type: 'hidden',
                     name: 'id',

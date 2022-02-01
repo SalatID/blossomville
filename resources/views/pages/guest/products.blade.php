@@ -17,7 +17,7 @@
                 <img class="card-img-top" src="/{{$item->image}}" style="height: 25vh; object-fit:cover;width:100%" alt="Card image cap">
                 <div class="card-body">
                     <h3 class="card-title">{{$item->product_name}}</h3>
-                    <h5 class="card-title">Toko : {{$item->getstore->store_name}}</h5>
+                    <h5 class="card-title"><a href="/toko/detail/{{Crypt::encryptString($item->getstore->id)}}">Toko : {{$item->getstore->store_name}}</a> </h5>
                     <p class="card-text" style="height: 10vh">{{$item->description}}</p>
                     <div class="d-flex justify-content-between">
                         <h5 class="card-text">Rp {{$item->price}}</h5>

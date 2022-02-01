@@ -75,8 +75,8 @@
                    <div id="primary-menu" class="menu nav-menu">
                       <ul>
                          <li class="page_item page-item-2"><a href="/">Home</a></li>
-                         <li class="page_item page-item-2"><a href="/">Layanan Warga</a></li>
-                         <li class="page_item page-item-2"><a href="/">Info Warga</a></li>
+                         {{-- <li class="page_item page-item-2"><a href="/">Layanan Warga</a></li> --}}
+                         {{-- <li class="page_item page-item-2"><a href="/">Info Warga</a></li> --}}
                          <li class="page_item page-item-2"><a href="/auth/login">Login</a></li>
                          {{-- 
                          <li class="page_item page-item-2"><a href="http://localhost/wordpresstest/index.php/laman-contoh/">Laman Contoh</a></li>
