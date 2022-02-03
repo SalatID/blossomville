@@ -415,6 +415,7 @@ class GuestController extends Controller
         return redirect()->back()->with(["error"=>!$updSts,"message"=>"Tambah Aktifitas ".($updSts?'Berhasil':'Gagal')]);
     }
 
+
     public function delNews($id)
     {
         $dataNews = News::where(["id"=>Crypt::decryptString($id)])->first();
@@ -432,5 +433,32 @@ class GuestController extends Controller
         $title=$dataNews->title;
         $siteSetting = $this->siteSetting;
         return view('pages.guest.news',compact('dataNews','title','page','siteSetting'));
+    }
+
+    public function addBanner()
+    {
+        $insData = [
+            "banner_for"=>'1',
+            "created_user"=>auth()->user()->id
+        ];
+        $banner_src = request()->file('banner_src');
+        if($banner_src){
+            $dir = 'banner/';
+            $fileName = Str::random(15).".".$banner_src->getClientOriginalExtension();
+            $banner_src->move($dir,$fileName);
+            $insData['banner_src']=$dir.$fileName;
+        }
+        $insSts = DashboardBanner::create($insData);
+        return redirect()->back()->with(["error"=>!$insSts,"message"=>"Tambah Banner ".($insSts?'Berhasil':'Gagal')]);
+    }
+
+    public function deleteBanner($id)
+    {
+        $dataDashboardBanner = DashboardBanner::where(["id"=>Crypt::decryptString($id)])->first();
+        if(File::exists(public_path($dataDashboardBanner->banner_src))){
+            File::delete(public_path($dataDashboardBanner->banner_src));
+        }
+        DashboardBanner::where(["id"=>Crypt::decryptString($id)])->delete();
+        return redirect()->back()->with(["error"=>false,"message"=>"Delete Berhasil"]);;
     }
 }

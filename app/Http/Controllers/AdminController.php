@@ -9,6 +9,7 @@ use App\Models\LetterSubmision;
 use App\Models\LetterSubmisionLog;
 use App\Models\LetterType;
 use App\Models\SiteSetting;
+use App\Models\DashboardBanner;
 use Str;
 use DB;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -30,7 +31,8 @@ class AdminController extends Controller
     public function siteSetting()
     {
         $siteData=  SiteSetting::first();
-        return view('pages.admin.sitesetting',compact('siteData'));
+        $banner = DashboardBanner::all();
+        return view('pages.admin.sitesetting',compact('siteData','banner'));
     }
 
     public function storeSetting()

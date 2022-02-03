@@ -118,5 +118,35 @@
    </div>
    </form>
     
-
+   <h1 class="text-dark mt-3">Pengaturan Banner</h1>
+   <form action="/banner/add" method="POST" enctype="multipart/form-data">
+      @csrf
+      <div class="d-flex justify-content-start">
+         <div class="col-md-4">
+               <input type="file" name="banner_src" class="form-control" required >
+         </div>
+         <div>
+            <button type="submit" class="btn btn-success">Tambah Banner</button>
+         </div>
+      </div>
+   </form>
+   <div class="row">
+      @foreach ($banner as $item)
+      <div class="card col-xl-3 col-md-2 col-sm-1 m-2" style="width: 18rem;">
+         <img class="card-img-top p-3" src="/{{$item->banner_src}}" alt="Card image cap" style="height: 18vh;object-fit: cover;">
+         <div class="d-flex justify-content-end p-3">
+            <button type="button" class="btn btn-danger btn-delete" data-id="{{Crypt::encryptString($item->id)}}">Hapus</button>
+         </div>
+       </div>
+      @endforeach
+   </div>
+<script>
+   $('.btn-delete').click(function(){
+        if(confirm("Hapus Banner Ini?")){
+            $.get('/banner/delete/'+$(this).data('id'),function(d){
+                location.reload()
+            })
+        }
+    })
+</script>
 @endsection
