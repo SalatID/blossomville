@@ -74,17 +74,13 @@ class AdminController extends Controller
     public function letterSubmision()
     {
         $letterTypes = LetterType::where(['status'=>1])->get();
-        $letterLog = LetterSubmisionLog::with(['getlettersubmision'=>function($query){
-            $query->select('letter_submision.*','a.letter_name','b.full_name','b.address','b.block','b.house_number')
-            ->join('users as b','b.id','letter_submision.letter_for')
-            ->join('letter_type as a','a.id','letter_submision.letter_id');
-        }]);
+        $letterLog = LetterSubmision::join('users as a','a.id','letter_submision.letter_for')
+        ->join('dbs_rt as b','b.id','a.id_rt');
         if(auth()->user()->level==0 || auth()->user()->level == 1){
             $letterLog=$letterLog->get();
             $dataWarga = User::where(['verified'=>1])->get();
         } else if (auth()->user()->level==2){
-            $letterLog = $letterLog->join('letter_submision as a','a.id','letter_submision_log.id_letter_submision')
-            ->where(['b.id_rt'=>auth()->user()->id_rt,'verified'=>1])->get();
+            $letterLog = $letterLog->where(['b.id_rt'=>auth()->user()->id_rt,'verified'=>1])->get();
             $dataWarga = User::where(['id_rt'=>auth()->user()->id_rt])->get();
         } else {
             $letterLog = $letterLog->where('letter_for',auth()->user()->id)->get();
@@ -123,6 +119,15 @@ class AdminController extends Controller
         ->join('dbs_rt as b','b.id','a.id_rt')
         ->where('letter_submision.id',Crypt::decryptString($id_sumbision))
         ->first();
+        LetterSubmision::where('letter_submision.id',Crypt::decryptString($id_sumbision))->update(['status'=>'PRN']);
+        if(!LetterSubmisionLog::where(['id_letter_submision'=>Crypt::decryptString($id_sumbision),'sts_after'=>'PRN'])->exists()){
+            LetterSubmisionLog::create([
+                'sts_before'=>'REQ',
+                'sts_after'=>'PRN',
+                'id_letter_submision'=>Crypt::decryptString($id_sumbision),
+                'created_user'=>auth()->user()->id
+            ]);
+        }
         $pdf = PDF::loadView('pages.admin.print.suratketerangan', compact('dataSurat'))->setPaper('a4');
         return $pdf->stream();
         return $pdf->download('invoice.pdf');

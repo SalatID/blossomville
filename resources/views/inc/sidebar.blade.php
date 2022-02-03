@@ -66,11 +66,11 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Surat Menyurat</h6>
-                        <a class="collapse-item" href="/admin/surat/daftar">Daftar Surat</a>
-                        <a class="collapse-item" href="/admin/surat/daftar/permohonan">Daftar Permohonan</a>
-                        @if (session()->get('userData')['level'] != 3)
-                        <a class="collapse-item" href="/admin/surat/ajukan">Ajukan Permohonan Surat</a>
-                        @endif
+                        {{-- <a class="collapse-item" href="/admin/surat/daftar/permohonan">Daftar Permohonan</a>
+                        <a class="collapse-item" href="/admin/surat/ajukan">Ajukan Permohonan Surat</a> --}}
+                        {{-- @if (session()->get('userData')['level'] != 3) --}}
+                        <a class="collapse-item" href="/admin/surat/daftar">Permohonan Surat</a>
+                        {{-- @endif --}}
                     </div>
                 </div>
     </li>
