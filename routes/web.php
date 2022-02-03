@@ -32,6 +32,7 @@ Route::get('/aktifitas/{id}',[GuestController::class,'detailActivity']);
 Route::get('/products',[GuestController::class,'products']);
 Route::get('/toko/detail/{id}',[GuestController::class,'guestProductPage']);
 Route::get('/news/detail/{id}',[GuestController::class,'newsDetail']);
+Route::get('/product/search',[GuestController::class,'products']);
 
 Route::group(['middleware' => ['web','isLogin']],function () {
     Route::prefix('admin')->group(function(){

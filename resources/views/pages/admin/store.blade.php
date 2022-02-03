@@ -27,7 +27,7 @@
                             <td>{{$item->phone}}</td>
                             <td>{{$item->whatsapp_sts=='Y'?'Ya':'Tidak'}}</td>
                             <td class="d-flex justify-content-start">
-                                @if(auth()->user()->id==$item->created_user)
+                                @if((auth()->user()->id??'')==$item->created_user)
                                 <a href="#" data-id="{{Crypt::encryptString($item->id)}}" class="btn btn-success mr-2 btn-edit">Edit</a>
                                 <a href="#" data-id="{{Crypt::encryptString($item->id)}}" class="btn btn-danger mr-2 btn-delete">Hapus</a>
                                 <a href="/admin/usaha/produk/{{Crypt::encryptString($item->id)}}" class="btn btn-primary mr-2 ">Produk</a>

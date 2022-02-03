@@ -19,7 +19,7 @@
                                 'Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'
                             ];
                         @endphp
-                        Yang bertanda tangan dibawah ini Ketua RT.02/RW.016 Blossomville,  Kel. Mekar Bakti Kec. Panongan menerangkan bahwa : <br>
+                        Yang bertanda tangan dibawah ini Ketua RT.{{sprintf('%03d',$dataSurat->id_rt)}}/RW.016 Blossomville,  Kel. Mekar Bakti Kec. Panongan menerangkan bahwa : <br>
                         <table>
                             <tr>
                                 <td width="130px">Nama</td>

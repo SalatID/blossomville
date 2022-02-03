@@ -27,8 +27,8 @@
                             <h5 class="card-text">Rp {{$item->price}}</h5>
                             @if ($item->getstore->whatsapp_sts=='Y')
                                 @php
-                                    $url="";
-                                    $text = "Hallo Saya ".auth()->user()->full_name." ingin bertanya tentang produk ".$item->product_name." dari toko ".$item->getstore->store_name.", saya melihat produk ini di ".$url;
+                                    $url=url()->full();
+                                    $text = "Hallo Saya ingin bertanya tentang produk ".$item->product_name." dari toko ".$item->getstore->store_name.", saya melihat produk ini di ".$url;
                                 @endphp
                                 <a href="https://wa.me/{{$item->getstore->phone}}?text={{$text}}" class="card-text btn btn-success" target="_blank"><i class="fa fa-whatsapp"></i> Hubungi Penjual</a>
                             @endif
