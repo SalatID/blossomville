@@ -34,7 +34,7 @@
                             <tr>
                                 <td width="130px">Jenis kelamin</td>
                                 <td width="5px">:</td>
-                                <td>{{$dataSurat->gende=='male'?'Laki-Laki':'Perempuan'}}</td>
+                                <td>{{$dataSurat->gender=='male'?'Laki-Laki':'Perempuan'}}</td>
                             </tr>
                             <tr>
                                 <td width="130px">Nomor KTP</td>
