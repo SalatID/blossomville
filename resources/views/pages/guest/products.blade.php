@@ -3,7 +3,7 @@
 <div class="container pt-5">
     <div class="d-flex justify-content-center p-6 m-6">
         <div class="input-group input-group-sm mb-3">
-            <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="name" value="{{$name??''}}">
+            <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="name" value="{{$name??''}}" placeholder="Masukan nama toko atau produk">
             <div class="input-group-prepend">
               <span class="input-group-text btn-search" id="inputGroup-sizing-sm" style="cursor: pointer"><i class="fa fa-search"></i> Search</span>
             </div>
