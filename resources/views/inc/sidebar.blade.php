@@ -57,10 +57,22 @@
     </li>
     @if (session()->get('userData')['level'] !=3)
     <li class="nav-item {{ explode('/', url()->current())[3] == 'request' ? 'active' : '' }}">
-        <a class="nav-link " href="/admin/surat">
+        <a class="nav-link " href="#" data-toggle="collapse" data-target="#collapse-surat"
+        aria-expanded="true" aria-controls="collapse-surat">
             <i class="fas fa-fw icon-2-5vw fa-file-word"></i>
             <span>Surat Menyurat</span>
         </a>
+        <div id="collapse-surat" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Surat Menyurat</h6>
+                        <a class="collapse-item" href="/admin/surat/daftar">Daftar Surat</a>
+                        <a class="collapse-item" href="/admin/surat/daftar/permohonan">Daftar Permohonan</a>
+                        @if (session()->get('userData')['level'] != 3)
+                        <a class="collapse-item" href="/admin/surat/ajukan">Ajukan Permohonan Surat</a>
+                        @endif
+                    </div>
+                </div>
     </li>
     @endif
     @if (session()->get('userData')['level'] == 0)

@@ -63,6 +63,9 @@ Route::group(['middleware' => ['web','isLogin']],function () {
         Route::get('/berita',[GuestController::class,'newsPage']);
         Route::post('/berita',[GuestController::class,'storeNews']);
         Route::post('/berita/update',[GuestController::class,'updNews']);
+
+        Route::get('/surat/daftar',[AdminController::class,'letterSubmision']);
+        Route::post('/ajukansurat',[AdminController::class,'addLetterSubmision']);
     });
     Route::get('/aktifitas/delete/{id}',[GuestController::class,'delActivity']);
     Route::get('/aktifitas/detail/{id}',[GuestController::class,'jsonDetailActivity']);
@@ -79,5 +82,6 @@ Route::group(['middleware' => ['web','isLogin']],function () {
     Route::get('/logout',[AuthController::class,'logout']);
     Route::post('/auth/profile/update',[AuthController::class,'updateProfile']);
     Route::get('/profile',[DataWargaController::class,'profile']);
+    Route::get('/surat/print/{id_surat}/{id_sumbision}',[AdminController::class,'printLetter']);
 });
 Route::get('/email/verified',[AuthController::class,'verifiedEmail'])->name("verifiedEmail");
