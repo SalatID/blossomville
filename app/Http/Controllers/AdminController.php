@@ -74,7 +74,8 @@ class AdminController extends Controller
     public function letterSubmision()
     {
         $letterTypes = LetterType::where(['status'=>1])->get();
-        $letterLog = LetterSubmision::join('users as a','a.id','letter_submision.letter_for')
+        $letterLog = LetterSubmision::with("getlettertype")
+        ->join('users as a','a.id','letter_submision.letter_for')
         ->join('dbs_rt as b','b.id','a.id_rt');
         if(auth()->user()->level==0 || auth()->user()->level == 1){
             $letterLog=$letterLog->get();
