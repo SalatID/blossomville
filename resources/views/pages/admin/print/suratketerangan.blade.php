@@ -76,10 +76,13 @@ Demikian surat keterangan ini dibuat untuk dipergunakan sesuai dengan peruntukan
                 </td>
             </tr>
             <tr>
+                <td colspan="2"> <br></td>
+            </tr>
+            <tr>
                 <td colspan="2" style="text-align:right">Blossomville, {{date('d')}} {{$month[(date('n')+1)]}} {{date('Y')}} </td>
             </tr>
             <tr>
-                <td> <br></td>
+                <td colspan="2"> <br></td>
             </tr>
             <tr>
                 <td style="text-align: center">
@@ -99,6 +102,9 @@ Demikian surat keterangan ini dibuat untuk dipergunakan sesuai dengan peruntukan
                     <br>
                     <b>{{strtoupper($dataSurat->rt_name)}}</b>
                 </td>
+            </tr>
+            <tr>
+                <td colspan="2"> <br></td>
             </tr>
             <tr>
                 <td colspan="2" style="text-align: center">
