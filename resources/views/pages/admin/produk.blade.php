@@ -32,12 +32,12 @@
                             @if ($item->getstore->whatsapp_sts=='Y')
                                 @php
                                     $url="";
-                                    $text = "Hallo Saya ".auth()->user()->full_name." ingin bertanya tentang produk ".$item->product_name." dari toko ".$item->getstore->store_name.", saya melihat produk ini di ".$url;
+                                    $text = "Hallo Saya ".(auth()->user()->full_name??'')." ingin bertanya tentang produk ".$item->product_name." dari toko ".$item->getstore->store_name.", saya melihat produk ini di ".$url;
                                 @endphp
                                 <a href="https://wa.me/{{$item->getstore->phone}}?text={{$text}}" class="card-text btn btn-success" target="_blank"><i class="fa fa-whatsapp"></i> Hubungi Penjual</a>
                             @endif
                         </div>
-                        @if (auth()->user()->id == $item->created_user)
+                        @if ((auth()->user()->id??'') == $item->created_user)
                         <div class="d-flex justify-content-between mt-3">
                             <button type="button" class="btn btn-danger btn-delete" data-id="{{Crypt::encryptString($item->id)}}">Delete Product</button>
                             <button tuyp="button" class="btn btn-primary btn-edit" data-id="{{Crypt::encryptString($item->id)}}">Edit Product</button>

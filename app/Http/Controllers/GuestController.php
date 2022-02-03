@@ -257,9 +257,9 @@ class GuestController extends Controller
     {
         $idToko = Crypt::decryptString($id);
         $dataToko = Store::where(["id"=>$idToko])->first();
-        if(session()->get('userData')['level']==0 || session()->get('userData')['level']==1|| session()->get('userData')['level']==2){
+        if((session()->get('userData')['level']??'')==0 || (session()->get('userData')['level']??'')==1|| (session()->get('userData')['level']??'')==2){
             $products = Product::with('getstore')->get();
-        } else if(session()->get('userData')['level']==3){
+        } else if((session()->get('userData')['level']??'')==3){
             $products = Product::with('getstore')->where(['created_user'=>auth()->user()->id,'id_toko'=>$idToko])->get();
         } 
         $siteSetting = $this->siteSetting;
@@ -319,9 +319,12 @@ class GuestController extends Controller
 
     public function products()
     {
-        $products = Product::with('getstore')->get();
+        $products = Product::with('getstore')->where('product_name','like','%'.(request('name')??'').'%')->get()->toArray();
         $siteSetting = $this->siteSetting;
-        return view('pages.guest.products',compact('products','siteSetting'));
+        $tokos=[];
+        $name = request('name');
+        if(request()->has('name'))$tokos = Store::where('store_name','like','%'.(request('name')??'').'%')->get()->toArray();
+        return view('pages.guest.products',compact('products','siteSetting','tokos','name'));
     }
 
     public function jsonDetailToko($id)
