@@ -48,7 +48,7 @@
                         <tr>
                             <td>{{$i++}}</td>
                             <td>{{$item->letter_no??''}}</td>
-                            <td>{{$item->letter_name??''}}</td>
+                            <td>{{$item->getlettertype->letter_name??''}}</td>
                             <td>{{$item->full_name??''}}</td>
                             <td>{{$item->address}}, Blok {{$item->block}} No {{$item->house_number}}</td>
                             <td>{{$item->created_at}}</td>
