@@ -53,7 +53,7 @@
                             <td>{{$item->address}}, Blok {{$item->block}} No {{$item->house_number}}</td>
                             <td>{{$item->created_at}}</td>
                             <td>
-                                <label class="badge p-2 badge-{{$item->status=='REQ'?'warning':'success'}}">{{$item->status??''}}</label> 
+                                <label class="badge p-2 badge-{{$item->status=='REQ'?'warning':'success'}}">{{$item->status=='REQ'?'Belum Di Print':'Sudah Di Print'}}</label> 
                                 {{-- @if (auth()->user()->level!=3) --}}
                                     <a href="/surat/print/{{Crypt::encryptString($item->letter_id)}}/{{Crypt::encryptString($item->id)}}" class="btn btn-success btn-sm btn-print" target="_blank">Cetak Surat</a>
                                 {{-- @endif --}}
