@@ -47,15 +47,15 @@
                     @foreach ($letterLog as $item)
                         <tr>
                             <td>{{$i++}}</td>
-                            <td>{{$item->getlettersubmision->letter_no??''}}</td>
-                            <td>{{$item->getlettersubmision->letter_name??''}}</td>
-                            <td>{{$item->getlettersubmision->full_name??''}}</td>
-                            <td>{{$item->getlettersubmision->address}}, Blok {{$item->getlettersubmision->block}} No {{$item->getlettersubmision->house_number}}</td>
+                            <td>{{$item->letter_no??''}}</td>
+                            <td>{{$item->letter_name??''}}</td>
+                            <td>{{$item->full_name??''}}</td>
+                            <td>{{$item->address}}, Blok {{$item->block}} No {{$item->house_number}}</td>
                             <td>{{$item->created_at}}</td>
                             <td>
-                                <label class="badge p-2 badge-{{$item->getlettersubmision->status=='REQ'?'warning':'success'}}">{{$item->getlettersubmision->status??''}}</label> 
+                                <label class="badge p-2 badge-{{$item->status=='REQ'?'warning':'success'}}">{{$item->status??''}}</label> 
                                 @if (auth()->user()->level!=3)
-                                    <a href="/surat/print/{{Crypt::encryptString($item->getlettersubmision->letter_id)}}/{{Crypt::encryptString($item->getlettersubmision->id)}}" class="btn btn-success btn-sm btn-print" target="_blank">Cetak Surat</a>
+                                    <a href="/surat/print/{{Crypt::encryptString($item->letter_id)}}/{{Crypt::encryptString($item->id)}}" class="btn btn-success btn-sm btn-print" target="_blank">Cetak Surat</a>
                                 @endif
                             </td>
                         </tr> 
