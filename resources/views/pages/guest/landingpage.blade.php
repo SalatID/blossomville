@@ -10,7 +10,7 @@
                   <div class="item">
                      <div class="hentry-inner">
                         <div class="post-thumbnail">
-                           <img src="{{$item->banner_src}}" alt="The Last of us">
+                           <img src="/{{$item->banner_src}}" alt="The Last of us">
                         </div>
                         <div class="entry-container">
                            <div class="featured_slider_disc entry-summary"></div>

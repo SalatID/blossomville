@@ -83,5 +83,7 @@ Route::group(['middleware' => ['web','isLogin']],function () {
     Route::post('/auth/profile/update',[AuthController::class,'updateProfile']);
     Route::get('/profile',[DataWargaController::class,'profile']);
     Route::get('/surat/print/{id_surat}/{id_sumbision}',[AdminController::class,'printLetter']);
+    Route::post('/banner/add',[GuestController::class,'addBanner']);
+    Route::get('/banner/delete/{id}',[GuestController::class,'deleteBanner']);
 });
 Route::get('/email/verified',[AuthController::class,'verifiedEmail'])->name("verifiedEmail");
