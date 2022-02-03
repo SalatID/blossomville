@@ -86,7 +86,10 @@ Demikian surat keterangan ini dibuat untuk dipergunakan sesuai dengan peruntukan
             </tr>
             <tr>
                 <td style="text-align: center">
+                    <b style="color:#fff">Pemohon</b>
+                    <br>
                     <b>Pemohon</b>
+                    <br>
                     <br>
                     <br>
                     <br>
@@ -96,6 +99,7 @@ Demikian surat keterangan ini dibuat untuk dipergunakan sesuai dengan peruntukan
                 <td style="text-align: center">
                     <b>Ketua RT {{sprintf('%03d',$dataSurat->id_rt)}} <br>
                     Blossom Ville</b>
+                    <br>
                     <br>
                     <br>
                     <br>
@@ -110,6 +114,7 @@ Demikian surat keterangan ini dibuat untuk dipergunakan sesuai dengan peruntukan
                 <td colspan="2" style="text-align: center">
                     <b>Mengetahui <br>
                     Ketua RW.016 BLOSSOMVILLE</b>
+                    <br>
                     <br>
                     <br>
                     <br>
