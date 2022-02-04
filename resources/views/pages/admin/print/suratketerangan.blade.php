@@ -79,7 +79,7 @@ Demikian surat keterangan ini dibuat untuk dipergunakan sesuai dengan peruntukan
                 <td colspan="2"> <br></td>
             </tr>
             <tr>
-                <td colspan="2" style="text-align:right">Blossomville, {{date('d')}} {{$month[(date('n')+1)]}} {{date('Y')}} </td>
+                <td colspan="2" style="text-align:right">Blossomville, {{date('d')}} {{$month[(date('n')-1)]}} {{date('Y')}} </td>
             </tr>
             <tr>
                 <td colspan="2"> <br></td>
