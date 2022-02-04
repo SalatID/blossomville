@@ -152,7 +152,7 @@ class AdminController extends Controller
 
     public function printLetter($id_surat,$id_sumbision)
     {
-        $dataSurat = LetterSubmision::select('letter_submision.*','a.full_name','b.rt_no','a.address','a.block','a.house_number','a.id_rt')->with(["getlettertype"=>function($query) use ($id_surat) {
+        $dataSurat = LetterSubmision::select('letter_submision.*','a.full_name','b.rt_no','a.address','a.block','a.house_number','a.id_rt','b.rt_name')->with(["getlettertype"=>function($query) use ($id_surat) {
             $query->select('letter_type.*')->where('letter_type.id',Crypt::decryptString($id_surat));
         }])
         ->join('users as a','a.id','letter_submision.letter_for')
