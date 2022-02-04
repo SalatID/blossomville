@@ -99,13 +99,13 @@
                 chartData.push(parseInt(this.total))
                 label.push(this.gender)
             })
-            if(label.indexOf('male')==-1) label.push('male');chartData.push(0);
+            if(label.indexOf('male')==-1) label.push('La');chartData.push(0);
             if(label.indexOf('female')==-1) label.push('female');chartData.push(0);
             console.log(label)
             const jnsKelCart = new Chart(jnsKel, {
                 type: 'pie',
                 data: {
-                    labels: label,
+                    labels: ['Laki-laki','Perempuan'],
                     datasets: [
                         {
                             label: 'Gender',

@@ -16,6 +16,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 
 class AdminController extends Controller
 {
+    public $cnt = 0;
     public function dashboard()
     {
         $dataUser = User::with('getrt')->find(session()->get('userData')['userId']);
@@ -111,7 +112,7 @@ class AdminController extends Controller
     public function letterSubmision()
     {
         $letterTypes = LetterType::where(['status'=>1])->get();
-        $letterLog = LetterSubmision::with("getlettertype")
+        $letterLog = LetterSubmision::select('letter_submision.*','a.full_name','b.rt_no','a.address','a.block','a.house_number')->with("getlettertype")
         ->join('users as a','a.id','letter_submision.letter_for')
         ->join('dbs_rt as b','b.id','a.id_rt');
         if(auth()->user()->level==0 || auth()->user()->level == 1){
@@ -124,14 +125,15 @@ class AdminController extends Controller
             $letterLog = $letterLog->where('letter_for',auth()->user()->id)->get();
             $dataWarga = User::where(['kk'=>auth()->user()->kk,'verified'=>1])->get();
         }
+        // dd($letterLog);
         return view('pages.admin.ajukansurat',compact('letterLog','letterTypes','dataWarga'));
     }
 
     public function addLetterSubmision()
     {
         $array_bln = ["I","II","III", "IV", "V","VI","VII","VIII","IX","X", "XI","XII"];
-        $maxNo = LetterSubmision::max(DB::raw('left(letter_no,3)'));
-
+        $maxNo = LetterSubmision::where('letter_no','like','%RT.0'.request('id_rt').'%')->max(DB::raw('left(letter_no,3)+1'));
+        // dd($maxNo);
         $insData = [
             'letter_no'=>sprintf('%03d',$maxNo??1).'/SK/RT.'.sprintf('%02d',request('id_rt')).'/'.$array_bln[date('n')].'/'.date('Y'),
             'letter_id'=>request('letter_id'),
@@ -150,13 +152,39 @@ class AdminController extends Controller
 
     public function printLetter($id_surat,$id_sumbision)
     {
-        $dataSurat = LetterSubmision::with(["getlettertype"=>function($query) use ($id_surat) {
+        $dataSurat = LetterSubmision::select('letter_submision.*','a.full_name','b.rt_no','a.address','a.block','a.house_number','a.id_rt')->with(["getlettertype"=>function($query) use ($id_surat) {
             $query->select('letter_type.*')->where('letter_type.id',Crypt::decryptString($id_surat));
         }])
         ->join('users as a','a.id','letter_submision.letter_for')
         ->join('dbs_rt as b','b.id','a.id_rt')
         ->where('letter_submision.id',Crypt::decryptString($id_sumbision))
         ->first();
+        // dd(date('Ymd',strtotime($dataSurat->created_at))!=date('Ymd'));
+        if(date('Ymd',strtotime(($dataSurat->created_at??date('Ymd'))))!=date('Ymd')){
+            // dd(date('Ymd',strtotime($dataSurat->created_at)));
+            $array_bln = ["I","II","III", "IV", "V","VI","VII","VIII","IX","X", "XI","XII"];
+            $maxNo = LetterSubmision::where('letter_no','like','%RT.0'.$dataSurat->id_rt.'%')->max(DB::raw('left(letter_no,3)+1'));
+            $insData = [
+                'letter_no'=>sprintf('%03d',$maxNo??1).'/SK/RT.'.sprintf('%02d',$dataSurat->id_rt).'/'.$array_bln[date('n')].'/'.date('Y'),
+                'letter_id'=>$dataSurat->letter_id,
+                'status'=>'REQ',
+                'letter_for'=>$dataSurat->letter_for,
+                'created_user'=>auth()->user()->id
+            ];
+            $insSts = LetterSubmision::create($insData);
+            LetterSubmisionLog::create([
+                'sts_before'=>'REQ',
+                'id_letter_submision'=>$insSts->id,
+                'created_user'=>auth()->user()->id
+            ]);
+            LetterSubmisionLog::create([
+                'sts_before'=>'REQ',
+                'sts_after'=>'PRN',
+                'id_letter_submision'=>$insSts->id,
+                'created_user'=>auth()->user()->id
+            ]);
+            return $this->printLetter($id_surat,Crypt::encryptString($insSts->id));
+        }
         LetterSubmision::where('letter_submision.id',Crypt::decryptString($id_sumbision))->update(['status'=>'PRN']);
         if(!LetterSubmisionLog::where(['id_letter_submision'=>Crypt::decryptString($id_sumbision),'sts_after'=>'PRN'])->exists()){
             LetterSubmisionLog::create([
