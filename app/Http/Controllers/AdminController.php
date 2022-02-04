@@ -135,7 +135,7 @@ class AdminController extends Controller
         $maxNo = LetterSubmision::where('letter_no','like','%RT.0'.request('id_rt').'%')->max(DB::raw('left(letter_no,3)+1'));
         // dd($maxNo);
         $insData = [
-            'letter_no'=>sprintf('%03d',$maxNo??1).'/SK/RT.'.sprintf('%02d',request('id_rt')).'/'.$array_bln[date('n')].'/'.date('Y'),
+            'letter_no'=>sprintf('%03d',$maxNo??1).'/SK/RT.'.sprintf('%02d',request('id_rt')).'/'.$array_bln[(date('n')-1)].'/'.date('Y'),
             'letter_id'=>request('letter_id'),
             'status'=>'REQ',
             'letter_for'=>request('letter_for'),
@@ -152,7 +152,7 @@ class AdminController extends Controller
 
     public function printLetter($id_surat,$id_sumbision)
     {
-        $dataSurat = LetterSubmision::select('letter_submision.*','a.full_name','b.rt_no','a.address','a.block','a.house_number','a.id_rt','b.rt_name')->with(["getlettertype"=>function($query) use ($id_surat) {
+        $dataSurat = LetterSubmision::select('letter_submision.*','a.full_name','b.rt_no','a.address','a.block','a.house_number','a.id_rt','b.rt_name','a.place_birth','a.date_birth','a.nik','a.religion','a.marriage','a.job','a.gender')->with(["getlettertype"=>function($query) use ($id_surat) {
             $query->select('letter_type.*')->where('letter_type.id',Crypt::decryptString($id_surat));
         }])
         ->join('users as a','a.id','letter_submision.letter_for')
@@ -165,7 +165,7 @@ class AdminController extends Controller
             $array_bln = ["I","II","III", "IV", "V","VI","VII","VIII","IX","X", "XI","XII"];
             $maxNo = LetterSubmision::where('letter_no','like','%RT.0'.$dataSurat->id_rt.'%')->max(DB::raw('left(letter_no,3)+1'));
             $insData = [
-                'letter_no'=>sprintf('%03d',$maxNo??1).'/SK/RT.'.sprintf('%02d',$dataSurat->id_rt).'/'.$array_bln[date('n')].'/'.date('Y'),
+                'letter_no'=>sprintf('%03d',$maxNo??1).'/SK/RT.'.sprintf('%02d',$dataSurat->id_rt).'/'.$array_bln[(date('n')-1)].'/'.date('Y'),
                 'letter_id'=>$dataSurat->letter_id,
                 'status'=>'REQ',
                 'letter_for'=>$dataSurat->letter_for,
