@@ -55,7 +55,7 @@
                     </div>
                 </div>
     </li>
-    @if (session()->get('userData')['level'] !=3)
+    {{-- @if (session()->get('userData')['level'] !=3) --}}
     <li class="nav-item {{ explode('/', url()->current())[3] == 'request' ? 'active' : '' }}">
         <a class="nav-link " href="#" data-toggle="collapse" data-target="#collapse-surat"
         aria-expanded="true" aria-controls="collapse-surat">
@@ -74,7 +74,7 @@
                     </div>
                 </div>
     </li>
-    @endif
+    {{-- @endif --}}
     @if (session()->get('userData')['level'] == 0)
     <li class="nav-item {{ explode('/', url()->current())[3] == 'request' ? 'active' : '' }}">
         <a class="nav-link " href="/admin/sitesetting">

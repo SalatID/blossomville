@@ -86,5 +86,9 @@ Route::group(['middleware' => ['web','isLogin']],function () {
     Route::get('/surat/print/{id_surat}/{id_sumbision}',[AdminController::class,'printLetter']);
     Route::post('/banner/add',[GuestController::class,'addBanner']);
     Route::get('/banner/delete/{id}',[GuestController::class,'deleteBanner']);
+    Route::get('/chart/summary/gender',[AdminController::class,'getChartByGender']);
+    Route::get('/chart/summary/generation',[AdminController::class,'getChartByGeneration']);
+    Route::get('/chart/summary/marriage',[AdminController::class,'getChartByMarriage']);
+    Route::get('/chart/summary/resident/gender',[AdminController::class,'getTotalWargaByGender']);
 });
 Route::get('/email/verified',[AuthController::class,'verifiedEmail'])->name("verifiedEmail");

@@ -28,6 +28,9 @@
     <script src="{{asset('/dashboard/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('/dashboard/assets/vendor/ckeditor4/ckeditor.js')}}"></script>
     <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+    {{-- <script src="https://cdnjs.com/libraries/Chart.js"></script> --}}
+     <!-- Page level plugins -->
+     <script src="{{asset('/dashboard/assets/vendor/chart.js/Chart.min.js')}}"></script>
     <style>
         *{
             font-size:13px;
@@ -270,8 +273,7 @@
     <!-- Custom scripts for all pages-->
     <script src="{{asset('/dashboard/assets/js/sb-admin-2.min.js')}}"></script>
 
-    <!-- Page level plugins -->
-    <script src="{{asset('/dashboard/assets/vendor/chart.js/Chart.min.js')}}"></script>
+   
 
     <!-- Page level custom scripts -->
     <script src="{{asset('/dashboard/assets/js/demo/chart-bar-demo.js')}}"></script>

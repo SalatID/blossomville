@@ -28,6 +28,41 @@ class AdminController extends Controller
         }
     }
 
+    public function getChartByGender()
+    {
+        return response()->json(User::selectRaw('count(*)total, gender')->groupBy('gender')->get());
+    }
+
+    public function getChartByGeneration()
+    {
+        $query ="select 
+        case when year_birth <= 1945 then 'Pre-Boomer'
+        when year_birth >= 1946 and year_birth<=1964 then 'Baby Boomer'
+        when year_birth >= 1965 and year_birth<=1980 then 'Gen X' 
+        when year_birth >= 1981 and year_birth<=1996 then 'Milenial'
+        when year_birth >= 1997 and year_birth<=2012 then 'Gen Z'
+        when year_birth >= 2013 and year_birth<=year(now()) then 'Post Gen Z'
+        end as generation,
+        sum(total)total
+        from (
+        select count(*) total,year(date_birth)year_birth
+        from users
+        group by year(date_birth)
+        ) x
+        group by generation";
+        return response()->json(DB::select($query));
+    }
+
+    public function getChartByMarriage()
+    {
+        return response()->json(User::selectRaw('count(*)total, marriage')->groupBy('marriage')->get());
+    }
+
+    public function getTotalWargaByGender()
+    {
+        return response()->json(User::selectRaw("SUM(IF(gender='male',1,0)) male,SUM(IF(gender='female',1,0)) female,rt_no")->join('dbs_rt as a','a.id','users.id_rt')->groupBy('rt_no')->get());
+    }
+
     public function siteSetting()
     {
         $siteData=  SiteSetting::first();
