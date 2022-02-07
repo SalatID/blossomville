@@ -85,43 +85,53 @@
                    </div>
                 </nav>
                 <!-- #site-navigation -->
-                {{-- 
+                
                 <div class="mobile_menu main-navigation" id="mobile_primary">
                    <div id="primary-menu" class="menu">
-                      <ul>
-                         <li class="page_item page-item-2"><a href="http://localhost/wordpresstest/index.php/laman-contoh/">Laman Contoh</a></li>
-                      </ul>
+                     <ul>
+                        <li class="page_item page-item-2"><a href="/">Home</a></li>
+                        {{-- <li class="page_item page-item-2"><a href="/">Layanan Warga</a></li> --}}
+                        {{-- <li class="page_item page-item-2"><a href="/">Info Warga</a></li> --}}
+                        <li class="page_item page-item-2"><a href="/auth/login">Login</a></li>
+                        {{-- 
+                        <li class="page_item page-item-2"><a href="http://localhost/wordpresstest/index.php/laman-contoh/">Laman Contoh</a></li>
+                        --}}
+                     </ul>
                    </div>
                    <div class="header_social_icon">
-                      <div class="socials_icons">
-                         <a class="twitter social_icon" href="https://twitter.com/" target="_blank">
-                         <i class="fa fa-twitter"></i>
-                         </a>
-                         <a class="facebook social_icon" href="https://www.facebook.com/" target="_blank">
-                         <i class="fa fa-facebook"></i>
-                         </a>
-                         <a class="instagram social_icon" href="https://www.instagram.com/" target="_blank">
-                         <i class="fa fa-instagram"></i>
-                         </a>
-                         <a class="linkedin social_icon" href="https://www.linkedin.com/feed/" target="_blank">
-                         <i class="fa fa-linkedin"></i>
-                         </a>
-                         <a class="pinterest social_icon" href="https://www.pinterest.com" target="_blank">
-                         <i class="fa fa-pinterest"></i>
-                         </a>
-                         <a class="youtube social_icon" href="https://www.youtube.com/" target="_blank">
-                         <i class="fa fa-youtube"></i>
-                         </a>
-                      </div>
-                      <div class="goldly_menu_btn">
-                         <a class="call_menu_btn" href="#">Get A Quote</a>
-                      </div>
-                   </div>
+                     <div class="socials_icons">
+                        @if (($siteSetting->site_twitter_on??'')=='Y')
+                        <a class="twitter social_icon" href="{{$siteSetting->site_twitter}}" target="_blank">
+                        <i class="fa fa-twitter"></i>
+                        </a>
+                        @endif
+                        @if (($siteSetting->site_email_on??'')=='Y')
+                        <a class="facebook social_icon" href="{{$siteSetting->site_email}}" target="_blank">
+                        <i class="fa fa-envelope"></i>
+                        </a>
+                        @endif
+                        @if (($siteSetting->site_instagram_on??'')=='Y')
+                        <a class="instagram social_icon" href="{{$siteSetting->site_instagram}}" target="_blank">
+                        <i class="fa fa-instagram"></i>
+                        </a>
+                            
+                        @endif
+                        @if (($siteSetting->site_whatsapp_on??'')=='Y')
+                        <a class="linkedin social_icon" href="{{$siteSetting->site_whatsapp_on}}" target="_blank">
+                        <i class="fa fa-whatsapp"></i>
+                        </a>
+                            
+                        @endif
+                     </div>
+                     {{-- <div class="goldly_menu_btn">
+                        <a class="call_menu_btn" href="#">Get A Quote</a>
+                     </div> --}}
+                  </div>
                    <button class="menu-toggle" id="mobilepop" aria-expanded="false">
                    <i class="fa fa-close"></i>
                    </button>				
                 </div>
-                --}}
+               
                 {{-- 
                 <div class="cart_search_icon">
                    <div id="cl_serch" class="cl_serch">
