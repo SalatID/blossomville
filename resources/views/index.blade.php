@@ -524,6 +524,19 @@
                <!-- #secondary -->
             </div>
          </div> --}}
+         <div class="row">
+            <div class="container">
+               <div class="col-xl-12">
+                  <div class="single-footer-caption my-50">
+                      <div class="footer-tittle">
+                          <h4 class="text-center mb-2">Location </h4>
+                          <iframe  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1983.0411302005728!2d106.5192865!3d-6.252892!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e42076ed4926b45%3A0x1b60ed2ba3ff0296!2sBlossomville!5e0!3m2!1sid!2sid!4v1644307241295!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                          <h4 class="text-center my-2">Jl. Citra Raya Boulevard, Mekar Bakti, Kec. Panongan, Kabupaten Tangerang, Banten 15710</h4>
+                      </div>
+                  </div>
+              </div>
+            </div>
+         </div>
          <footer id="colophon" class="site-footer">
             <div class="site_icon_nav_footer">
                <ul id="sidebar" class="footer_widgets">
