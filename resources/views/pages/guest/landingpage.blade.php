@@ -139,7 +139,7 @@
           </div>
           <div class="row">
              <div class="col-xl-7 d-flex justify-content-start">
-                <img src="/guest/assets/images/17an-2.jpeg" alt="The Last of us">
+                <img src="/guest/assets/images/17an-2.jpeg" class="img-fluid m-auto" alt="The Last of us">
              </div>
              <div class="col-xl-5">
                <p class="text-justify">
