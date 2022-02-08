@@ -217,8 +217,10 @@ class AuthController extends Controller
       $dataWarga = User::where(["id"=>$id])->first();
       if($level==1){
         User::where(["level"=>$level])->update(["level"=>3]);
+        RtRw::where(['rt_no'=>'16'])->update(['rt_name'=>strtoupper($dataWarga->full_name),'rt_whatsapp'=>$dataWarga->phone,'rt_foto_src'=>'guest/assets/images/blank-user.jpeg']);
       } else {
         User::where(["level"=>$level,"id_rt"=>$dataWarga->id_rt])->update(["level"=>3]);
+        RtRw::where(['rt_no'=>$dataWarga->id_rt])->update(['rt_name'=>strtoupper($dataWarga->full_name),'rt_whatsapp'=>$dataWarga->phone,'rt_foto_src'=>'guest/assets/images/blank-user.jpeg']);
       }
       $updSts = User::where(["id"=>$id])->update(["level"=>$level]);
       return redirect()->back()->with(["eroor"=>!$updSts,"message"=>"Ubah Level ".($updSts?"Berhasil":"Gagal")]);

@@ -38,7 +38,7 @@
                     
                 @endif
                 @if (($siteSetting->site_whatsapp_on??'')=='Y')
-                <a class="linkedin social_icon" href="{{$siteSetting->site_whatsapp_on}}" target="_blank">
+                <a class="linkedin social_icon" href="https://wa.me/{{$siteSetting->site_whatsapp}}" target="_blank">
                 <i class="fa fa-whatsapp"></i>
                 </a>
                     
@@ -55,7 +55,7 @@
           <div class="header_data">
              <div class="site-branding p-3">
                 <div class="header_logo d-flex justify-content-start">
-                  <img src="/{{$siteSetting->site_icon??''}}" style="width: 8vw;" class="img-fluid" id="siteIcon" alt="">
+                  <img src="/{{$siteSetting->site_icon??''}}" style="width: 8vw;height: 3vw;margin-top: 4%;" class="img-fluid" id="siteIcon" alt="">
                   <div>
                      <h1 class="site-title"><a href="http://localhost/wordpresstest/" rel="home"> {{$siteSetting->site_title??''}}</a></h1>
                      <p class="site-description">{{$siteSetting->site_description??''}}</p>
@@ -117,7 +117,7 @@
                             
                         @endif
                         @if (($siteSetting->site_whatsapp_on??'')=='Y')
-                        <a class="linkedin social_icon" href="{{$siteSetting->site_whatsapp_on}}" target="_blank">
+                        <a class="linkedin social_icon" href="https://wa.me/{{$siteSetting->site_whatsapp}}" target="_blank">
                         <i class="fa fa-whatsapp"></i>
                         </a>
                             

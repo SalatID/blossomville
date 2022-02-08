@@ -563,8 +563,12 @@
          <img src="/guest/assets/images/qris.jpeg" class="col-12" alt="">
          <h3 class="text-center">Bayar Iuran Lebih Mudah Dengan QRIS</h3>
          <h5 class="text-center"> 
-            <a class="text-center btn btn-success btn-sm btn-rounded" style="border-radius: 0.5vw;" href="https://api.whatsapp.com/send/?phone=6282113117002&text=Hallo+Bendahara+RW+16%2C+Saya+mau+konfirmasi+iuran&app_absent=0" target="_blank">
-            <i class="fa fa-whatsapp"></i> Konfirmasi Pembayaran (Bendahara)
+            <a class="text-center btn btn-success btn-sm btn-rounded m-2" style="border-radius: 0.5vw;white-space: inherit; /* CSS3 */    
+            white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+            white-space: -pre-wrap; /* Opera 4-6 */    
+            white-space: -o-pre-wrap; /* Opera 7 */    
+            word-wrap: break-word; /* Internet Explorer 5.5+ */" href="https://api.whatsapp.com/send/?phone=6282113117002&text=Hallo+Bendahara+RW+16%2C+Saya+mau+konfirmasi+iuran&app_absent=0" target="_blank">
+            <!--i class="fa fa-whatsapp"></i-->Konfirmasi Pembayaran (Bendahara)
             </a>
          </h5>
       </div>

@@ -228,7 +228,7 @@
                       <img src="{{$item->rt_foto_src}}" alt="The Last of us">
                    </div>
                    <div class="our_team_title">
-                      <h3>KETUA RT {{sprintf('%02d', $item->rt_no)}}</h3>
+                      <h3>KETUA {{$item->rt_no=='16'?'RW':'RT'}} {{sprintf('%02d', $item->rt_no)}}</h3>
                    </div>
                    <div class="our_team_headline">
                       <p>{{$item->rt_name}}</p>
@@ -250,7 +250,7 @@
                 </div>
              </div>
              @endforeach
-             <div class="our_team_container">
+             {{-- <div class="our_team_container">
                 <div class="our_team_container_data">
                    <div class="our_team_thumb">
                       <img src="/guest/assets/images/rt16.jpeg" alt="The Last of us">
@@ -270,7 +270,7 @@
                       </a>
                    </div>
                 </div>
-             </div>
+             </div> --}}
           </div>
        </div>
     </div>@if (!$testimoni->isEmpty())
@@ -293,7 +293,7 @@
                      <div class="our_testimonial_data">
                         <div class="testimonials_disc">
                            <div class="our_testimonials_container">
-                              <p style="height: 10vh" class="text-justify font-italic">{{$item->summary}} ~ <strong>{{$item->getcreator->full_name}}</strong> </p>
+                              <p style="height: 15vh;overflow: auto;" class="text-justify font-italic">{{$item->summary}} ~ <strong>{{$item->getcreator->full_name}}</strong> </p>
                               <div class="testimonials_title">
                                  <h2>{{$item->title}}</h2>
                               </div>

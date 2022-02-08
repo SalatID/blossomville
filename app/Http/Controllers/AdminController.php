@@ -10,6 +10,7 @@ use App\Models\LetterSubmisionLog;
 use App\Models\LetterType;
 use App\Models\SiteSetting;
 use App\Models\DashboardBanner;
+use App\Models\RtRw;
 use Str;
 use DB;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -68,7 +69,8 @@ class AdminController extends Controller
     {
         $siteData=  SiteSetting::first();
         $banner = DashboardBanner::all();
-        return view('pages.admin.sitesetting',compact('siteData','banner'));
+        $foto =RtRw::all();
+        return view('pages.admin.sitesetting',compact('siteData','banner','foto'));
     }
 
     public function storeSetting()
@@ -198,5 +200,19 @@ class AdminController extends Controller
         return $pdf->stream();
         return $pdf->download('invoice.pdf');
         return view('pages.admin.print.suratketerangan',compact('dataSurat'));
+    }
+    public function updateFotoPengurus()
+    {
+        $pengurusImg = request()->file('rt_foto_src');
+        $updSts = false;
+        if($pengurusImg){
+            $dir = 'pengurus/';
+            $fileName = Str::random(15).".".$pengurusImg->getClientOriginalExtension();
+            $pengurusImg->move($dir,$fileName);
+            $updData['rt_foto_src']=$dir.$fileName;
+            $updSts = RtRW::where('id',request('id'))->update($updData);
+        }
+        
+        return redirect()->back()->with(["error"=>!$updSts,"message"=>"Update Aktifitas ".($updSts?'Berhasil':'Gagal')]);
     }
 }
