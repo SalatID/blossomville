@@ -222,10 +222,10 @@
              <div class="our_team_container d-flex justify-content-center">
                 <div class="our_team_container_data">
                    <div class="our_team_thumb">
-                      <img src="{{$item->rt_foto_src}}" alt="The Last of us">
+                      <img src="/{{$item->rt_foto_src}}" alt="The Last of us">
                    </div>
                    <div class="our_team_img">
-                      <img src="{{$item->rt_foto_src}}" alt="The Last of us">
+                      <img src="/{{$item->rt_foto_src}}" alt="The Last of us">
                    </div>
                    <div class="our_team_title">
                       <h3>KETUA {{$item->rt_no=='16'?'RW':'RT'}} {{sprintf('%02d', $item->rt_no)}}</h3>
