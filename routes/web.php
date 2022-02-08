@@ -90,5 +90,6 @@ Route::group(['middleware' => ['web','isLogin']],function () {
     Route::get('/chart/summary/generation',[AdminController::class,'getChartByGeneration']);
     Route::get('/chart/summary/marriage',[AdminController::class,'getChartByMarriage']);
     Route::get('/chart/summary/resident/gender',[AdminController::class,'getTotalWargaByGender']);
+    Route::post('/rt/foto/edit',[AdminController::class,'updateFotoPengurus']);
 });
 Route::get('/email/verified',[AuthController::class,'verifiedEmail'])->name("verifiedEmail");
