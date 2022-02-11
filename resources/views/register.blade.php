@@ -139,12 +139,14 @@
                            <div class="form-group mb-3">
                               <label class="label" for="name">Foto KTP</label>
                               <input type="file" name="attc_ktp" class="form-control" placeholder="KTP" required>
+                              <small id="emailHelp" class="form-text text-dark">Ukuran File <span class="text-info file-size-ktp"></span> </small>
                            </div>
                         </div>
                         <div class="col-sm-6">
                            <div class="form-group mb-3">
                               <label class="label" for="name">Foto KK</label>
                               <input type="file" name="attc_kk" class="form-control" placeholder="KK" required>
+                              <small id="emailHelp" class="form-text text-dark">Ukuran File <span class="text-info file-size-kk"></span> </small>
                            </div>
                         </div>
                       </div>
@@ -211,7 +213,7 @@
                         <input type="text" name="province" class="form-control" placeholder="Provinsi" value="Banten" readonly>
                      </div>
                       <div class="form-group">
-                         <button type="submit" class="form-control btn btn-primary rounded submit px-3">Register</button>
+                         <button type="submit" class="form-control btn btn-primary rounded submit px-3 btn-register">Register</button>
                       </div>
                    </form>
                    <p class="text-center">Already Register? <a href="/auth/login">Login</a></p>
@@ -221,4 +223,30 @@
        </div>
     </div>
  </section>
+ <script>
+    $('input[name="attc_ktp"]').bind('change', function() {
+       fileSize = Math.round(this.files[0].size/1000000)
+       if(fileSize>4){
+         $('.file-size-ktp').removeClass('text-info').addClass('text-danger')
+         $('.file-size-ktp').text(fileSize+' MB, File terlalu besar, maksimal 4 MB')
+         $('.btn-register').attr('type','button')
+       } else {
+         $('.file-size-ktp').text(fileSize+' MB')
+         $('.btn-register').attr('type','submit')
+       }
+
+      });
+      $('input[name="attc_kk"]').bind('change', function() {
+       fileSize = Math.round(this.files[0].size/1000000)
+       if(fileSize>4){
+         $('.file-size-kk').removeClass('text-info').addClass('text-danger')
+         $('.file-size-kk').text(fileSize+' MB, File terlalu besar, maksimal 4 MB')
+         $('.btn-register').attr('type','button')
+       } else {
+         $('.file-size-kk').text(fileSize+' MB')
+         $('.btn-register').attr('type','submit')
+       }
+
+      });
+ </script>
 @endsection
