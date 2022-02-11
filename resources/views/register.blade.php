@@ -244,6 +244,7 @@
          $('.btn-register').attr('type','button')
        } else {
          $('.file-size-kk').text(fileSize+' MB')
+         $('.file-size-kk').removeClass('text-danger').addClass('text-info')
          $('.btn-register').attr('type','submit')
        }
 
