@@ -44,7 +44,9 @@ class User extends Authenticatable
         'phone',
         'img_ktp',
         'img_kk',
-        'marriage'
+        'marriage',
+        'art_parent',
+        'art_sts'
     ];
 
     /**
