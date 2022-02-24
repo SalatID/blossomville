@@ -46,7 +46,8 @@ class DataWargaController extends Controller
         })
         ->where(["users.id"=>auth()->user()->id])->first();
         $dataFamily = User::where(['kk'=>$dataWarga->kk])->get();
+        $dataArt = User::where(['art_parent'=>$dataWarga->kk])->get();
         // dd($dataWarga);
-        return view('pages.admin.profile',compact('dataWarga','idWarga','rt','dataFamily'));
+        return view('pages.admin.profile',compact('dataWarga','idWarga','rt','dataFamily','dataArt'));
     }
 }

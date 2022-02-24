@@ -27,7 +27,11 @@ class AuthController extends Controller
 
     public function procRegister()
     {
+      $explode = explode('/',str_replace('://','',request()->headers->get('referer')));
+      if(request()->has('email')){
+
         if(User::where(['email'=>request('email')])->exists())return redirect()->back()->with(["error"=>true,"message"=>"Email Sudah Di Registrasikan, Silahkan login atau lupa password jika lupa password"]);
+      }
 
         if(User::where(['nik'=>request('nik')])->exists())return redirect()->back()->with(["error"=>true,"message"=>"NIK Sudah Di Registrasikan, Silahkan login atau lupa password jika lupa password"]);
 
@@ -37,7 +41,7 @@ class AuthController extends Controller
         $insData = [
             "full_name"=>request('full_name'),
             "email"=>request('email'),
-            "password"=>Hash::make(request('password')),
+            "password"=>request()->has('password')?Hash::make(request('password')):null,
             "place_birth"=>request('place_birth'),
             "date_birth"=>request('date_birth'),
             "gender"=>request('gender'),
@@ -57,8 +61,11 @@ class AuthController extends Controller
             "city"=>request('city'),
             "province"=>request('province'),
             "phone"=>request('phone'),
-            "marriage"=>request('marriage')
+            "marriage"=>request('marriage'),
+            "art_sts"=>request('art_sts'),
+            "art_parent"=>request('art_parent'),
         ];
+        // dd($insData);
         // dd(request()->all());
         $attc_ktp = request()->file('attc_ktp');
         $attc_kk = request()->file('attc_kk');
@@ -89,6 +96,9 @@ class AuthController extends Controller
           ]);
           // return $data;
           Mail::to(request('email'))->send(new \App\Mail\BlossomMail(json_decode($data)));
+        }
+        if($explode[count($explode)-1]=='profile'){
+          return redirect()->back()->with(["error"=>!$insSts,"message"=>"Reistrasi ".($insSts?'Berhasil':'Gagal')]);
         }
         return redirect('/auth/login')->with(["error"=>!$insSts,"message"=>"Reistrasi ".($insSts?'Berhasil':'Gagal')]);
     }

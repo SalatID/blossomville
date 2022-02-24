@@ -189,7 +189,10 @@
               </div>
           </div>
           <div class="card-body">
-            <h3>Anggota Keluarga</h3>
+            <div class="row d-flex justify-content-between mb-2">
+              <h3>Anggota Keluarga</h3>
+              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#tambahArt"> <i class="fas fa-plus"></i>Tambah ART</button>
+            </div>
             <table class="table table-striped" id="tableFamily">
               <thead>
                 <tr>
@@ -211,10 +214,181 @@
                   <td>{{$item->marriage}}</td>
                 </tr>
                 @endforeach
+                @foreach ($dataArt as $item)
+                <tr>
+                  <td>{{$i++}}</td>
+                  <td>{{$item->full_name}}</td>
+                  <td>{{$item->nik}}</td>
+                  <td>{{$item->sts}}</td>
+                  <td>{{$item->marriage}}</td>
+                </tr>
+                @endforeach
               </tbody>
             </table>
           </div>
       </div>
   </div>
 </form>
+<div class="modal fade" id="tambahArt" tabindex="-1" role="dialog" aria-labelledby="tambahArtLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tambahArtLabel">Tambah Berita</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/auth/register" method="POST" class="signin-form" enctype="multipart/form-data">
+          @csrf
+          <input type="hidden" name="sts" value="art">
+          <input type="hidden" name="job" value="Asisten Rumah Tangga">
+          <input type="hidden" name="id_rt" value="{{auth()->user()->id_rt}}">
+          <input type="hidden" name="id_rw" value="{{auth()->user()->id_rw}}">
+          <div class="row">
+            <div class="col-sm-6">
+               <div class="form-group mb-3">
+                  <label class="label" for="name">Nama Lengkap</label>
+                  <input type="text" name="full_name" class="form-control" placeholder="Nama Lengkap" required>
+               </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group mb-3">
+                 <label class="label" for="name">Jenis Kelamin</label>
+                 <select name="gender" class="form-control" id="">
+                    <option value="">Jenis Kelamin</option>
+                    <option value="male">Laki-Laki</option>
+                    <option value="female">Perempuan</option>
+                 </select>
+              </div>
+           </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+               <div class="form-group mb-3">
+                  <label class="label" for="name">Tempat Lahir</label>
+                  <input type="text" name="place_birth" class="form-control" placeholder="Tempat Lahir" required>
+               </div>
+            </div>
+            <div class="col-sm-6">
+               <div class="form-group mb-3">
+                  <label class="label" for="name">Tanggal Lahir</label>
+                  <input type="date" name="date_birth" class="form-control" placeholder="Tanggal Lahir" required>
+               </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group mb-3">
+                 <label class="label" for="name">Nomor Telepon</label>
+                 <input type="text" name="phone" class="form-control" placeholder="Nomor Telepon">
+              </div>
+           </div>
+            <div class="col-sm-6">
+               <div class="form-group mb-3">
+                  <label class="label" for="name">Golongan Darah</label>
+                  <input type="text" name="blod_type" class="form-control" placeholder="Golongan Darah">
+               </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+               <div class="form-group mb-3">
+                  <label class="label" for="name">Agama</label>
+                  <input type="text" name="religion" class="form-control" placeholder="Agama">
+               </div>
+            </div>
+            <div class="col-sm-6">
+               <div class="form-group mb-3">
+                  <label class="label" for="name">Status Perkawinan</label>
+                  <select name="marriage" class="form-control" id="">
+                     <option value="">Status Perkawinan</option>
+                     <option value="lajang">Lajang</option>
+                     <option value="menikah">Menikah</option>
+                     <option value="duda/janda">Duda/Janda</option>
+                  </select>
+               </div>
+            </div>
+          </div>
+         
+         <div class="row">
+            <div class="col-sm-6">
+               <div class="form-group mb-3">
+                  <label class="label" for="name">NIK (KTP)</label>
+                  <input type="text" name="nik" class="form-control" placeholder="NIK (KTP)">
+               </div>
+            </div>
+            <div class="col-sm-6">
+               <div class="form-group mb-3">
+                  <label class="label" for="name">No. KK</label>
+                  <input type="text" name="kk" class="form-control" placeholder="No. KK">
+               </div>
+            </div>
+         </div>
+         <div class="row">
+          <div class="col-sm-6">
+             <div class="form-group mb-3">
+                <label class="label" for="name">Status Art</label>
+                <select name="art_sts" class="form-control" id="">
+                  <option value="">Art Status</option>
+                  <option value="pulang">Pulang</option>
+                  <option value="menginap">Menginap</option>
+                </select>
+             </div>
+          </div>
+          <div class="col-sm-6">
+             <div class="form-group mb-3">
+                <label class="label" for="name">No. KK Pemilik Rumah</label>
+                <input type="text" name="art_parent" class="form-control" placeholder="No. KK" readonly value="{{auth()->user()->kk}}">
+             </div>
+          </div>
+       </div>
+         <div class="row">
+            <div class="col-sm-6">
+               <div class="form-group mb-3">
+                  <label class="label" for="name">Foto KTP</label>
+                  <input type="file" name="attc_ktp" class="form-control" placeholder="KTP" required>
+                  <small id="emailHelp" class="form-text text-dark">Ukuran File <span class="text-info file-size-ktp"></span> </small>
+               </div>
+            </div>
+            <div class="col-sm-6">
+               <div class="form-group mb-3">
+                  <label class="label" for="name">Foto KK</label>
+                  <input type="file" name="attc_kk" class="form-control" placeholder="KK" required>
+                  <small id="emailHelp" class="form-text text-dark">Ukuran File <span class="text-info file-size-kk"></span> </small>
+               </div>
+            </div>
+          </div>
+         <div class="form-group mb-3">
+            <label class="label" for="name">Alamat</label>
+            <textarea name="address" class="form-control"></textarea>
+         </div>
+         <div class="row">
+           <div class="form-group col-sm-6 mb-3">
+              <label class="label" for="name">Kel/Desa</label>
+              <input type="text" name="village" class="form-control" placeholder="Kel/Desa" >
+           </div>
+           <div class="form-group col-sm-6 mb-3">
+              <label class="label" for="name">Kecamatan</label>
+              <input type="text" name="distric" class="form-control" placeholder="Kecamatan" >
+           </div>
+         </div>
+         <div class="row">
+           <div class="form-group col-sm-6 mb-3">
+              <label class="label" for="name">Kota/Kabupaten</label>
+              <input type="text" name="city" class="form-control" placeholder="Kota/Kabupaten" >
+           </div>
+           <div class="form-group col-sm-6 mb-3">
+              <label class="label" for="name">Provinsi</label>
+              <input type="text" name="province" class="form-control" placeholder="Provinsi">
+           </div>
+         </div>
+          <div class="form-group">
+             <button type="submit" class="form-control btn btn-primary rounded submit px-3 btn-register">Register</button>
+          </div>
+       </form>
+      </div>
+    </div>
+  </div>
+</div>
 @endsection
