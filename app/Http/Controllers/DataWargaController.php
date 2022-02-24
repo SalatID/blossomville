@@ -50,4 +50,10 @@ class DataWargaController extends Controller
         // dd($dataWarga);
         return view('pages.admin.profile',compact('dataWarga','idWarga','rt','dataFamily','dataArt'));
     }
+
+    public function delArt($id)
+    {
+        User::where(["id"=>Crypt::decryptString($id)])->delete();
+        return redirect()->back()->with(["error"=>false,"message"=>"Delete Berhasil"]);
+    }
 }
