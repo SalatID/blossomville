@@ -220,7 +220,10 @@
                   <td>{{$item->full_name}}</td>
                   <td>{{$item->nik}}</td>
                   <td>{{$item->sts}}</td>
-                  <td>{{$item->marriage}}</td>
+                  <td>
+                    {{$item->marriage}} 
+                    <a href="/art/delete/{{Crypt::encryptString($item->id)}}" class="btn btn-danger btn-sm">Hapus</a>
+                  </td>
                 </tr>
                 @endforeach
               </tbody>

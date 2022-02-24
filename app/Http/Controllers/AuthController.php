@@ -65,6 +65,10 @@ class AuthController extends Controller
             "art_sts"=>request('art_sts'),
             "art_parent"=>request('art_parent'),
         ];
+        if(request()->has('art_sts')){
+          $insData['email_verified_at']=date('Y-m-d H:i:s');
+          $insData['verified']=1;
+        }
         // dd($insData);
         // dd(request()->all());
         $attc_ktp = request()->file('attc_ktp');
@@ -219,7 +223,7 @@ class AuthController extends Controller
     public function delUser($id)
     {
         User::where(["id"=>Crypt::decryptString($id)])->delete();
-        return redirect()->back()->with(["error"=>false,"message"=>"Delete Berhasil"]);;
+        return redirect()->back()->with(["error"=>false,"message"=>"Delete Berhasil"]);
     }
 
     public function updSts($id,$level)

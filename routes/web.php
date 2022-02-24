@@ -78,6 +78,7 @@ Route::group(['middleware' => ['web','isLogin']],function () {
     Route::get('/produk/delete/{id}',[GuestController::class,'delProduct']);
     Route::get('/berita/detail/{id}',[GuestController::class,'jsonDetailNews']);
     Route::get('/berita/delete/{id}',[GuestController::class,'delNews']);
+    Route::get('/art/delete/{id}',[DataWargaController::class,'delArt']);
     Route::get('/user/delete/{id}',[AuthController::class,'delUser']);
     Route::get('/user/update/status/{id}/{level}',[AuthController::class,'updSts']);
     Route::get('/logout',[AuthController::class,'logout']);

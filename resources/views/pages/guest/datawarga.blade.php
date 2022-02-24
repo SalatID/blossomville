@@ -9,6 +9,7 @@
                     <th>Nama</th>
                     <th>Jenis Kelamin</th>
                     <th>Alamat</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -18,7 +19,8 @@
                         <td>{{$i++}}</td>
                         <td>{{$item->full_name}}</td>
                         <td>{{$item->gender=='male'?'Laki-laki':'Perempuan'}}</td>
-                        <td>{{$item->address}}, Blok {{$item->block}} No {{$item->house_number}} RT {{$item->getrt->rt_no}}/{{$item->rw}}</td>
+                        <td>{{$item->address}} @if($item->art_sts==null), Blok {{$item->block}} No {{$item->house_number}} RT {{$item->getrt->rt_no}}/{{$item->rw}} @endif</td>
+                        <td>{{$item->sts}}</td>
                     </tr> 
                 @endforeach
             </tbody>
