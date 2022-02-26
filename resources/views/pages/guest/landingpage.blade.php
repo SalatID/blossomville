@@ -327,24 +327,27 @@
           </div>
           <div class="our_sponsors_contain">
              @foreach ($product as $item)
-             <div class="bg-white col-xl-4 col-md-4 col-sm-6 ml-2">
-               <img class="card-img-top" src="/{{$item->image}}" style="height: 25vh; object-fit:cover;width:100%" alt="Card image cap">
-               <div class="card-body">
-                   <h3 class="card-title">{{$item->product_name}}</h3>
-                   <h5 class="card-title"><a href="/toko/detail/{{Crypt::encryptString($item->getstore->id)}}">Toko : {{$item->getstore->store_name}}</a> </h5>
-                   <p class="card-text">Rp {{number_format($item->price)}}</p>
-                   
-               </div>
+             <div class="col-xl-4 col-md-4 col-sm-6 p-2">
+                <div class="bg-white">
+                   <img class="card-img-top" src="/{{$item->image}}" style="height: 25vh; object-fit:cover;width:100%" alt="Card image cap">
+                   <div class="card-body">
+                       <h3 class="card-title">{{$item->product_name}}</h3>
+                       <h5 class="card-title"><a href="/toko/detail/{{Crypt::encryptString($item->getstore->id)}}">Toko : {{$item->getstore->store_name}}</a> </h5>
+                       <p class="card-text">Rp {{number_format($item->price)}}</p>
+                   </div>
+                </div>
            </div>
              {{-- <div class="our_sponsors_img">
                 <a href=""><img src="{{$item->image}}" alt="The Last of us"></a>
              </div> --}}
              @endforeach
-             <div class="bg-white col-xl-3 col-md-4 col-sm-6" onclick="allproduct()">
-               <img class="card-img-top" src="/guest/assets/images/products.png" style="height: 25vh; object-fit:cover;width:100%" alt="Card image cap">
-               <div class="card-body">
-                   <h3 class="card-title">Lihat Produk Lainnya</h3>
-                   <h5><i class="fa fa-arrow-right"></i> </h5>
+             <div class="col-xl-3 col-md-4 col-sm-6" onclick="allproduct()">
+               <div class="bg-white">
+                  <img class="card-img-top" src="/guest/assets/images/products.png" style="height: 25vh; object-fit:cover;width:100%" alt="Card image cap">
+                  <div class="card-body">
+                      <h3 class="card-title">Lihat Produk Lainnya</h3>
+                      <h5><i class="fa fa-arrow-right"></i> </h5>
+                  </div>
                </div>
            </div>
           </div>
