@@ -577,4 +577,31 @@
      </div>
    </div>
  </div>
+ <script>
+    $('input[name="attc_kk"]').bind('change', function() {
+       fileSize = Math.round(this.files[0].size/1000000)
+       if(fileSize>4){
+         $('.file-size-kk').removeClass('text-info').addClass('text-danger')
+         $('.file-size-kk').text(fileSize+' MB, File terlalu besar, maksimal 4 MB')
+         $('.btn-register').attr('type','button')
+       } else {
+         $('.file-size-kk').text(fileSize+' MB')
+         $('.file-size-kk').removeClass('text-danger').addClass('text-info')
+         $('.btn-register').attr('type','submit')
+       }
+
+      });
+      $('input[name="attc_ktp"]').bind('change', function() {
+       fileSize = Math.round(this.files[0].size/1000000)
+       if(fileSize>4){
+         $('.file-size-ktp').removeClass('text-info').addClass('text-danger')
+         $('.file-size-ktp').text(fileSize+' MB, File terlalu besar, maksimal 4 MB')
+         $('.btn-register').attr('type','button')
+       } else {
+         $('.file-size-ktp').text(fileSize+' MB')
+         $('.btn-register').attr('type','submit')
+       }
+
+      });
+ </script>
 @endsection
