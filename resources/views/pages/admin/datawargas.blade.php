@@ -37,7 +37,7 @@
                         <td>
                             <a href="{{$item->verified==1?'#':'/admin/rt/datawarga/verifikasi/'.Crypt::encryptString($item->id)}}" class="btn btn-{{$item->verified==1?'success':'warning'}}" >{{$item->verified==1?'Sudah di Verifikasi':'Verifikasi Sekarang'}}</button>
                             <a href="/admin/rt/datawarga/{{Crypt::encryptString($item->id)}}" class="btn btn-primary">Detail</a>
-                            <a href="#" data-id="{{Crypt::encryptString($item->id)}}" class="btn btn-danger mr-2 btn-delete">Hapus</a>
+                            <a href="#" data-id="{{Crypt::encryptString($item->id)}}" class="btn btn-danger mr-2" onclick="deleteUser(this)">Hapus</a>
                             @if (auth()->user()->level==0)
                                 <select name="level" class="form-control" data-id="{{$item->id}}">
                                     <option value="">Update Level</option>
@@ -56,13 +56,13 @@
 </div>
 <script>
     $('#dataWargas').DataTable();
-    $('.btn-delete').click(function(){
+    function deleteUser(e){
         if(confirm("Hapus Warga Ini?")){
-            $.get('/user/delete/'+$(this).data('id'),function(d){
+            $.get('/user/delete/'+$(e).data('id'),function(d){
                 location.reload()
             })
         }
-    })
+    }
     $('select[name="level"]').change(function(){
         window.location.href = '/user/update/status/'+$(this).data('id')+'/'+$(this).val();
     })
