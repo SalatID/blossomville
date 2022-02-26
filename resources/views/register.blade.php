@@ -115,7 +115,7 @@
                         <div class="col-sm-6">
                            <div class="form-group mb-3">
                               <label class="label" for="name">Pekerjaan</label>
-                              <input type="text" name="job" class="form-control" placeholder="Pekerjaan">
+                              <input type="number" name="job" class="form-control" placeholder="Pekerjaan">
                            </div>
                         </div>
                       </div>
@@ -124,13 +124,13 @@
                         <div class="col-sm-6">
                            <div class="form-group mb-3">
                               <label class="label" for="name">NIK (KTP)</label>
-                              <input type="text" name="nik" class="form-control" placeholder="NIK (KTP)">
+                              <input type="number" name="nik" class="form-control" placeholder="NIK (KTP)">
                            </div>
                         </div>
                         <div class="col-sm-6">
                            <div class="form-group mb-3">
                               <label class="label" for="name">No. KK</label>
-                              <input type="text" name="kk" class="form-control" placeholder="No. KK">
+                              <input type="number" name="kk" class="form-control" placeholder="No. KK">
                            </div>
                         </div>
                      </div>
@@ -161,19 +161,19 @@
                      </div>
                      <div class="form-group mb-3">
                         <label class="label" for="name">Alamat</label>
-                        <textarea name="address" class="form-control"></textarea>
+                        <textarea name="address" class="form-control" required></textarea>
                      </div>
                      <div class="row">
                         <div class="col-sm-6">
                            <div class="form-group mb-3">
                               <label class="label" for="name">Blok</label>
-                              <input type="text" name="block" class="form-control" placeholder="Blok">
+                              <input type="text" name="block" class="form-control" placeholder="Blok" required>
                            </div>
                         </div>
                         <div class="col-sm-6">
                            <div class="form-group mb-3">
                               <label class="label" for="name">No. Rumah</label>
-                              <input type="text" name="house_number" class="form-control" placeholder="No. Rumah">
+                              <input type="text" name="house_number" class="form-control" placeholder="No. Rumah" required>
                            </div>
                         </div>
                      </div>
@@ -181,7 +181,7 @@
                         <div class="col-sm-6">
                            <div class="form-group mb-3">
                               <label class="label" for="name">RT</label>
-                              <select name="id_rt" class="form-control">
+                              <select name="id_rt" class="form-control" required>
                                  <option value="">RT</option>
                                  @foreach ($rt as $item)
                                  <option value="{{$item->id}}">0{{$item->rt_no}} {{$item->rt_name}}</option>

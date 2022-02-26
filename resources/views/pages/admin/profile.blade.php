@@ -42,7 +42,7 @@
               <div class="form-group row">
                   <label class="col-sm-2 col-form-label font-weight-bold">Nomor Telepon</label>
                   <div class="col-sm-10">
-                    <input type="text" name="phone" class="form-control" id="staticEmail" value="{{$dataWarga->phone}}">
+                    <input type="number" name="phone" class="form-control" id="staticEmail" value="{{$dataWarga->phone}}">
                   </div>
               </div>
               <div class="form-group row">
@@ -71,13 +71,13 @@
                 <div class="col-sm-5">
                   <div class="form-group mb-3">
                     <label class="label" for="name">NIK (KTP)</label>
-                    <input type="text" name="nik" class="form-control" placeholder="NIK (KTP)" value="{{$dataWarga->nik}}">
+                    <input type="number" name="nik" class="form-control" placeholder="NIK (KTP)" value="{{$dataWarga->nik}}">
                  </div>
                 </div>
                 <div class="col-sm-5">
                   <div class="form-group mb-3">
                     <label class="label" for="name">No. KK</label>
-                    <input type="text" name="kk" class="form-control" placeholder="No. KK" value="{{$dataWarga->kk}}">
+                    <input type="number" name="kk" class="form-control" placeholder="No. KK" value="{{$dataWarga->kk}}">
                  </div>
                 </div>
             </div>
@@ -191,6 +191,7 @@
           <div class="card-body">
             <div class="row d-flex justify-content-between mb-2">
               <h3>Anggota Keluarga</h3>
+              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#tambahAnggotaKel"> <i class="fas fa-plus"></i>Tambah Anggota Keluarga</button>
               <button type="button" class="btn btn-success" data-toggle="modal" data-target="#tambahArt"> <i class="fas fa-plus"></i>Tambah ART</button>
             </div>
             <table class="table table-striped" id="tableFamily">
@@ -236,7 +237,7 @@
   <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="tambahArtLabel">Tambah Berita</h5>
+        <h5 class="modal-title" id="tambahArtLabel">Tambah ART</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -284,7 +285,7 @@
             <div class="col-sm-6">
               <div class="form-group mb-3">
                  <label class="label" for="name">Nomor Telepon</label>
-                 <input type="text" name="phone" class="form-control" placeholder="Nomor Telepon">
+                 <input type="number" name="phone" class="form-control" placeholder="Nomor Telepon">
               </div>
            </div>
             <div class="col-sm-6">
@@ -318,13 +319,13 @@
             <div class="col-sm-6">
                <div class="form-group mb-3">
                   <label class="label" for="name">NIK (KTP)</label>
-                  <input type="text" name="nik" class="form-control" placeholder="NIK (KTP)">
+                  <input type="number" name="nik" class="form-control" placeholder="NIK (KTP)">
                </div>
             </div>
             <div class="col-sm-6">
                <div class="form-group mb-3">
                   <label class="label" for="name">No. KK</label>
-                  <input type="text" name="kk" class="form-control" placeholder="No. KK">
+                  <input type="number" name="kk" class="form-control" placeholder="No. KK">
                </div>
             </div>
          </div>
@@ -342,7 +343,7 @@
           <div class="col-sm-6">
              <div class="form-group mb-3">
                 <label class="label" for="name">No. KK Pemilik Rumah</label>
-                <input type="text" name="art_parent" class="form-control" placeholder="No. KK" readonly value="{{auth()->user()->kk}}">
+                <input type="number" name="art_parent" class="form-control" placeholder="No. KK" readonly value="{{auth()->user()->kk}}">
              </div>
           </div>
        </div>
@@ -394,4 +395,186 @@
     </div>
   </div>
 </div>
+<div class="modal fade" id="tambahAnggotaKel" tabindex="-1" role="dialog" aria-labelledby="tambahAnggotaKelLabel" aria-hidden="true">
+   <div class="modal-dialog modal-xl" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="tambahAnggotaKelLabel">Tambah Anggota Keluarga</h5>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <div class="modal-body">
+         <form action="/auth/register" method="POST" class="signin-form" enctype="multipart/form-data">
+            @csrf
+            <div class="row">
+              <div class="col-sm-6">
+                 <div class="form-group mb-3">
+                    <label class="label" for="name">Nama Lengkap</label>
+                    <input type="text" name="full_name" class="form-control" placeholder="Nama Lengkap" required>
+                 </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                 <div class="form-group mb-3">
+                    <label class="label" for="name">Tempat Lahir</label>
+                    <input type="text" name="place_birth" class="form-control" placeholder="Tempat Lahir" required>
+                 </div>
+              </div>
+              <div class="col-sm-6">
+                 <div class="form-group mb-3">
+                    <label class="label" for="name">Tanggal Lahir</label>
+                    <input type="date" name="date_birth" class="form-control" placeholder="Tanggal Lahir" required>
+                 </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                 <div class="form-group mb-3">
+                    <label class="label" for="name">Jenis Kelamin</label>
+                    <select name="gender" class="form-control" id="">
+                       <option value="">Jenis Kelamin</option>
+                       <option value="male">Laki-Laki</option>
+                       <option value="female">Perempuan</option>
+                    </select>
+                 </div>
+              </div>
+              <div class="col-sm-6">
+                 <div class="form-group mb-3">
+                    <label class="label" for="name">Golongan Darah</label>
+                    <input type="text" name="blod_type" class="form-control" placeholder="Golongan Darah">
+                 </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                 <div class="form-group mb-3">
+                    <label class="label" for="name">Agama</label>
+                    <input type="text" name="religion" class="form-control" placeholder="Agama">
+                 </div>
+              </div>
+              <div class="col-sm-6">
+                 <div class="form-group mb-3">
+                    <label class="label" for="name">Status Perkawinan</label>
+                    <select name="marriage" class="form-control" id="">
+                       <option value="">Status Perkawinan</option>
+                       <option value="lajang">Lajang</option>
+                       <option value="menikah">Menikah</option>
+                       <option value="duda/janda">Duda/Janda</option>
+                    </select>
+                 </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                 <div class="form-group mb-3">
+                    <label class="label" for="name">Nomor Telepon</label>
+                    <input type="number" name="phone" class="form-control" placeholder="Nomor Telepon">
+                 </div>
+              </div>
+              <div class="col-sm-6">
+                 <div class="form-group mb-3">
+                    <label class="label" for="name">Pekerjaan</label>
+                    <input type="text" name="job" class="form-control" placeholder="Pekerjaan">
+                 </div>
+              </div>
+            </div>
+           
+           <div class="row">
+              <div class="col-sm-6">
+                 <div class="form-group mb-3">
+                    <label class="label" for="name">NIK (KTP)</label>
+                    <input type="number" name="nik" class="form-control" placeholder="NIK (KTP)">
+                 </div>
+              </div>
+              <div class="col-sm-6">
+                 <div class="form-group mb-3">
+                    <label class="label" for="name">No. KK</label>
+                    <input type="number" name="kk" class="form-control" placeholder="No. KK" value="{{auth()->user()->kk}}" readonly>
+                 </div>
+              </div>
+           </div>
+           <div class="row">
+              <div class="col-sm-6">
+                 <div class="form-group mb-3">
+                    <label class="label" for="name">Foto KTP</label>
+                    <input type="file" name="attc_ktp" class="form-control" placeholder="KTP" required>
+                    <small id="emailHelp" class="form-text text-dark">Ukuran File <span class="text-info file-size-ktp"></span> </small>
+                 </div>
+              </div>
+              <div class="col-sm-6">
+               <div class="form-group mb-3">
+                  <label class="label" for="name">Status Dalam Keluarga</label>
+                  <select name="sts" class="form-control" id="">
+                     <option value="">Status Dalam Keluarga</option>
+                     <option value="ayah">Ayah</option>
+                     <option value="ibu">Ibu</option>
+                     <option value="anak">Anak</option>
+                  </select>
+               </div>
+              </div>
+            </div>
+           
+           <div class="form-group mb-3">
+              <label class="label" for="name">Alamat</label>
+              <textarea name="address" class="form-control" readonly>{{auth()->user()->address}}</textarea>
+           </div>
+           <div class="row">
+              <div class="col-sm-6">
+                 <div class="form-group mb-3">
+                    <label class="label" for="name">Blok</label>
+                    <input type="text" name="block" class="form-control" placeholder="Blok" value="{{auth()->user()->block}}" readonly>
+                 </div>
+              </div>
+              <div class="col-sm-6">
+                 <div class="form-group mb-3">
+                    <label class="label" for="name">No. Rumah</label>
+                    <input type="text" name="house_number" class="form-control" placeholder="No. Rumah" readonly value="{{auth()->user()->block}}" >
+                 </div>
+              </div>
+           </div>
+           <div class="row">
+              <div class="col-sm-6">
+                 <div class="form-group mb-3">
+                    <label class="label" for="name">RT</label>
+                    <select name="id_rt" class="form-control" readonly>
+                       <option value="">RT</option>
+                       @foreach ($rt as $item)
+                       <option value="{{$item->id}}" {{auth()->user()->id_rt==$item->id?'selected':''}}>0{{$item->rt_no}} {{$item->rt_name}}</option>
+                       @endforeach
+                    </select>
+                 </div>
+              </div>
+              <div class="col-sm-6">
+                 <div class="form-group mb-3">
+                    <label class="label" for="name">RW</label>
+                    <input type="text" name="rw" class="form-control" placeholder="RW" readonly value="16">
+                 </div>
+              </div>
+           </div>
+           <div class="form-group mb-3">
+              <label class="label" for="name">Kel/Desa</label>
+              <input type="text" name="village" class="form-control" placeholder="Kel/Desa" value="Mekar Bakti" readonly>
+           </div>
+           <div class="form-group mb-3">
+              <label class="label" for="name">Kecamatan</label>
+              <input type="text" name="distric" class="form-control" placeholder="Kecamatan" value="Panongan" readonly>
+           </div>
+           <div class="form-group mb-3">
+              <label class="label" for="name">Kota/Kabupaten</label>
+              <input type="text" name="city" class="form-control" placeholder="Kota/Kabupaten" value="Kabupaten Tangerang" readonly>
+           </div>
+           <div class="form-group mb-3">
+              <label class="label" for="name">Provinsi</label>
+              <input type="text" name="province" class="form-control" placeholder="Provinsi" value="Banten" readonly>
+           </div>
+            <div class="form-group">
+               <button type="submit" class="form-control btn btn-primary rounded submit px-3 btn-register">Register</button>
+            </div>
+         </form>
+       </div>
+     </div>
+   </div>
+ </div>
 @endsection

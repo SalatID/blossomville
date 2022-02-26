@@ -34,9 +34,9 @@ class AuthController extends Controller
       }
 
         if(User::where(['nik'=>request('nik')])->exists())return redirect()->back()->with(["error"=>true,"message"=>"NIK Sudah Di Registrasikan, Silahkan login atau lupa password jika lupa password"]);
-
-        if(User::where(['kk'=>request('kk')])->exists())return redirect()->back()->with(["error"=>true,"message"=>"Kartu Keluarga Sudah Di Registrasikan, Silahkan login atau lupa password jika lupa password"]);
-
+        // if(!request()->has('password')){
+        //   if(User::where(['kk'=>request('kk')])->exists())return redirect()->back()->with(["error"=>true,"message"=>"Kartu Keluarga Sudah Di Registrasikan, Silahkan login atau lupa password jika lupa password"]);
+        // }
         // dd(request()->all());
         $insData = [
             "full_name"=>request('full_name'),
@@ -65,22 +65,26 @@ class AuthController extends Controller
             "art_sts"=>request('art_sts'),
             "art_parent"=>request('art_parent'),
         ];
-        if(request()->has('art_sts')){
+        if(!request()->has('password')){
           $insData['email_verified_at']=date('Y-m-d H:i:s');
           $insData['verified']=1;
+          $insData['img_kk']=auth()->user()->kk??'';
         }
         // dd($insData);
         // dd(request()->all());
         $attc_ktp = request()->file('attc_ktp');
         $attc_kk = request()->file('attc_kk');
+        if($attc_kk){
+          $fileNameKK = 'kk_'.Str::random(15).".".$attc_kk->getClientOriginalExtension();
+          $attc_kk->move($dir,$fileNameKK);
+          $insData['img_kk']=$dir.$fileNameKK;
+
+        }
         $dir = 'attc/';
         $fileNameKTP = 'ktp_'.Str::random(15).".".$attc_ktp->getClientOriginalExtension();
-        $fileNameKK = 'kk_'.Str::random(15).".".$attc_kk->getClientOriginalExtension();
         // upload file
         $attc_ktp->move($dir,$fileNameKTP);
-        $attc_kk->move($dir,$fileNameKK);
         $insData['img_ktp']=$dir.$fileNameKTP;
-        $insData['img_kk']=$dir.$fileNameKK;
 
         $insSts = User::create($insData);
         $userData = [

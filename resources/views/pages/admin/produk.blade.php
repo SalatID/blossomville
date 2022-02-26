@@ -28,7 +28,7 @@
                         <h5 class="card-title">Toko : {{$item->getstore->store_name}}</h5>
                         <p class="card-text" style="height: 10vh">{{$item->description}}</p>
                         <div class="d-flex justify-content-between">
-                            <h5 class="card-text">Rp {{$item->price}}</h5>
+                            <h5 class="card-text">Rp {{number_format($item->price)}}</h5>
                             @if ($item->getstore->whatsapp_sts=='Y')
                                 @php
                                     $url="";

@@ -245,7 +245,7 @@ class GuestController extends Controller
         $idToko = Crypt::decryptString($id);
         $dataToko = Store::where(["id"=>$idToko])->first();
         if(session()->get('userData')['level']==0 || session()->get('userData')['level']==1|| session()->get('userData')['level']==2){
-            $products = Product::with('getstore')->get();
+            $products = Product::with('getstore')->where(['id_toko'=>$idToko])->get();
         } else if(session()->get('userData')['level']==3){
             $products = Product::with('getstore')->where(['created_user'=>auth()->user()->id,'id_toko'=>$idToko])->get();
         } 
