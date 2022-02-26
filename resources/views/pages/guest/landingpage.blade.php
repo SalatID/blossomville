@@ -327,7 +327,7 @@
           </div>
           <div class="our_sponsors_contain">
              @foreach ($product as $item)
-             <div class="bg-white col-xl-4 col-md-4 col-sm-6 m-2">
+             <div class="bg-white col-xl-4 col-md-4 col-sm-6 ml-2">
                <img class="card-img-top" src="/{{$item->image}}" style="height: 25vh; object-fit:cover;width:100%" alt="Card image cap">
                <div class="card-body">
                    <h3 class="card-title">{{$item->product_name}}</h3>
