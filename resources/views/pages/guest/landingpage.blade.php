@@ -332,7 +332,7 @@
                <div class="card-body">
                    <h3 class="card-title">{{$item->product_name}}</h3>
                    <h5 class="card-title"><a href="/toko/detail/{{Crypt::encryptString($item->getstore->id)}}">Toko : {{$item->getstore->store_name}}</a> </h5>
-                   <p class="card-text">Rp {{$item->price}}</p>
+                   <p class="card-text">Rp {{number_format($item->price)}}</p>
                    
                </div>
            </div>

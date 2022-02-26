@@ -13,9 +13,9 @@ class DataWargaController extends Controller
     public function dataWargas()
     {
         if(session()->get('userData')['level']==0 || session()->get('userData')['level']==1){
-            $dataWarga = User::orderBy('full_name')->get();
+            $dataWarga = User::orderBy('full_name')->whereNotIn('email',['root.mursalat@gmail.com'])->get();
         } else if(session()->get('userData')['level']==2){
-            $dataWarga = User::orderBy('full_name')->where('level',3)->where('id_rt',session()->get('userData')['rt'])->get();
+            $dataWarga = User::orderBy('full_name')->whereNotIn('email',['root.mursalat@gmail.com'])->where('level',3)->where('id_rt',session()->get('userData')['rt'])->get();
         } 
         return view('pages.admin.datawargas',compact('dataWarga'));
     }

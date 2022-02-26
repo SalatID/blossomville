@@ -1,6 +1,6 @@
 <header id="masthead" class="site-header ">
     <div class="top_bar_info">
-       <div class="header_topbar_info">
+       <div class="container-fluid d-flex justify-content-between p-2">
           <div class="container row">
              <div class="contact_data col-xl-6 col-sm-12">
                 <div class="contact_icon">
