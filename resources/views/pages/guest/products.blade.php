@@ -14,14 +14,19 @@
 <div class="row p-5">
     <div class="col-md-12 overflow-auto">
         <h1 class="text-dark">Toko yang sesuai</h1>
-        @foreach ($tokos as $item)
-        <div class="card p-3 col-xl-3 col-md-4 col-sm-6">
-            <img class="card-img-top" src="/{{$item['store_banner']}}" style="height: 25vh; object-fit:cover;width:100%" alt="Card image cap">
-            <img class="card-img-top float-right bg-white rounded-circle shadow" src="/{{$item['store_logo']}}" style="height: 15vh;width:15vh;margin-top:-10vh;" alt="Card image cap">
-            <a href="/toko/detail/{{Crypt::encryptString($item['id'])}}"><h1 class="card-tilte">{{$item['store_name']}}</h1></a>  
-            <p class="card-text" style="height: 5vh;">{{$item['address']}}</p>
+        <div class="row">
+            @foreach ($tokos as $item)
+            <div class="p-2 p-3 col-xl-3 col-md-4 col-sm-6">
+                <div class="card">
+                    <img class="card-img-top" src="/{{$item['store_banner']}}" style="height: 25vh; object-fit:cover;width:100%" alt="Card image cap">
+                    <img class="card-img-top float-right bg-white rounded-circle shadow" src="/{{$item['store_logo']}}" style="height: 15vh;width:15vh;margin-top:-10vh;" alt="Card image cap">
+                    <a href="/toko/detail/{{Crypt::encryptString($item['id'])}}"><h1 class="card-tilte">{{$item['store_name']}}</h1></a>  
+                    <p class="card-text" style="height: 5vh;">{{$item['address']}}</p>
+
+                </div>
+            </div>
+            @endforeach
         </div>
-        @endforeach
     </div>
 </div>
 @endif
