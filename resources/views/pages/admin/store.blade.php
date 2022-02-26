@@ -88,10 +88,12 @@
                      <div class="form-group mb-3">
                         <label class="label" for="name">Banner Toko</label>
                         <input type="file" name="store_banner" class="form-control" required>
+                        <small id="bannerHelp" class="form-text text-dark">Ukuran File <span class="text-info file-size-banner"></span> </small>
                      </div>
                      <div class="form-group mb-3">
                         <label class="label" for="name">Logo Toko</label>
                         <input type="file" name="store_logo" class="form-control" required>
+                        <small id="logoHelp" class="form-text text-dark">Ukuran File <span class="text-info file-size-logo"></span> </small>
                      </div>
                      <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>
@@ -128,5 +130,29 @@
                 })
             }
         })
+        $('input[name="store_banner"]').bind('change', function() {
+            fileSize = Math.round(this.files[0].size/1000000)
+            if(fileSize>4){
+                $('.file-size-banner').removeClass('text-info').addClass('text-danger')
+                $('.file-size-banner').text(fileSize+' MB, File terlalu besar, maksimal 4 MB')
+                $('.btn-register').attr('type','button')
+            } else {
+                $('.file-size-banner').text(fileSize+' MB')
+                $('.btn-register').attr('type','submit')
+            }
+
+        });
+        $('input[name="store_logo"]').bind('change', function() {
+            fileSize = Math.round(this.files[0].size/1000000)
+            if(fileSize>4){
+                $('.file-size-logo').removeClass('text-info').addClass('text-danger')
+                $('.file-size-logo').text(fileSize+' MB, File terlalu besar, maksimal 4 MB')
+                $('.btn-register').attr('type','button')
+            } else {
+                $('.file-size-logo').text(fileSize+' MB')
+                $('.btn-register').attr('type','submit')
+            }
+
+        });
     </script>
 @endsection

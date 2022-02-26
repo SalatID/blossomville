@@ -67,6 +67,7 @@
                      <div class="form-group mb-3">
                         <label class="label" for="name">Gambar Produk</label>
                         <input type="file" name="image" class="form-control" required>
+                        <small id="imageHelp" class="form-text text-dark">Ukuran File <span class="text-info file-size-image"></span> </small>
                      </div>
                      <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>
@@ -98,5 +99,17 @@
                 })
             }
         })
+        $('input[name="image"]').bind('change', function() {
+            fileSize = Math.round(this.files[0].size/1000000)
+            if(fileSize>4){
+                $('.file-size-image').removeClass('text-info').addClass('text-danger')
+                $('.file-size-image').text(fileSize+' MB, File terlalu besar, maksimal 4 MB')
+                $('.btn-register').attr('type','button')
+            } else {
+                $('.file-size-image').text(fileSize+' MB')
+                $('.btn-register').attr('type','submit')
+            }
+
+        });
       </script>
 @endsection
