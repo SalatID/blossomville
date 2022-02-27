@@ -115,7 +115,7 @@
                         <div class="col-sm-6">
                            <div class="form-group mb-3">
                               <label class="label" for="name">Pekerjaan</label>
-                              <input type="number" name="job" class="form-control" placeholder="Pekerjaan">
+                              <input type="text" name="job" class="form-control" placeholder="Pekerjaan">
                            </div>
                         </div>
                       </div>
