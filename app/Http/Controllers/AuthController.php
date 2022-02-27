@@ -21,7 +21,7 @@ class AuthController extends Controller
 
     public function register()
     {
-        $rt = RtRW::get();
+        $rt = RtRW::where('rt_no','!=','16')->get();
         return view('register',compact('rt'));
     }
 
@@ -70,6 +70,7 @@ class AuthController extends Controller
           $insData['verified']=1;
           $insData['img_kk']=auth()->user()->kk??'';
         }
+        $dir = 'attc/';
         // dd($insData);
         // dd(request()->all());
         $attc_ktp = request()->file('attc_ktp');
@@ -80,7 +81,7 @@ class AuthController extends Controller
           $insData['img_kk']=$dir.$fileNameKK;
 
         }
-        $dir = 'attc/';
+        
         $fileNameKTP = 'ktp_'.Str::random(15).".".$attc_ktp->getClientOriginalExtension();
         // upload file
         $attc_ktp->move($dir,$fileNameKTP);
@@ -103,7 +104,7 @@ class AuthController extends Controller
             ]
           ]);
           // return $data;
-          Mail::to(request('email'))->send(new \App\Mail\BlossomMail(json_decode($data)));
+          if(request()->has('email')) Mail::to(request('email'))->send(new \App\Mail\BlossomMail(json_decode($data)));
         }
         if($explode[count($explode)-1]=='profile'){
           return redirect()->back()->with(["error"=>!$insSts,"message"=>"Reistrasi ".($insSts?'Berhasil':'Gagal')]);
