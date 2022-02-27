@@ -104,7 +104,7 @@ class AuthController extends Controller
             ]
           ]);
           // return $data;
-          Mail::to(request('email'))->send(new \App\Mail\BlossomMail(json_decode($data)));
+          if(request()->has('email')) Mail::to(request('email'))->send(new \App\Mail\BlossomMail(json_decode($data)));
         }
         if($explode[count($explode)-1]=='profile'){
           return redirect()->back()->with(["error"=>!$insSts,"message"=>"Reistrasi ".($insSts?'Berhasil':'Gagal')]);
