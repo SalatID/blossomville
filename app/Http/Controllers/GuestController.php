@@ -33,7 +33,7 @@ class GuestController extends Controller
         $testimoni = DashboardTestimoni::with('getcreator')->limit(10)->get();
         // dd($testimoni->getcreator);
         $siteSetting = $this->siteSetting;
-        $product = Product::with("getstore")->limit(2)->get();
+        $product = Product::with("getstore")->limit(10)->get();
         $news = News::limit(10)->orderBy('created_at')->get();
         return view('pages.guest.landingpage',compact('banner','activity','rt','testimoni','product','siteSetting','news'));
     }

@@ -58,4 +58,32 @@ jQuery(document).ready(function() {
 		    }
 		});	
 	});
+
+	jQuery('.product_owl_slider').each(function() {
+		jQuery(this).addClass('owl-loaded owl-drag').owlCarousel({
+		//jQuery('#product_owl_slider').owlCarousel({
+	    	navigation : false, // Show next and prev buttons 
+	    	// loop: true,	
+		    slideSpeed : 300,
+		    paginationSpeed : 400,	 
+		    items : 3, 
+		    itemsDesktop : false,
+		    itemsDesktopSmall : false,
+		    itemsTablet: false,
+		    itemsMobile : false,
+	    	margin:10,
+	    	autoplay: auto,
+	        autoplaySpeed: autospeed,
+	    	responsive:{
+		        0:{
+		            items:1,
+		            nav:true
+		        },
+		        600:{
+		            items:3,
+		            nav:false
+		        }
+		    }
+		});	
+	});
 });

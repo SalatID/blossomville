@@ -202,6 +202,7 @@
                   <th>NIK</th>
                   <th>Status Dalam Keluarga</th>
                   <th>Status Pernikahan</th>
+                  <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
@@ -213,6 +214,13 @@
                   <td>{{$item->nik}}</td>
                   <td>{{$item->sts}}</td>
                   <td>{{$item->marriage}}</td>
+                  <td>
+                     <a href="/admin/rt/datawarga/{{Crypt::encryptString($item->id)}}"  target="_blank"  class="btn btn-primary">Detail</a>
+                     @if(auth()->user()->id != $item->id)
+                     <button type="button" class="btn btn-success btn-edit" data-id="{{Crypt::encryptString($item->id)}}">Edit </button>
+                     <a href="#" data-id="{{Crypt::encryptString($item->id)}}" class="btn btn-danger mr-2" onclick="deleteUser(this)">Hapus</a>
+                     @endif
+                  </td>
                 </tr>
                 @endforeach
                 @foreach ($dataArt as $item)
@@ -223,7 +231,13 @@
                   <td>{{$item->sts}}</td>
                   <td>
                     {{$item->marriage}} 
-                    <a href="/art/delete/{{Crypt::encryptString($item->id)}}" class="btn btn-danger btn-sm">Hapus</a>
+                  </td>
+                  <td>
+                     <a href="/admin/rt/datawarga/{{Crypt::encryptString($item->id)}}" target="_blank" class="btn btn-primary">Detail</a>
+                     @if(auth()->user()->id != $item->id)
+                     <button type="button" class="btn btn-success " data-id="{{Crypt::encryptString($item->id)}}">Edit </button>
+                     <a href="#" data-id="{{Crypt::encryptString($item->id)}}" class="btn btn-danger mr-2" onclick="deleteUser(this)">Hapus</a>
+                     @endif
                   </td>
                 </tr>
                 @endforeach
@@ -405,7 +419,7 @@
          </button>
        </div>
        <div class="modal-body">
-         <form action="/auth/register" method="POST" class="signin-form" enctype="multipart/form-data">
+         <form action="/auth/register" method="POST" class="signin-form" id="addAnggotaKel"  name="addAnggotaKel" enctype="multipart/form-data">
             @csrf
             <div class="row">
               <div class="col-sm-6">
@@ -499,7 +513,7 @@
               <div class="col-sm-6">
                  <div class="form-group mb-3">
                     <label class="label" for="name">Foto KTP</label>
-                    <input type="file" name="attc_ktp" class="form-control" placeholder="KTP" required>
+                    <input type="file" id="attc_ktp≈" name="attc_ktp" class="form-control" placeholder="KTP" required>
                     <small id="emailHelp" class="form-text text-dark">Ukuran File <span class="text-info file-size-ktp"></span> </small>
                  </div>
               </div>
@@ -603,5 +617,57 @@
        }
 
       });
+      $('.btn-edit').click(function(){
+         $.get('/datawarga/'+$(this).data('id'),function(data){
+            console.log(data)
+            if(data.dataWarga.art_sts==null){
+               $('input[name="full_name"]').val(data.dataWarga.full_name)
+               $('input[name="place_birth"]').val(data.dataWarga.place_birth)
+               $('input[name="date_birth"]').val(data.dataWarga.date_birth)
+               $('select[name="gender"]').val(data.dataWarga.gender)
+               $('input[name="blod_type"]').val(data.dataWarga.blod_type)
+               $('input[name="religion"]').val(data.dataWarga.religion)
+               $('select[name="marriage"]').val(data.dataWarga.marriage)
+               $('input[name="phone"]').val(data.dataWarga.phone)
+               $('input[name="job"]').val(data.dataWarga.job)
+               $('input[name="nik"]').val(data.dataWarga.nik)
+               // $('<input>').attr({
+               //      type: 'hidden',
+               //      name: 'text_ktp',
+               //      class: 'form-control',
+               //      value:data.dataWarga.nik
+               //  }).appendTo('#attc_ktp');
+               $('select[name="sts"]').val(data.dataWarga.sts)
+               $('textarea[name="address"]').val(data.dataWarga.address)
+               $('<input>').attr({
+                    type: 'hidden',
+                    name: 'id',
+                    value:data.dataWarga.id
+                }).appendTo('form[name="addAnggotaKel"]');
+            }
+               // $('input[name="product_name"]').val(d.product_name)
+               //  $('input[name="price"]').val(d.price)
+               //  $('textarea[name="description"]').val(d.description)
+               //  $('input[name="image"]').attr('required',false)
+               //  $('#tambahProdukLabel').text('Edit Produk')
+               //  $('<input>').attr({
+               //      type: 'hidden',
+               //      name: 'id',
+               //      value:d.id
+               //  }).appendTo('form');
+               $('input[name="attc_ktp"]').attr('required',false)
+                $('form[name="addAnggotaKel"]').attr('action','/auth/profile/update')
+                $('.btn-register').text('Update')
+                $('#tambahAnggotaKel').modal('show')
+            // })
+         })
+      })
+      function deleteUser(e){
+        if(confirm("Hapus Warga Ini?")){
+            $.get('/user/delete/'+$(e).data('id'),function(d){
+                location.reload()
+            })
+        }
+    }
  </script>
 @endsection
