@@ -154,4 +154,14 @@
    </div>
    @endforeach
 </div>
+<script>
+   $('.btn-delete').click(function(){
+      if(confirm("Hapus Banner Ini?")){
+         $.get('/banner/delete/'+$(this).data('id'),function(){
+            location.reload();
+         })
+
+      }
+   })
+</script>
 @endsection

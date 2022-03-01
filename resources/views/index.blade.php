@@ -23,7 +23,7 @@
          }
       </style>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      
       <link rel="stylesheet" id="goldly-style-css" href="/guest/style.css?ver=1.0.4" media="all">
       <link rel="stylesheet" id="theme-css-css" href="/guest/assets/css/theme.css?ver=1.0.4" media="all">
       <link rel="stylesheet" id="fontawesome-css-css" href="/guest/assets/fontawesome/css/font-awesome.css?ver=1.0.4" media="all">
@@ -447,10 +447,27 @@
          border-radius: 1vw;
          margin : 1vw;
          }
+         .floating-button{
+            position:fixed;
+            width:60px;
+            height:60px;
+            bottom:40px;
+            right:40px;
+            background-color:#0C9;
+            color:#FFF;
+            border-radius:50px;
+            text-align:center;
+            box-shadow: 2px 2px 3px #999;
+         }
+
+         .my-float{
+            margin-top:17px;
+         }
       </style>
 
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
        <script src="{{asset('/dashboard/assets/vendor/jquery/jquery.min.js')}}"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
        <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
    </head>
    <body class="home blog logged-in admin-bar hfeed customize-support" data-new-gr-c-s-check-loaded="14.1043.0" data-gr-ext-installed="">
@@ -572,19 +589,30 @@
          <script src="/guest/assets/js/owl_slider.js?ver=1.0.4" id="main-js-js"></script>
          {{-- <script src="http://localhost/wordpresstest/wp-includes/js/wp-embed.min.js?ver=5.8.3" id="wp-embed-js"></script> --}}
       </div>
-      <div class="floating-div">
-         <img src="/guest/assets/images/qris.jpeg" class="col-12" alt="">
-         <h3 class="text-center">Bayar Iuran Lebih Mudah Dengan QRIS</h3>
-         <h5 class="text-center"> 
-            <a class="text-center btn btn-success btn-sm btn-rounded m-2" style="border-radius: 0.5vw;white-space: inherit; /* CSS3 */    
-            white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
-            white-space: -pre-wrap; /* Opera 4-6 */    
-            white-space: -o-pre-wrap; /* Opera 7 */    
-            word-wrap: break-word; /* Internet Explorer 5.5+ */" href="https://api.whatsapp.com/send/?phone=6282113117002&text=Hallo+Bendahara+RW+16%2C+Saya+mau+konfirmasi+iuran&app_absent=0" target="_blank">
-            <!--i class="fa fa-whatsapp"></i-->Konfirmasi Pembayaran (Bendahara)
-            </a>
-         </h5>
-      </div>
+      <a href="#" class="floating-button" onclick="$('#qrModal').modal('show')">
+         <i class="fa-solid fa-2x fa-qrcode fa my-float"></i>
+      </a>
+      <div class="modal fade" id="qrModal" tabindex="-1" role="dialog" aria-labelledby="qrModalLabel" aria-hidden="true">
+         <div class="modal-dialog" role="document">
+           <div class="modal-content">
+             <div class="modal-body">
+                <div class="container-fluid">
+                  <img src="/guest/assets/images/qris.jpeg" class="col-12" alt="">
+                  <h3 class="text-center">Bayar Iuran Lebih Mudah Dengan QRIS</h3>
+                  <h5 class="text-center"> 
+                     <a class="text-center btn btn-success btn-sm btn-rounded m-2" style="border-radius: 0.5vw;white-space: inherit; /* CSS3 */    
+                     white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+                     white-space: -pre-wrap; /* Opera 4-6 */    
+                     white-space: -o-pre-wrap; /* Opera 7 */    
+                     word-wrap: break-word; /* Internet Explorer 5.5+ */" href="https://api.whatsapp.com/send/?phone=6282113117002&text=Hallo+Bendahara+RW+16%2C+Saya+mau+konfirmasi+iuran&app_absent=0" target="_blank">
+                     <!--i class="fa fa-whatsapp"></i-->Konfirmasi Pembayaran (Bendahara)
+                     </a>
+                  </h5>
+                </div>
+             </div>
+           </div>
+         </div>
+       </div>
    </body>
    <script>
       $('.featured-thumbnail').click(function(){

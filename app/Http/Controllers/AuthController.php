@@ -221,7 +221,9 @@ class AuthController extends Controller
 
       }
       // upload file
-      $updSts = User::where(['id'=>auth()->user()->id])->update($updData);
+      // dd($updData);
+      // dd(request('id'));
+      $updSts = User::where(['id'=>(request('id')??auth()->user()->id)])->update($updData);
       return redirect()->back()->with(["error"=>!$updSts,"message"=>"Update ".($updSts?'Berhasil':'Gagal')]);
     }
 

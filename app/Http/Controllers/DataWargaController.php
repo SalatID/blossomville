@@ -35,6 +35,21 @@ class DataWargaController extends Controller
         return view('pages.admin.datawarga',compact('dataWarga','idWarga','dataFamily'));
     }
 
+    public function jsonDetailWarga($idWarga)
+    {
+        $idWarga = Crypt::decryptString($idWarga);
+        // dd($idWarga);
+        $dataWarga =User::with('getrt')
+        // ->leftJoin('dbs_rt as a',function($join){
+        //    $join->on( 'a.id','users.id_rt');
+        //    $join->on('users.level',DB::raw("2"));
+        // })
+        ->where(["users.id"=>$idWarga])->first();
+        $dataFamily = User::where(['kk'=>$dataWarga->kk])->get();
+        return response()->json(compact('dataWarga','idWarga','dataFamily'));
+
+    }
+
     public function profile()
     {
         $idWarga = Crypt::encryptString(auth()->user()->id);

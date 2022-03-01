@@ -57,7 +57,7 @@
                 <div class="header_logo d-flex justify-content-start">
                   <img src="/{{$siteSetting->site_icon??''}}" style="width: 8vw;height: 3vw;margin-top: 4%;" class="img-fluid" id="siteIcon" alt="">
                   <div>
-                     <h1 class="site-title"><a href="http://localhost/wordpresstest/" rel="home"> {{$siteSetting->site_title??''}}</a></h1>
+                     <h1 class="site-title"><a href="/" rel="home"> {{$siteSetting->site_title??''}}</a></h1>
                      <p class="site-description">{{$siteSetting->site_description??''}}</p>
 
                   </div>
