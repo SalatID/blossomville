@@ -82,6 +82,12 @@
             <span>Site Setting</span>
         </a>
     </li>
+    <li class="nav-item {{ explode('/', url()->current())[3] == 'request' ? 'active' : '' }}">
+        <a class="nav-link " href="/admin/logprogram">
+            <i class="fas fa-history icon-2-5vw fa-cog"></i>
+            <span>Log Program</span>
+        </a>
+    </li>
     @endif
     {{-- <li class="nav-item">
                 <a class="nav-link" href="/user/list" >

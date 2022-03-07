@@ -12,11 +12,4 @@ class LogProgram extends Model
     protected $fillable = [
         'file','line','message','trace'
     ];
-    public function __construct(array $config)
-    {
-        print_r($config);
-        echo "modal";
-        die;
-        return 'model';die;
-    }
 }
