@@ -11,6 +11,7 @@ use App\Models\LetterType;
 use App\Models\SiteSetting;
 use App\Models\DashboardBanner;
 use App\Models\RtRw;
+use App\Models\LogProgram;
 use Str;
 use DB;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -214,5 +215,11 @@ class AdminController extends Controller
         }
         
         return redirect()->back()->with(["error"=>!$updSts,"message"=>"Update Aktifitas ".($updSts?'Berhasil':'Gagal')]);
+    }
+
+    public function logprogram()
+    {
+        $logProgram = LogProgram::orderBy('created_at','desc')->get();
+        return view('pages.admin.logprogram',compact('logProgram'));
     }
 }

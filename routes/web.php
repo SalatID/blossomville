@@ -61,6 +61,8 @@ Route::group(['middleware' => ['web','isLogin']],function () {
         Route::get('/sitesetting',[AdminController::class,'sitesetting']);
         Route::post('/sitesetting',[AdminController::class,'storeSetting']);
 
+        Route::get('/logprogram',[AdminController::class,'logprogram']);
+
         Route::get('/berita',[GuestController::class,'newsPage']);
         Route::post('/berita',[GuestController::class,'storeNews']);
         Route::post('/berita/update',[GuestController::class,'updNews']);
