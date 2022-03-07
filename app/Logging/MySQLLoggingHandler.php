@@ -32,7 +32,6 @@ class MySQLLoggingHandler extends AbstractProcessingHandler{
            'extra'         => json_encode($record['extra']),
            'formatted'     => $record['formatted'],
            'created_at'    => date("Y-m-d H:i:s"),
-           'user'          => session()->has('userData')?session()->get('userData')['full_name']:'guest'
        );
        DB::connection()->table($this->table)->insert($data);     
     }
