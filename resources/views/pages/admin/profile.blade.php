@@ -499,7 +499,7 @@
               <div class="col-sm-6">
                  <div class="form-group mb-3">
                     <label class="label" for="name">NIK (KTP)</label>
-                    <input type="number" name="nik" class="form-control" placeholder="NIK (KTP)">
+                    <input type="number" name="nik" class="form-control" placeholder="NIK (KTP)" required>
                  </div>
               </div>
               <div class="col-sm-6">
@@ -513,7 +513,7 @@
               <div class="col-sm-6">
                  <div class="form-group mb-3">
                     <label class="label" for="name">Foto KTP</label>
-                    <input type="file" id="attc_ktp≈" name="attc_ktp" class="form-control" placeholder="KTP" required>
+                    <input type="file" id="attc_ktp≈" name="attc_ktp" class="form-control" placeholder="KTP">
                     <small id="emailHelp" class="form-text text-dark">Ukuran File <span class="text-info file-size-ktp"></span> </small>
                  </div>
               </div>

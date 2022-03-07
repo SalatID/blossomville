@@ -592,6 +592,7 @@ class ComposerStaticInited8e6d69ade005c4074e24615a0b394f
         'App\\Models\\LetterSubmision' => __DIR__ . '/../..' . '/app/Models/LetterSubmision.php',
         'App\\Models\\LetterSubmisionLog' => __DIR__ . '/../..' . '/app/Models/LetterSubmisionLog.php',
         'App\\Models\\LetterType' => __DIR__ . '/../..' . '/app/Models/LetterType.php',
+        'App\\Models\\LogProgram' => __DIR__ . '/../..' . '/app/Models/LogProgram.php',
         'App\\Models\\News' => __DIR__ . '/../..' . '/app/Models/News.php',
         'App\\Models\\Product' => __DIR__ . '/../..' . '/app/Models/Product.php',
         'App\\Models\\RtRw' => __DIR__ . '/../..' . '/app/Models/RtRw.php',

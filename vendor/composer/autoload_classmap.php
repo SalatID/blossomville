@@ -32,6 +32,7 @@ return array(
     'App\\Models\\LetterSubmision' => $baseDir . '/app/Models/LetterSubmision.php',
     'App\\Models\\LetterSubmisionLog' => $baseDir . '/app/Models/LetterSubmisionLog.php',
     'App\\Models\\LetterType' => $baseDir . '/app/Models/LetterType.php',
+    'App\\Models\\LogProgram' => $baseDir . '/app/Models/LogProgram.php',
     'App\\Models\\News' => $baseDir . '/app/Models/News.php',
     'App\\Models\\Product' => $baseDir . '/app/Models/Product.php',
     'App\\Models\\RtRw' => $baseDir . '/app/Models/RtRw.php',
