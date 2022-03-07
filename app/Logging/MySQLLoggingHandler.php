@@ -23,7 +23,7 @@ class MySQLLoggingHandler extends AbstractProcessingHandler{
            'line'          =>$record['context']['exception']->getLine()??'not line',
            'message'       => $record['message'],
            'trace'         =>$record['context']['exception']->getTraceAsString(),
-           'ip_address'    =>$_SERVER['REMOTE_ADDR'],
+           'ip_address'    =>$_SERVER['REMOTE_ADDR']??'0.0.0.0',
            'context'       => json_encode($record['context']),
            'level'         => $record['level'],
            'level_name'    => $record['level_name'],
