@@ -25,7 +25,7 @@ Route::post('/auth/register',[AuthController::class,'procRegister']);
 Route::get('/admin',[AdminController::class,'dashboard'])->name("dashboard");
 // Route::prefix('/')->group(function () {
     Route::get('/',[GuestController::class,'index']);
-    Route::get('/datawarga',[GuestController::class,'datawarga']);
+    // Route::get('/datawarga',[GuestController::class,'datawarga']);
     Route::get('/test',[TestController::class,'test']);
 // });
 Route::get('/aktifitas/{id}',[GuestController::class,'detailActivity']);
