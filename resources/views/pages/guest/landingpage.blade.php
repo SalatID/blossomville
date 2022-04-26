@@ -41,8 +41,8 @@
     <div class="featured-section_data">
        <div id="featured-section" class="featured-section section">
           <div class="card-container featured_content">
-             <div class="card section-featured-wrep">
-                <div class="side featured-thumbnail" data-href="/datawarga">
+             {{-- <div class="card section-featured-wrep"> --}}
+                {{-- <div class="side featured-thumbnail" data-href="/datawarga">
                    <div class="featured-icon"> 
                       <i class="fa fa-user"></i>
                    </div>
@@ -53,7 +53,7 @@
                          </h4>
                       </header>
                    </div>
-                </div>
+                </div> --}}
                 {{-- <div class="side back featured-thumbnail" data-href="/datawarga">
                    <div class="featured-icon"> 
                       <i class="fa fa-user"></i>
@@ -68,7 +68,7 @@
                       </div>
                    </div>
                 </div> --}}
-             </div>
+             {{-- </div> --}}
              <div class="card section-featured-wrep">
                 <div class="side featured-thumbnail" data-href="#our_portfolio_info">
                    <div class="featured-icon"> 

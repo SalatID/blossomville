@@ -55,13 +55,6 @@
   </div>
 <script>
     $('#logPrograms').DataTable();
-    function deleteUser(e){
-        if(confirm("Hapus Warga Ini?")){
-            $.get('/user/delete/'+$(e).data('id'),function(d){
-                location.reload()
-            })
-        }
-    }
     function showTrace(e){
         $('textarea[name="trace"]').val($(e).parent().find('input[name="trace"]').val())
         $('#traceModal').modal('show')
