@@ -20,6 +20,7 @@ use App\Http\Controllers\DataWargaController;
 
 Route::get('/auth/login',[AuthController::class,'login']);
 Route::post('/auth/login',[AuthController::class,'procLogin']);
+Route::get('/auth/forgotpassword',[AuthController::class,'forgotPassword']);
 Route::get('/auth/register',[AuthController::class,'register']);
 Route::post('/auth/register',[AuthController::class,'procRegister']);
 Route::get('/admin',[AdminController::class,'dashboard'])->name("dashboard");

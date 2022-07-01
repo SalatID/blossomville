@@ -25,6 +25,11 @@ class AuthController extends Controller
         return view('register',compact('rt'));
     }
 
+    public function forgotPassword()
+    {
+      return view('forgotPassword');
+    }
+
     public function procRegister()
     {
       $explode = explode('/',str_replace('://','',request()->headers->get('referer')));
