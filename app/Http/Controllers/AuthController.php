@@ -11,6 +11,7 @@ use App\Mail\BlossomMail;
 use URL;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Str;
+use Validator;
 
 class AuthController extends Controller
 {
@@ -28,6 +29,64 @@ class AuthController extends Controller
     public function forgotPassword()
     {
       return view('forgotPassword');
+    }
+
+    public function procForgotPassword()
+    {
+        $user = User::where('email',request('email'));
+        if(!$user->exists()) return redirect()->back()->with(["error"=>true,"message"=>"Email tidak ditemukan"]);
+        $userData = [
+          "id"=>$user->first()->id,
+          "expired_at"=>now()->addMinutes(30)
+        ];
+        $url = URL::temporarySignedRoute(
+            'changePassword', now()->addMinutes(30),["p"=>Crypt::encryptString(json_encode($userData))]
+        );
+        $data = json_encode([
+          "subject"=>"Forgot Password",
+          "view"=>"mail.resetpassword",
+          "data"=>[
+            "username"=>$user->first()->full_name,
+            "link"=>$url
+          ]
+        ]);
+        Mail::to(request('email'))->send(new \App\Mail\BlossomMail(json_decode($data)));
+        return redirect()->back()->with(["error"=>false,"message"=>"Cek Email Anda ".request('email')." untuk menggati password"]);
+
+    }
+
+    public function changePassword()
+    {
+      $data = json_decode(Crypt::decryptString(request('p')));
+      // dd($data);
+      if(date('Y-m-d H:i:s',strtotime($data->expired_at))<=date('Y-m-d H:i:s')){
+        return view('expired');
+      }
+      return view('changepassword',compact('data'));
+    }
+
+    public function procChangePassword()
+    {
+      $validate = Validator::make(request()->all(),[
+          "password"=> 'required',
+          "password_confirmation"=>"same:password"
+      ]);
+      
+      if($validate->fails()){
+          $error = [];
+          foreach($validate->errors()->getMessages() as $key =>$data){
+              array_push($error,[
+                  "name"=>$key,
+                  "message"=>$data[0]
+              ]);
+          }
+          return redirect()->back()->with($error);
+      }
+      $updStatus = User::where('id',request('id'))->update([
+        "password"=>request()->has('password')?Hash::make(request('password')):null
+      ]);
+      return redirect('/auth/login')->with(["error"=>!$updStatus,"message"=>"Ganti Password ".($updStatus?'Berhasil':'Gagal')]);
+
     }
 
     public function procRegister()
