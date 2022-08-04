@@ -25,7 +25,7 @@
                             <td>{{$item->summary}}</td>
                             <td>{{$item->getcreator->full_name}}</td>
                             <td class="d-flex justify-content-start">
-                                @if(auth()->user()->id==$item->created_user)
+                                @if(auth()->user()->id==$item->created_user || auth()->user()->level==0)
                                 <a href="#" data-id="{{Crypt::encryptString($item->id)}}" class="btn btn-success mr-2 btn-edit">Edit</a>
                                 <a href="#" data-id="{{Crypt::encryptString($item->id)}}" class="btn btn-danger mr-2 btn-delete">Hapus</a>
                                 @endif

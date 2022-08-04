@@ -20,6 +20,8 @@ use App\Http\Controllers\DataWargaController;
 
 Route::get('/auth/login',[AuthController::class,'login']);
 Route::post('/auth/login',[AuthController::class,'procLogin']);
+Route::get('/auth/forgotpassword',[AuthController::class,'forgotPassword']);
+Route::post('/auth/forgotpassword',[AuthController::class,'procForgotPassword']);
 Route::get('/auth/register',[AuthController::class,'register']);
 Route::post('/auth/register',[AuthController::class,'procRegister']);
 Route::get('/admin',[AdminController::class,'dashboard'])->name("dashboard");
@@ -106,3 +108,5 @@ Route::group(['middleware' => ['web','isLogin']],function () {
     Route::get('/datawarga/{idWarga}',[DataWargaController::class,'jsonDetailWarga']);
 });
 Route::get('/email/verified',[AuthController::class,'verifiedEmail'])->name("verifiedEmail");
+Route::get('/changepassword',[AuthController::class,'changePassword'])->name("changePassword");
+Route::post('/changepassword',[AuthController::class,'procChangePassword']);
