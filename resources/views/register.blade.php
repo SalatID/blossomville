@@ -119,7 +119,24 @@
                            </div>
                         </div>
                       </div>
-                     
+                      <div class="row">
+                        <div class="col-sm-6">
+                           <div class="form-group mb-3">
+                              <label class="label" for="name">Status Pekerjaan</label>
+                              <select name="job_status" class="form-control" id="">
+                                 <option value="">Status Pekerjaan</option>
+                                 <option value="Karyawan Tetap">Karyawan Tetap</option>
+                                 <option value="Karyawan Kontrak">Karyawan Kontrak</option>
+                              </select>
+                           </div>
+                        </div>
+                        <div class="col-sm-6">
+                           <div class="form-group mb-3">
+                              <label class="label" for="name">Lama bekerja</label>
+                              <input type="number" name="length_of_work" class="form-control" placeholder="Lama Bekerja (Tahun)">
+                           </div>
+                        </div>
+                      </div>
                      <div class="row">
                         <div class="col-sm-6">
                            <div class="form-group mb-3">
@@ -150,15 +167,30 @@
                            </div>
                         </div>
                       </div>
-                     <div class="form-group mb-3">
-                        <label class="label" for="name">Status Dalam Keluarga</label>
-                        <select name="sts" class="form-control" id="">
-                           <option value="">Status Dalam Keluarga</option>
-                           <option value="ayah">Ayah</option>
-                           <option value="ibu">Ibu</option>
-                           <option value="anak">Anak</option>
-                        </select>
-                     </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                           <div class="form-group mb-3">
+                              <label class="label" for="name">Status Dalam Keluarga</label>
+                              <select name="sts" class="form-control" id="">
+                                 <option value="">Status Dalam Keluarga</option>
+                                 <option value="ayah">Ayah</option>
+                                 <option value="ibu">Ibu</option>
+                                 <option value="anak">Anak</option>
+                              </select>
+                           </div>
+                        </div>
+                        <div class="col-sm-6">
+                           <div class="form-group mb-3">
+                              <label class="label" for="name">Status Rumah</label>
+                              <select name="house_status" class="form-control" id="">
+                                 <option value="">Status Rumah</option>
+                                 <option value="Milik Sendiri">Milik Sendiri</option>
+                                 <option value="Sewa">Sewa</option>
+                              </select>
+                           </div>
+                        </div>
+                      </div>
+                     
                      <div class="form-group mb-3">
                         <label class="label" for="name">Alamat</label>
                         <textarea name="address" class="form-control" required></textarea>

@@ -128,6 +128,9 @@ class AuthController extends Controller
             "marriage"=>request('marriage'),
             "art_sts"=>request('art_sts'),
             "art_parent"=>request('art_parent'),
+            "job_status"=>request('job_status'),
+            "house_status"=>request('house_status'),
+            "length_of_work"=>request('length_of_work'),
         ];
         if(!request()->has('password')){
           $insData['email_verified_at']=date('Y-m-d H:i:s');

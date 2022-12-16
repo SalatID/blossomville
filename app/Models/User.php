@@ -46,7 +46,10 @@ class User extends Authenticatable
         'img_kk',
         'marriage',
         'art_parent',
-        'art_sts'
+        'art_sts',
+        'job_status',
+        'house_status',
+        'length_of_work'
     ];
 
     /**

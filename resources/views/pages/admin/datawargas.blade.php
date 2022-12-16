@@ -15,7 +15,10 @@
                     <th>Alamat</th>
                     <th>Status Pernikahan</th>
                     <th>Status Dalam Keluarga</th>
+                    <th>Status Rumah</th>
                     <th>Pekerjaan</th>
+                    <th>Status Pekerjaan</th>
+                    <th>Lama Bekerja</th>
                     <th>Agama</th>
                     <th>Aksi</th>
                 </tr>
@@ -32,7 +35,10 @@
                         <td>{{$item->address}}, Blok {{$item->block}} No {{$item->house_number}} RT {{$item->getrt->rt_no}}/{{$item->rw}}</td>
                         <td>{{$item->marriage}}</td>
                         <td>{{$item->sts}}</td>
+                        <td>{{$item->house_status}}</td>
                         <td>{{$item->job}}</td>
+                        <td>{{$item->job_status}}</td>
+                        <td>{{$item->length_of_work}}</td>
                         <td>{{$item->religion}}</td>
                         <td>
                             <a href="{{$item->verified==1?'#':'/admin/rt/datawarga/verifikasi/'.Crypt::encryptString($item->id)}}" class="btn btn-{{$item->verified==1?'success':'warning'}}" >{{$item->verified==1?'Sudah di Verifikasi':'Verifikasi Sekarang'}}</button>
