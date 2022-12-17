@@ -45,7 +45,7 @@
                             <a href="/admin/rt/datawarga/{{Crypt::encryptString($item->id)}}" class="btn btn-primary">Detail</a>
                             <a href="#" data-id="{{Crypt::encryptString($item->id)}}" class="btn btn-danger mr-2" onclick="deleteUser(this)">Hapus</a>
                             @if (auth()->user()->level==0)
-                                <select name="level" class="form-control" data-id="{{$item->id}}">
+                                <select name="level" class="form-control" onchange="changeLevel(this)" data-id="{{$item->id}}">
                                     <option value="">Update Level</option>
                                     <option {{$item->level == '0'?'selected':''}} value="0">Administrator</option>
                                     <option {{$item->level == '1'?'selected':''}} value="1">Ketua RW</option>
@@ -69,8 +69,8 @@
             })
         }
     }
-    $('select[name="level"]').change(function(){
-        window.location.href = '/user/update/status/'+$(this).data('id')+'/'+$(this).val();
-    })
+    function changeLevel(w){
+        window.location.href = '/user/update/status/'+$(w).data('id')+'/'+$(w).val();
+    }
 </script>
 @endsection
